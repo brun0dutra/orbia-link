@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Orbia",
+    "slug": "orbia",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY2bmgtjyEkEZGksMnIxHEQmle27PON037Nw&s",
+    "theme": "dark-modern",
+    "buttons": [
+      {
+        "title": "WhatsApp",
+        "url": "https://wa.me/554833747000",
+        "type": "whatsapp"
+      },
+      {
+        "title": "Site",
+        "url": "https://google.com",
+        "type": "website"
+      }
+    ]
+  }
+]

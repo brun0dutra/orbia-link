@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Página - Orbia Link</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📋 Criar Nova Página</h1>
+            <a href="/dashboard" class="btn btn-sm btn-outline">← Voltar</a>
+        </header>
+
+        {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        <form action="/dashboard/create" method="POST" class="page-form">
+            <div class="form-group">
+                <label for="name">Nome da Empresa *</label>
+                <input type="text" id="name" name="name" value="{{ name or '' }}" required placeholder="Ex: Clínica Bella">
+            </div>
+
+            <div class="form-group">
+                <label for="slug">Slug *</label>
+                <input type="text" id="slug" name="slug" value="{{ slug or '' }}" required placeholder="Ex: clinica-bella">
+                <small>URL pública: /<span id="slug-preview">{{ slug or 'clinica-bella' }}</span></small>
+            </div>
+
+            <div class="form-group">
+                <label for="logo">URL da Logo</label>
+                <input type="url" id="logo" name="logo" value="{{ logo or '' }}" placeholder="https://site.com/logo.png">
+                <small>URL externa da imagem da logo</small>
+            </div>
+
+            <div class="form-group">
+                <label for="theme">Tema *</label>
+                <select id="theme" name="theme" required>
+                    {% for theme in themes %}
+                    <option value="{{ theme }}" {% if theme == 'clinic-clean' %}selected{% endif %}>{{ theme }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-section">
+                <h2>🔘 Botões</h2>
+                <p class="help-text">Adicione os links que aparecerão na página pública.</p>
+
+                <div id="buttons-container">
+                    <div class="button-entry" data-index="0">
+                        <div class="button-entry-header">
+                            <span class="button-number">Botão 1</span>
+                            <button type="button" class="btn btn-sm btn-danger remove-button" onclick="removeButton(this)" style="display:none;">✕ Remover</button>
+                        </div>
+                        <div class="button-fields">
+                            <div class="form-group">
+                                <label>Título</label>
+                                <input type="text" name="btn_title" placeholder="Ex: WhatsApp" required>
+                            </div>
+                            <div class="form-group">
+                                <label>URL</label>
+                                <input type="url" name="btn_url" placeholder="Ex: https://wa.me/554899999999" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo</label>
+                                <select name="btn_type" required>
+                                    {% for bt in button_types %}
+                                    <option value="{{ bt }}">{{ bt }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-sm btn-secondary" onclick="addButton()">+ Adicionar Botão</button>
+            </div>
+
+            <div class="form-actions">
+                <a href="/dashboard" class="btn btn-outline">Cancelar</a>
+                <button type="submit" class="btn btn-primary">Criar Página</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

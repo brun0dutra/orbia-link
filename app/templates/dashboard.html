@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Orbia Link</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>📋 Orbia Link</h1>
+            <p class="subtitle">Painel de gerenciamento de páginas</p>
+        </header>
+
+        <div class="dashboard-actions">
+            <a href="/dashboard/create" class="btn btn-primary">+ Criar Nova Página</a>
+        </div>
+
+        {% if error %}
+        <div class="alert alert-error">{{ error }}</div>
+        {% endif %}
+
+        {% if pages %}
+        <div class="pages-list">
+            {% for page in pages %}
+            <div class="page-card">
+                <div class="page-card-info">
+                    {% if page.logo %}
+                    <img src="{{ page.logo }}" alt="{{ page.name }}" class="page-card-logo" onerror="this.style.display='none'">
+                    {% endif %}
+                    <div>
+                        <h3>{{ page.name }}</h3>
+                        <span class="page-card-slug">/{{ page.slug }}</span>
+                        <span class="page-card-theme">{{ page.theme }}</span>
+                    </div>
+                </div>
+                <div class="page-card-actions">
+                    <a href="/{{ page.slug }}" target="_blank" class="btn btn-sm btn-outline">👁 Visualizar</a>
+                    <a href="/dashboard/edit/{{ page.slug }}" class="btn btn-sm btn-secondary">✏️ Editar</a>
+                    <form action="/dashboard/delete/{{ page.slug }}" method="POST" class="inline-form" onsubmit="return confirm('Tem certeza que deseja excluir esta página?')">
+                        <button type="submit" class="btn btn-sm btn-danger">🗑 Excluir</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="empty-state">
+            <div class="empty-icon">📄</div>
+            <h2>Nenhuma página cadastrada</h2>
+            <p>Crie sua primeira página de links para começar.</p>
+            <a href="/dashboard/create" class="btn btn-primary">Criar Primeira Página</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

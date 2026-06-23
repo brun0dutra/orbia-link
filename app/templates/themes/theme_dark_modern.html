@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ NAME }} - Orbia Link</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Theme: Dark Modern */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #f5f5f5;
+            --text-secondary: #a0a0b0;
+            --btn-bg: rgba(255, 255, 255, 0.1);
+            --btn-hover: rgba(255, 255, 255, 0.2);
+            --btn-text: #f5f5f5;
+            --btn-border-radius: 12px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .page-container {
+            max-width: 480px;
+            width: 100%;
+            padding: 40px 24px;
+            text-align: center;
+            background: var(--card-bg);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+        }
+
+        .page-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .page-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 24px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 20px;
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            border-radius: var(--btn-border-radius);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(5px);
+        }
+
+        .link-button:hover {
+            background: var(--btn-hover);
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .link-button:active {
+            transform: scale(0.98);
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        {{ LOGO }}
+        <h1 class="page-name">{{ NAME }}</h1>
+        <div class="links-container">
+            {{ BUTTONS }}
+        </div>
+        <div class="footer">Powered by Orbia Link</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,453 @@
+/* ==============================
+   Global Styles
+   ============================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* ==============================
+   Dashboard Layout
+   ============================== */
+
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+.dashboard-header {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.dashboard-header h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1a1a2e;
+}
+
+.dashboard-header .subtitle {
+    color: #666;
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+}
+
+.dashboard-header a {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.dashboard-actions {
+    margin-bottom: 24px;
+}
+
+/* ==============================
+   Buttons
+   ============================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.btn-primary {
+    background: #2e7d32;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1b5e20;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #6366f1;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-outline {
+    background: transparent;
+    color: #6366f1;
+    border: 1.5px solid #6366f1;
+}
+
+.btn-outline:hover {
+    background: #6366f1;
+    color: white;
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+}
+
+.btn-xs {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+}
+
+/* ==============================
+   Alert
+   ============================== */
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+.alert-error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+/* ==============================
+   Page Cards (Dashboard)
+   ============================== */
+
+.pages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 16px 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+    gap: 16px;
+}
+
+.page-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.page-card-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+.page-card-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.page-card-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.page-card-slug {
+    display: block;
+    font-size: 0.8rem;
+    color: #6366f1;
+    font-weight: 500;
+}
+
+.page-card-theme {
+    display: inline-block;
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: #888;
+    background: #f0f2f5;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.page-card-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.inline-form {
+    display: inline;
+}
+
+/* ==============================
+   Empty State
+   ============================== */
+
+.empty-state {
+    text-align: center;
+    padding: 64px 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.empty-state h2 {
+    font-size: 1.25rem;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    color: #666;
+    margin: 0 0 24px;
+}
+
+/* ==============================
+   Forms
+   ============================== */
+
+.page-form {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+    background: white;
+    color: #1a1a2e;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.75rem;
+    color: #888;
+}
+
+.form-section {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 24px;
+    margin-top: 24px;
+}
+
+.form-section h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0 0 16px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ==============================
+   Button Entries (Edit/Create)
+   ============================== */
+
+.button-entry {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.button-entry-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.button-number {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.button-order-actions {
+    display: flex;
+    gap: 4px;
+}
+
+.button-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+}
+
+.button-fields .form-group {
+    margin-bottom: 0;
+}
+
+.btn-xs:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ==============================
+   Button Icons (Public Pages)
+   ============================== */
+
+.button-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.button-icon-whatsapp::before {
+    content: "💬";
+}
+
+.button-icon-instagram::before {
+    content: "📸";
+}
+
+.button-icon-maps::before {
+    content: "📍";
+}
+
+.button-icon-website::before {
+    content: "🌐";
+}
+
+.button-icon-phone::before {
+    content: "📞";
+}
+
+.button-icon-booking::before {
+    content: "📅";
+}
+
+.button-icon-menu::before {
+    content: "🍽️";
+}
+
+.button-icon-custom::before {
+    content: "🔗";
+}
+
+/* ==============================
+   Responsive
+   ============================== */
+
+@media (max-width: 640px) {
+    .dashboard-container {
+        padding: 16px 12px;
+    }
+
+    .page-form {
+        padding: 20px 16px;
+    }
+
+    .button-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .page-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .page-card-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
