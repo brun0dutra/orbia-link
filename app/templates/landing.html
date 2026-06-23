@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbia Link — Páginas de Links para sua Empresa</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="lp-navbar">
+        <div class="lp-navbar-inner">
+            <div class="lp-navbar-logo">
+                <span class="lp-logo-icon">🔗</span>
+                <span class="lp-logo-text">Orbia<span class="lp-logo-accent">Link</span></span>
+            </div>
+            <div class="lp-navbar-links">
+                <a href="#features" class="lp-nav-link">Recursos</a>
+                <a href="#themes" class="lp-nav-link">Temas</a>
+                <a href="#cta" class="lp-nav-link">Começar</a>
+                <a href="/dashboard" class="btn btn-primary btn-sm lp-nav-cta">Dashboard</a>
+            </div>
+            <button class="lp-mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="lp-mobile-menu" id="mobileMenu">
+            <a href="#features" onclick="toggleMobileMenu()">Recursos</a>
+            <a href="#themes" onclick="toggleMobileMenu()">Temas</a>
+            <a href="#cta" onclick="toggleMobileMenu()">Começar</a>
+            <a href="/dashboard" class="btn btn-primary btn-sm" onclick="toggleMobileMenu()">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lp-hero">
+        <div class="lp-hero-bg">
+            <div class="lp-hero-shape lp-hero-shape-1"></div>
+            <div class="lp-hero-shape lp-hero-shape-2"></div>
+            <div class="lp-hero-shape lp-hero-shape-3"></div>
+        </div>
+        <div class="lp-hero-content">
+            <div class="lp-hero-badge">🚀 Lançamento</div>
+            <h1 class="lp-hero-title">
+                Todos os seus <span class="gradient-text">canais de contato</span><br>
+                em uma única página
+            </h1>
+            <p class="lp-hero-subtitle">
+                Crie em segundos uma página profissional com WhatsApp, Instagram, Maps e muito mais.
+                Perfeito para clínicas, restaurantes, comércios locais e profissionais autônomos.
+            </p>
+            <div class="lp-hero-actions">
+                <a href="/dashboard" class="btn btn-primary btn-lg lp-hero-cta">Criar Minha Página 👉</a>
+                <a href="#features" class="btn btn-outline btn-lg lp-hero-secondary">Saiba Mais</a>
+            </div>
+            <div class="lp-hero-stats">
+                <div class="lp-stat">
+                    <span class="lp-stat-number" id="statPages">0</span>
+                    <span class="lp-stat-label">páginas criadas</span>
+                </div>
+                <div class="lp-stat">
+                    <span class="lp-stat-number" id="statThemes">2</span>
+                    <span class="lp-stat-label">temas disponíveis</span>
+                </div>
+                <div class="lp-stat">
+                    <span class="lp-stat-number" id="statTypes">8</span>
+                    <span class="lp-stat-label">tipos de botão</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Section -->
+    <section class="lp-preview">
+        <div class="lp-preview-inner">
+            <div class="lp-preview-text">
+                <h2>Veja como é simples</h2>
+                <p>Cada página tem um link único e pode ser personalizada com a logo da sua empresa, cores do seu negócio e todos os canais que você oferece.</p>
+                <ul class="lp-preview-list">
+                    <li>✅ Link curto e fácil de compartilhar</li>
+                    <li>✅ Botões com ícones intuitivos</li>
+                    <li>✅ Tema escuro moderno ou clean profissional</li>
+                    <li>✅ Pronto para WhatsApp, Instagram e muito mais</li>
+                </ul>
+            </div>
+            <div class="lp-preview-card-wrapper">
+                <div class="lp-preview-card">
+                    <div class="lp-preview-card-header">
+                        <div class="lp-preview-avatar"></div>
+                        <div class="lp-preview-name">Clínica Bella</div>
+                    </div>
+                    <div class="lp-preview-buttons">
+                        <div class="lp-preview-btn lp-preview-btn-whatsapp"><span>💬</span> WhatsApp</div>
+                        <div class="lp-preview-btn lp-preview-btn-instagram"><span>📸</span> Instagram</div>
+                        <div class="lp-preview-btn lp-preview-btn-maps"><span>📍</span> Como Chegar</div>
+                        <div class="lp-preview-btn lp-preview-btn-website"><span>🌐</span> Site</div>
+                        <div class="lp-preview-btn lp-preview-btn-phone"><span>📞</span> Ligar</div>
+                    </div>
+                    <div class="lp-preview-footer">Powered by Orbia Link</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="lp-features" id="features">
+        <div class="lp-section-header">
+            <h2>Tudo que você precisa</h2>
+            <p>Uma plataforma completa e intuitiva para gerenciar a presença digital do seu negócio.</p>
+        </div>
+        <div class="lp-features-grid">
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">⚡</div>
+                <h3>Rápido e Fácil</h3>
+                <p>Crie sua página em menos de 2 minutos. Sem conhecimento técnico necessário.</p>
+            </div>
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">🎨</div>
+                <h3>Temas Profissionais</h3>
+                <p>Escolha entre temas modernos e elegantes que combinam com a identidade do seu negócio.</p>
+            </div>
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">🔗</div>
+                <h3>Link Único</h3>
+                <p>Um link curto e bonito para compartilhar no Instagram, cartão de visita ou WhatsApp.</p>
+            </div>
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">📊</div>
+                <h3>Painel Completo</h3>
+                <p>Gerencie todas as suas páginas de forma centralizada no dashboard administrativo.</p>
+            </div>
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">📱</div>
+                <h3>100% Responsivo</h3>
+                <p>Suas páginas ficam perfeitas em qualquer dispositivo: celular, tablet ou desktop.</p>
+            </div>
+            <div class="lp-feature-card">
+                <div class="lp-feature-icon">🔄</div>
+                <h3>Sempre Atualizado</h3>
+                <p>Edite suas páginas quando quiser — adicione ou remova links em tempo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section -->
+    <section class="lp-themes" id="themes">
+        <div class="lp-section-header">
+            <h2>Escolha seu estilo</h2>
+            <p>Temas cuidadosamente projetados para diferentes segmentos.</p>
+        </div>
+        <div class="lp-themes-showcase">
+            <div class="lp-theme-card lp-theme-dark">
+                <div class="lp-theme-preview">
+                    <div class="lp-theme-preview-avatar"></div>
+                    <div class="lp-theme-preview-name">Dark Modern</div>
+                    <div class="lp-theme-preview-btns">
+                        <div class="lp-theme-preview-btn">Instagram</div>
+                        <div class="lp-theme-preview-btn">WhatsApp</div>
+                        <div class="lp-theme-preview-btn">Site</div>
+                    </div>
+                </div>
+                <div class="lp-theme-info">
+                    <h3>Dark Modern</h3>
+                    <p>Fundo escuro com gradiente e efeito vidro. Sofisticado e moderno.</p>
+                    <span class="lp-theme-tag">Popular</span>
+                </div>
+            </div>
+            <div class="lp-theme-card lp-theme-clean">
+                <div class="lp-theme-preview">
+                    <div class="lp-theme-preview-avatar"></div>
+                    <div class="lp-theme-preview-name">Clinic Clean</div>
+                    <div class="lp-theme-preview-btns">
+                        <div class="lp-theme-preview-btn">Agendamento</div>
+                        <div class="lp-theme-preview-btn">WhatsApp</div>
+                        <div class="lp-theme-preview-btn">Maps</div>
+                    </div>
+                </div>
+                <div class="lp-theme-info">
+                    <h3>Clinic Clean</h3>
+                    <p>Tons de verde suave, ideal para clínicas e profissionais da saúde.</p>
+                    <span class="lp-theme-tag lp-theme-tag-green">Saúde</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Button Types Section -->
+    <section class="lp-types">
+        <div class="lp-section-header">
+            <h2>8 tipos de botão</h2>
+            <p>Conecte todos os canais do seu negócio.</p>
+        </div>
+        <div class="lp-types-grid">
+            <div class="lp-type-item"><span>💬</span> WhatsApp</div>
+            <div class="lp-type-item"><span>📸</span> Instagram</div>
+            <div class="lp-type-item"><span>📍</span> Google Maps</div>
+            <div class="lp-type-item"><span>🌐</span> Website</div>
+            <div class="lp-type-item"><span>📞</span> Telefone</div>
+            <div class="lp-type-item"><span>📅</span> Agendamento</div>
+            <div class="lp-type-item"><span>🍽️</span> Cardápio</div>
+            <div class="lp-type-item"><span>🔗</span> Custom</div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="lp-cta" id="cta">
+        <div class="lp-cta-bg"></div>
+        <div class="lp-cta-content">
+            <h2>Pronto para criar sua página?</h2>
+            <p>É gratuito, leva menos de 2 minutos e não precisa de cadastro complicado.</p>
+            <a href="/dashboard" class="btn btn-primary btn-lg lp-cta-btn">
+                Criar Minha Página Agora 🚀
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="lp-footer">
+        <div class="lp-footer-inner">
+            <div class="lp-footer-brand">
+                <span class="lp-logo-icon">🔗</span>
+                <span class="lp-logo-text">Orbia<span class="lp-logo-accent">Link</span></span>
+            </div>
+            <p class="lp-footer-text">
+                Sua central digital de contatos. Compartilhe um link, conecte clientes.
+            </p>
+            <div class="lp-footer-links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="#features">Recursos</a>
+                <a href="#themes">Temas</a>
+            </div>
+            <p class="lp-footer-copy">© 2026 Orbia Link. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // Animated counter for stats
+        function animateCounter(el, target, duration) {
+            let start = 0;
+            const step = Math.ceil(target / (duration / 16));
+            const timer = setInterval(() => {
+                start += step;
+                if (start >= target) {
+                    start = target;
+                    clearInterval(timer);
+                }
+                el.textContent = start;
+            }, 16);
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(document.getElementById('statPages'), 50, 1500);
+                    animateCounter(document.getElementById('statThemes'), 2, 800);
+                    animateCounter(document.getElementById('statTypes'), 8, 800);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroStats = document.querySelector('.lp-hero-stats');
+        if (heroStats) observer.observe(heroStats);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

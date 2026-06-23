@@ -416,6 +416,788 @@ h1, h2, h3 {
 }
 
 /* ==============================
+   Landing Page - Navbar
+   ============================== */
+
+.lp-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.lp-navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.lp-navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.lp-logo-icon {
+    font-size: 1.4rem;
+}
+
+.lp-logo-text {
+    color: #1a1a2e;
+    letter-spacing: -0.03em;
+}
+
+.lp-logo-accent {
+    color: #2e7d32;
+}
+
+.lp-navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.lp-nav-link {
+    color: #4b5563;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.lp-nav-link:hover {
+    color: #2e7d32;
+}
+
+.lp-nav-cta {
+    margin-left: 8px;
+}
+
+.lp-mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.lp-mobile-menu-btn span {
+    width: 24px;
+    height: 2px;
+    background: #1a1a2e;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.lp-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 24px 24px;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.lp-mobile-menu.open {
+    display: flex;
+}
+
+.lp-mobile-menu a {
+    color: #4b5563;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* ==============================
+   Landing Page - Hero
+   ============================== */
+
+.lp-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 100px 24px 80px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #f5f3ff 50%, #e0f2fe 100%);
+}
+
+.lp-hero-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.lp-hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+}
+
+.lp-hero-shape-1 {
+    width: 600px;
+    height: 600px;
+    background: #4ade80;
+    top: -200px;
+    right: -100px;
+    animation: float 8s ease-in-out infinite;
+}
+
+.lp-hero-shape-2 {
+    width: 400px;
+    height: 400px;
+    background: #818cf8;
+    bottom: -100px;
+    left: -100px;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.lp-hero-shape-3 {
+    width: 300px;
+    height: 300px;
+    background: #38bdf8;
+    top: 40%;
+    left: 50%;
+    animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -30px) scale(1.05); }
+}
+
+.lp-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 720px;
+}
+
+.lp-hero-badge {
+    display: inline-flex;
+    padding: 6px 16px;
+    background: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+}
+
+.lp-hero-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #1a1a2e;
+    margin: 0 0 20px;
+    letter-spacing: -0.03em;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #2e7d32, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.lp-hero-subtitle {
+    font-size: 1.15rem;
+    color: #6b7280;
+    line-height: 1.7;
+    max-width: 560px;
+    margin: 0 auto 36px;
+}
+
+.lp-hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+
+.lp-hero-cta,
+.lp-hero-secondary {
+    padding: 14px 32px;
+    font-size: 1rem;
+}
+
+.lp-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.lp-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lp-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    line-height: 1;
+}
+
+.lp-stat-label {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+/* ==============================
+   Landing Page - Preview
+   ============================== */
+
+.lp-preview {
+    padding: 100px 24px;
+    background: white;
+}
+
+.lp-preview-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.lp-preview-text h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.lp-preview-text > p {
+    color: #6b7280;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.lp-preview-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lp-preview-list li {
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+.lp-preview-card-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.lp-preview-card {
+    width: 320px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lp-preview-card-header {
+    margin-bottom: 24px;
+}
+
+.lp-preview-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    margin: 0 auto 12px;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.lp-preview-name {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.lp-preview-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.lp-preview-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lp-preview-footer {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* ==============================
+   Landing Page - Features
+   ============================== */
+
+.lp-features {
+    padding: 100px 24px;
+    background: #f9fafb;
+}
+
+.lp-section-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+.lp-section-header h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.lp-section-header p {
+    color: #6b7280;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.lp-features-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.lp-feature-card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.lp-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    border-color: #2e7d32;
+}
+
+.lp-feature-icon {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.lp-feature-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.lp-feature-card p {
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==============================
+   Landing Page - Themes
+   ============================== */
+
+.lp-themes {
+    padding: 100px 24px;
+    background: white;
+}
+
+.lp-themes-showcase {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.lp-theme-card {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.lp-theme-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.lp-theme-preview {
+    padding: 32px;
+    text-align: center;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.lp-theme-dark .lp-theme-preview {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+.lp-theme-clean .lp-theme-preview {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.lp-theme-dark .lp-theme-preview-name {
+    color: white;
+}
+
+.lp-theme-clean .lp-theme-preview-name {
+    color: #1b5e20;
+}
+
+.lp-theme-preview-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.lp-theme-dark .lp-theme-preview-avatar {
+    background: linear-gradient(135deg, #818cf8, #6366f1);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+}
+
+.lp-theme-clean .lp-theme-preview-avatar {
+    background: linear-gradient(135deg, #4ade80, #2e7d32);
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+}
+
+.lp-theme-preview-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.lp-theme-preview-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.lp-theme-preview-btn {
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.lp-theme-dark .lp-theme-preview-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lp-theme-clean .lp-theme-preview-btn {
+    background: #2e7d32;
+    color: white;
+}
+
+.lp-theme-info {
+    padding: 20px 24px;
+}
+
+.lp-theme-info h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 4px;
+}
+
+.lp-theme-info p {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin: 0 0 10px;
+}
+
+.lp-theme-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.lp-theme-tag-green {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+}
+
+/* ==============================
+   Landing Page - Button Types
+   ============================== */
+
+.lp-types {
+    padding: 100px 24px;
+    background: #f9fafb;
+}
+
+.lp-types-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.lp-type-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s;
+}
+
+.lp-type-item span {
+    font-size: 1.2rem;
+}
+
+.lp-type-item:hover {
+    border-color: #2e7d32;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.1);
+}
+
+/* ==============================
+   Landing Page - CTA
+   ============================== */
+
+.lp-cta {
+    position: relative;
+    padding: 100px 24px;
+    overflow: hidden;
+}
+
+.lp-cta-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.lp-cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.lp-cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.lp-cta-content p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 36px;
+    line-height: 1.6;
+}
+
+.lp-cta-btn {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+}
+
+/* ==============================
+   Landing Page - Footer
+   ============================== */
+
+.lp-footer {
+    background: #0f0f0f;
+    padding: 48px 24px 32px;
+}
+
+.lp-footer-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lp-footer-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.lp-footer-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.lp-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.lp-footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+}
+
+.lp-footer-links a:hover {
+    color: #2e7d32;
+}
+
+.lp-footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==============================
+   Landing Page - Responsive
+   ============================== */
+
+@media (max-width: 768px) {
+    .lp-navbar-links {
+        display: none;
+    }
+
+    .lp-mobile-menu-btn {
+        display: flex;
+    }
+
+    .lp-hero-title {
+        font-size: 2rem;
+    }
+
+    .lp-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .lp-hero-stats {
+        gap: 24px;
+    }
+
+    .lp-stat-number {
+        font-size: 1.5rem;
+    }
+
+    .lp-preview-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .lp-preview-text {
+        order: 2;
+    }
+
+    .lp-preview-card-wrapper {
+        order: 1;
+    }
+
+    .lp-features-grid,
+    .lp-themes-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .lp-types-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .lp-cta-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .lp-hero-title {
+        font-size: 1.6rem;
+    }
+
+    .lp-hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lp-hero-stats {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .lp-types-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ==============================
    Responsive
    ============================== */
 
