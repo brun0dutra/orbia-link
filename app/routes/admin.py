@@ -8,7 +8,7 @@ from app.services.storage import load_pages, get_page, create_page, update_page,
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
 
-VALID_THEMES = ["clinic-clean", "dark-modern"]
+VALID_THEMES = ["clinic-clean", "dark-modern", "theme_rosa"]
 BUTTON_TYPES = ["whatsapp", "instagram", "maps", "website", "phone", "booking", "menu", "custom"]
 
 
