@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ NAME }} - Orbia Link</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Theme: Midnight Purple */
+        :root {
+            --bg-gradient: linear-gradient(160deg, #0f0a1a 0%, #1a1145 40%, #0d2137 70%, #0a1628 100%);
+            --card-bg: rgba(15, 10, 26, 0.7);
+            --text-primary: #e8e0f0;
+            --text-secondary: #8b7bb8;
+
+            --btn-bg: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            --btn-hover: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+            --btn-text: #ffffff;
+
+            --btn-border-radius: 10px;
+            --shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --border-color: rgba(99, 102, 241, 0.15);
+            --accent-glow: rgba(99, 102, 241, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-primary);
+        }
+
+        .page-container {
+            max-width: 480px;
+            width: 100%;
+            padding: 44px 28px;
+            text-align: center;
+
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 60px var(--accent-glow), 0 12px 48px rgba(0, 0, 0, 0.4);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.04) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .page-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 28px 0;
+            letter-spacing: -0.01em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 15px 22px;
+
+            background: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+
+            border-radius: var(--btn-border-radius);
+            font-size: 0.95rem;
+            font-weight: 500;
+
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+
+        .link-button:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .link-button:active {
+            transform: translateY(0);
+        }
+
+        .footer {
+            margin-top: 36px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            opacity: 0.4;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        {{ LOGO }}
+        <h1 class="page-name">{{ NAME }}</h1>
+
+        <div class="links-container">
+            {{ BUTTONS }}
+        </div>
+
+        <div class="footer">Powered by Orbia Link</div>
+    </div>
+</body>
+</html>

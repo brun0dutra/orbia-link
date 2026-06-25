@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ NAME }} - Orbia Link</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        /* Theme: Sunset Glow */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 30%, #6b2fa0 60%, #e84393 100%);
+            --card-bg: rgba(26, 10, 46, 0.75);
+            --text-primary: #fef9ff;
+            --text-secondary: #f0a8d0;
+
+            --btn-bg: linear-gradient(135deg, #fd79a8 0%, #e84393 50%, #6c5ce7 100%);
+            --btn-hover: linear-gradient(135deg, #fab1c8 0%, #fd79a8 50%, #a29bfe 100%);
+            --btn-text: #ffffff;
+
+            --btn-border-radius: 14px;
+            --shadow: 0 8px 32px rgba(232, 67, 147, 0.3);
+
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-primary);
+        }
+
+        .page-container {
+            max-width: 480px;
+            width: 100%;
+            padding: 40px 24px;
+            text-align: center;
+
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .page-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, #fd79a8, #6c5ce7) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+
+            box-shadow: 0 0 30px rgba(232, 67, 147, 0.25);
+        }
+
+        .page-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 24px 0;
+
+            background: linear-gradient(135deg, #fd79a8, #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 16px 24px;
+
+            background: var(--btn-bg);
+            background-size: 200% 100%;
+            color: var(--btn-text);
+            text-decoration: none;
+
+            border-radius: var(--btn-border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(232, 67, 147, 0.2);
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .link-button:hover {
+            background-position: right center;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 32px rgba(232, 67, 147, 0.4);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .link-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        {{ LOGO }}
+        <h1 class="page-name">{{ NAME }}</h1>
+
+        <div class="links-container">
+            {{ BUTTONS }}
+        </div>
+
+        <div class="footer">Powered by Orbia Link</div>
+    </div>
+</body>
+</html>
