@@ -187,8 +187,10 @@
     return { items: items, amount: amount };
   }
 
-  function calcUnit(product, sel) {
-    var unit = Number(product.price) || 0;
+  // basePrice opcional: permite preço promocional vindo da vitrine de
+  // ofertas (módulo promotions) sem duplicar os dados do produto.
+  function calcUnit(product, sel, basePrice) {
+    var unit = Number(basePrice != null ? basePrice : product.price) || 0;
     var options = product.options || [];
     options.forEach(function (group, gi) {
       var picked = (sel[gi] || []).slice();
@@ -200,8 +202,12 @@
     return unit;
   }
 
-  function selectionKey(product, sel) {
+  function selectionKey(product, sel, basePrice) {
     var parts = [product.id];
+    // o preço entra na chave: uma linha criada via promoção (preço
+    // promocional) não deve se fundir com a mesma configuração no preço
+    // normal do cardápio.
+    parts.push("p:" + Math.round((Number(basePrice != null ? basePrice : product.price) || 0) * 100));
     var options = product.options || [];
     options.forEach(function (group, gi) {
       var picked = (sel[gi] || []).slice();
@@ -216,7 +222,7 @@
     return parts.join("|");
   }
 
-  function buildLine(product, sel, qty, note) {
+  function buildLine(product, sel, qty, note, basePrice) {
     var options = product.options || [];
     var selArr = [];
     var optsArr = [];
@@ -229,10 +235,13 @@
       });
     });
     return {
-      key: selectionKey(product, sel),
+      key: selectionKey(product, sel, basePrice),
       productId: product.id,
       name: product.name,
-      unit: calcUnit(product, sel),
+      // base: preço base usado (normal ou promocional) — preserva o preço
+      // da oferta ao editar a linha no carrinho.
+      base: Number(basePrice != null ? basePrice : product.price) || 0,
+      unit: calcUnit(product, sel, basePrice),
       qty: qty,
       note: String(note || "").trim(),
       sel: selArr,
@@ -479,8 +488,8 @@
     );
   }
 
-  function quickAdd(product) {
-    var line = buildLine(product, {}, 1, "");
+  function quickAdd(product, basePrice) {
+    var line = buildLine(product, {}, 1, "", basePrice);
     upsertLine(line);
     syncCartBar();
   }
@@ -521,7 +530,7 @@
 
   /* ---------- Bottom sheet: detalhe do produto ---------- */
 
-  function openSheet(product, editLine) {
+  function openSheet(product, editLine, basePrice) {
     var qty = 1;
     var note = "";
     var sel = {};
@@ -532,7 +541,16 @@
         (sel[s.gi] = sel[s.gi] || []).push(s.ii);
       });
     }
-    S.sheet = { product: product, editKey: editLine ? editLine.key : null, qty: qty, note: note, sel: sel };
+    // basePrice: preço promocional vindo da vitrine de ofertas; quando
+    // ausente, usa o preço normal do produto. Na edição de uma linha do
+    // carrinho, usa o preço base gravado na própria linha (preserva oferta).
+    var bp =
+      basePrice != null
+        ? basePrice
+        : editLine && editLine.base != null
+          ? editLine.base
+          : product.price;
+    S.sheet = { product: product, editKey: editLine ? editLine.key : null, qty: qty, note: note, sel: sel, basePrice: bp };
     S.editKey = null;
     renderSheet();
   }
@@ -621,7 +639,7 @@
         ? '<div class="m-sheet__desc">' + esc(p.description) + "</div>"
         : "") +
       '<span class="m-sheet__price" data-role="base">' +
-      money(p.price) +
+      money(S.sheet.basePrice != null ? S.sheet.basePrice : p.price) +
       "</span>" +
       groups +
       noteField +
@@ -766,7 +784,7 @@
     var sel = S.sheet.sel;
 
     // preço unitário + validação
-    var unit = Number(p.price) || 0;
+    var unit = Number(S.sheet.basePrice != null ? S.sheet.basePrice : p.price) || 0;
     var invalid = false;
     groups.forEach(function (group, gi) {
       var min = group.min == null ? 0 : group.min;
@@ -842,7 +860,7 @@
     S.sheet.note = note;
     collectSheetSelection();
 
-    var line = buildLine(p, S.sheet.sel, S.sheet.qty, note);
+    var line = buildLine(p, S.sheet.sel, S.sheet.qty, note, S.sheet.basePrice);
     var editKey = S.sheet.editKey;
     if (editKey) removeLine(editKey);
     upsertLine(line);
@@ -1607,6 +1625,24 @@
     // fecha o módulo quando o roteador troca de página
     close: function () {
       S = null;
+    },
+    // localiza um produto do cardápio pelo id (usado pela vitrine de ofertas)
+    findProduct: productById,
+    // Abre um produto DENTRO da experiência de cardápio, usado pela vitrine
+    // de ofertas (módulo promotions): com opções abre o bottom sheet, sem
+    // opções adiciona direto. basePrice opcional = preço promocional da
+    // oferta; sem ele, usa o preço normal do produto.
+    openProduct: function (item, productId, basePrice) {
+      if (!isEnabled(item)) return false;
+      var product = productById(item, productId);
+      if (!product) return false;
+      openMenu(item);
+      if (product.options && product.options.length) {
+        openSheet(product, null, basePrice);
+      } else {
+        quickAdd(product, basePrice);
+      }
+      return true;
     },
     debug: {
       orderMessage: function () {

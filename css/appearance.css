@@ -1,0 +1,22 @@
+/* ==========================================================================
+   Orbia Link — css/appearance.css
+   Camada de personalização visual (Etapa 5): Tema + Cor + Fundo.
+
+   O js/app.js injeta, no <html>, os tokens derivados da cor principal do
+   negócio (--accent, --accent-hover, --accent-soft, --accent-contrast,
+   --mono-bg) e, quando o negócio usa fundo do tipo "pattern", define
+   --pattern-img (data URI do padrão) e o atributo data-bg="pattern".
+
+   Esta folha NÃO tem cores próprias: apenas aplica a textura do padrão por
+   cima do fundo do tema, mantendo o conteúdo como foco (padrão discreto,
+   leve e repetitivo). Deve ser carregada DEPOIS de base.css/menu.css para
+   vencer os shorthands de background dessas folhas.
+   ========================================================================== */
+
+/* fundo com padrão repetitivo discreto (página do negócio e cardápio) */
+html[data-bg="pattern"] .page,
+html[data-bg="pattern"] .m-app {
+  background-image: var(--pattern-img);
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}

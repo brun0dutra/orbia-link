@@ -36,6 +36,8 @@
     "ocean-breeze",
     "sunset-glow",
     "rosa",
+    "vibrant",
+    "elegant",
   ];
 
   var STOP_WORDS = new Set(["da", "de", "do", "das", "dos", "e", "&"]);
@@ -163,13 +165,240 @@
     return homePath() + (slug || "");
   }
 
-  /* ---------- Estado de página ---------- */
+  /* ---------- Aparência: Tema + Cor principal + Fundo (Etapa 5) ---------- */
 
-  function setTheme(theme) {
-    if (theme && VALID_THEMES.indexOf(theme) !== -1) {
-      document.documentElement.setAttribute("data-theme", theme);
-    } else {
-      document.documentElement.removeAttribute("data-theme");
+  // Tokens injetados (e limpos) no <html> pela camada de personalização.
+  // Uma única cor escolhida no JSON alimenta todos eles — o negócio nunca
+  // precisa configurar cores secundárias, contraste ou hover.
+  var STYLE_KEYS = [
+    "--accent",
+    "--accent-hover",
+    "--accent-soft",
+    "--accent-contrast",
+    "--mono-bg",
+    "--pattern-img",
+  ];
+
+  // Padrões de fundo (Stage 5): glifos SVG pequenos e discretos, repetidos
+  // em um ladrilho de 200x200 com variações de rotação/escala. A cor vem da
+  // accent do negócio (versão suave/transparente) — um único sistema de cor.
+  var PATTERNS = {
+    "fast-food": {
+      glyph:
+        '<path d="M3.5 7c0-2.2 3.8-3.6 8.5-3.6s8.5 1.4 8.5 3.6"/>' +
+        '<path d="M4 8.6h16"/>' +
+        '<path d="M3.5 10.6c0 4.2 3.8 7.2 8.5 7.2s8.5-3 8.5-7.2"/>' +
+        '<path d="M7 5.2l.6 1.3M12 4.7l.6 1.3M17 5.2l-.6 1.3"/>',
+    },
+    coffee: {
+      glyph:
+        '<path d="M5 8.5h11v5c0 3.3-2.5 5.5-5.5 5.5S5 16.8 5 13.5z"/>' +
+        '<path d="M16 10.2h1.7a2.6 2.6 0 0 1 0 5.2H16"/>' +
+        '<path d="M7.6 4.6c-.8 1-.8 2 0 3M11.4 4.6c-.8 1-.8 2 0 3"/>' +
+        '<path d="M4.5 20.5h11"/>',
+    },
+    pizza: {
+      glyph:
+        '<path d="M4.5 19.5L17 7"/>' +
+        '<path d="M17 7l2.4 9.3c.3 1.2-.8 2.2-2 2.2z"/>' +
+        '<path d="M4.5 19.5l12.9-3.2"/>' +
+        '<circle cx="10" cy="14.6" r="1.4"/><circle cx="13.6" cy="10.8" r="1.4"/>',
+    },
+    barber: {
+      glyph:
+        '<circle cx="6.5" cy="6.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/>' +
+        '<path d="M8.3 8.3l7.4 7.4"/><path d="M15.7 8.3l-7.4 7.4"/>',
+    },
+    minimal: {
+      glyph:
+        '<circle cx="12" cy="12" r="1.7"/>' +
+        '<circle cx="4.5" cy="4.5" r="1"/><circle cx="19.5" cy="19.5" r="1"/>',
+    },
+  };
+
+  /* cores: utilidades (hex, mix, luminância, contraste) */
+
+  function hexToRgb(hex) {
+    var s = String(hex).trim().replace(/^#/, "");
+    if (/^[0-9a-f]{3}$/i.test(s)) {
+      s = s[0] + s[0] + s[1] + s[1] + s[2] + s[2];
+    }
+    if (!/^[0-9a-f]{6}$/i.test(s)) return null;
+    return {
+      r: parseInt(s.slice(0, 2), 16),
+      g: parseInt(s.slice(2, 4), 16),
+      b: parseInt(s.slice(4, 6), 16),
+    };
+  }
+
+  function mixRgb(a, b, t) {
+    return {
+      r: Math.round(a.r + (b.r - a.r) * t),
+      g: Math.round(a.g + (b.g - a.g) * t),
+      b: Math.round(a.b + (b.b - a.b) * t),
+    };
+  }
+
+  function rgbToHex(c) {
+    function p2(v) {
+      v = Math.max(0, Math.min(255, Math.round(v))).toString(16);
+      return v.length < 2 ? "0" + v : v;
+    }
+    return "#" + p2(c.r) + p2(c.g) + p2(c.b);
+  }
+
+  function channelLum(v) {
+    v /= 255;
+    return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+  }
+
+  function luminance(c) {
+    return (
+      0.2126 * channelLum(c.r) + 0.7152 * channelLum(c.g) + 0.0722 * channelLum(c.b)
+    );
+  }
+
+  function contrastRatio(l1, l2) {
+    var hi = Math.max(l1, l2);
+    var lo = Math.min(l1, l2);
+    return (hi + 0.05) / (lo + 0.05);
+  }
+
+  // Derivados de uma única cor: texto com contraste (branco, exceto para
+  // cores claras que exigem texto escuro), hover escurecido e o segundo tom
+  // do gradiente (accent -> tom mais claro) usado nos botões principais.
+  function accentTokens(hex) {
+    var c = hexToRgb(hex);
+    var l = luminance(c);
+    var white = { r: 255, g: 255, b: 255 };
+    var black = { r: 17, g: 17, b: 17 };
+    var cWhite = contrastRatio(l, luminance(white));
+    var cBlack = contrastRatio(l, luminance(black));
+    // texto branco sempre que tiver contraste aceitável; cores claras
+    // (amarelo, laranja claro…) caem no texto escuro — nunca "claro sobre
+    // claro".
+    var contrast = cWhite >= 3 ? "#ffffff" : "#111111";
+    return {
+      accent: rgbToHex(c),
+      hover: rgbToHex(mixRgb(c, black, 0.13)),
+      accentLight: rgbToHex(mixRgb(c, white, 0.24)),
+      contrast: contrast,
+    };
+  }
+
+  // data URI do padrão de fundo, tingido com a cor do negócio (suave)
+  function patternDataUri(name, accent) {
+    var def = PATTERNS[name];
+    if (!def) return "";
+    var cells = [
+      [50, 50, 0, 1],
+      [150, 50, 90, 0.8],
+      [50, 150, 180, 0.8],
+      [150, 150, 270, 1],
+    ];
+    var inner = cells
+      .map(function (c) {
+        return (
+          '<g transform="translate(' +
+          c[0] +
+          "," +
+          c[1] +
+          ") rotate(" +
+          c[2] +
+          ") scale(" +
+          c[3] +
+          ')"><g transform="translate(-12,-12)">' +
+          def.glyph +
+          "</g></g>"
+        );
+      })
+      .join("");
+    var svg =
+      '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" ' +
+      'viewBox="0 0 200 200"><g fill="none" stroke="' +
+      accent +
+      '" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" ' +
+      'stroke-opacity="0.15">' +
+      inner +
+      "</g></svg>";
+    return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+  }
+
+  // accent do tema atualmente aplicado (usada no padrão quando o negócio
+  // não define cor própria)
+  function themeAccent() {
+    try {
+      var v = getComputedStyle(document.documentElement)
+        .getPropertyValue("--accent")
+        .trim();
+      return v || "#6366f1";
+    } catch (e) {
+      return "#6366f1";
+    }
+  }
+
+  // Página de negócio: aplica tema + personalização (cor/fundo) do JSON.
+  // Configuração ausente/inválida cai no fallback seguro (tema padrão,
+  // accent do tema, fundo sólido) — nunca quebra a página.
+  function setAppearance(item) {
+    var appearance = (item && item.appearance) || {};
+    var theme = appearance.theme;
+    document.documentElement.setAttribute(
+      "data-theme",
+      theme && VALID_THEMES.indexOf(theme) !== -1 ? theme : DEFAULT_THEME
+    );
+    applyPersonalization(appearance);
+  }
+
+  // Home / 404 / estados: remove tema e personalização (visual padrão)
+  function clearAppearance() {
+    document.documentElement.removeAttribute("data-theme");
+    var style = document.documentElement.style;
+    for (var i = 0; i < STYLE_KEYS.length; i++) {
+      style.removeProperty(STYLE_KEYS[i]);
+    }
+    document.documentElement.removeAttribute("data-bg");
+  }
+
+  // Injetar/limpar os tokens derivados da cor principal e o fundo. O fallback
+  // padrão (sem accent/background) simplesmente não injeta nada, preservando
+  // os valores do tema.
+  function applyPersonalization(appearance) {
+    var style = document.documentElement.style;
+    for (var i = 0; i < STYLE_KEYS.length; i++) {
+      style.removeProperty(STYLE_KEYS[i]);
+    }
+    document.documentElement.removeAttribute("data-bg");
+
+    var accentHex = null;
+    if (appearance.accent) {
+      var rgb = hexToRgb(appearance.accent);
+      if (rgb) accentHex = rgbToHex(rgb);
+    }
+    if (accentHex) {
+      var t = accentTokens(accentHex);
+      style.setProperty("--accent", t.accent);
+      style.setProperty("--accent-hover", t.hover);
+      style.setProperty(
+        "--accent-soft",
+        "color-mix(in srgb, " + t.accent + " 14%, transparent)"
+      );
+      style.setProperty("--accent-contrast", t.contrast);
+      style.setProperty(
+        "--mono-bg",
+        "linear-gradient(135deg, " + t.accent + ", " + t.accentLight + ")"
+      );
+    }
+
+    var bg = appearance.background || {};
+    if (bg.type === "pattern" && bg.pattern && PATTERNS[bg.pattern]) {
+      // o padrão usa a cor do negócio; sem cor, usa o accent do tema
+      var tint = accentHex || themeAccent();
+      var uri = patternDataUri(bg.pattern, tint);
+      if (uri) {
+        style.setProperty("--pattern-img", uri);
+        document.documentElement.setAttribute("data-bg", "pattern");
+      }
     }
   }
 
@@ -190,11 +419,11 @@
   function renderState(text) {
     appEl.innerHTML =
       '<div class="state"><p>' + esc(text) + "</p></div>";
-    setTheme(null);
+    clearAppearance();
   }
 
   function renderHome() {
-    document.documentElement.removeAttribute("data-theme");
+    clearAppearance();
     document.title = "Orbia Link — o cartão de visita digital do seu negócio";
     setMeta(null);
 
@@ -303,10 +532,8 @@
 
   function renderBusiness(item) {
     var business = item.business;
-    var appearance = item.appearance || {};
-    var theme = appearance.theme || DEFAULT_THEME;
 
-    setTheme(theme);
+    setAppearance(item);
     setMeta(item);
 
     var main = document.createElement("main");
@@ -360,47 +587,84 @@
     card.appendChild(head);
 
     // links / ações — o botão principal de um módulo habilitado (ex.:
-    // "Fazer pedido") entra no TOPO desta lista, com o mesmo tamanho dos
-    // demais botões. Módulos desabilitados ou ausentes não mudam nada na
-    // página (nenhum botão vazio, nenhum erro).
+    // "Fazer pedido") entra no TOPO, com o mesmo tamanho dos demais botões.
+    // Módulos desabilitados ou ausentes não mudam nada na página (nenhum
+    // botão vazio, nenhum erro).
     var moduleCta = null;
     if (window.OrbiaMenu && window.OrbiaMenu.createCta) {
       moduleCta = window.OrbiaMenu.createCta(item);
     }
 
+    // Vitrine de ofertas (módulo promotions): entra entre a ação principal
+    // e os links secundários. Retorna null quando o negócio não possui
+    // promoções — nesse caso a página fica exatamente como antes.
+    var promoShowcase = null;
+    if (window.OrbiaPromos && window.OrbiaPromos.createShowcase) {
+      promoShowcase = window.OrbiaPromos.createShowcase(item);
+    }
+
     var hasLinks = item.links && item.links.length;
-    if (hasLinks || moduleCta) {
-      var nav = document.createElement("nav");
-      nav.className = "actions";
-      nav.setAttribute("aria-label", "Links e ações");
 
-      if (moduleCta) nav.appendChild(moduleCta);
+    function appendLink(nav, link) {
+      var a = document.createElement("a");
+      a.className = "action";
+      a.href = link.url;
+      a.setAttribute("rel", "noopener");
 
-      if (hasLinks) {
-        item.links.forEach(function (link) {
-          var a = document.createElement("a");
-          a.className = "action";
-          a.href = link.url;
-          a.setAttribute("rel", "noopener");
+      var isInline = /^(tel:|mailto:)/.test(link.url || "");
+      if (!isInline) a.setAttribute("target", "_blank");
 
-          var isInline = /^(tel:|mailto:)/.test(link.url || "");
-          if (!isInline) a.setAttribute("target", "_blank");
+      var icon = document.createElement("span");
+      icon.innerHTML = iconSvg(link.type, "action__icon");
+      icon.setAttribute("aria-hidden", "true");
 
-          var icon = document.createElement("span");
-          icon.innerHTML = iconSvg(link.type, "action__icon");
-          icon.setAttribute("aria-hidden", "true");
+      var label = document.createElement("span");
+      label.className = "action__label";
+      label.textContent = link.label || link.type;
 
-          var label = document.createElement("span");
-          label.className = "action__label";
-          label.textContent = link.label || link.type;
+      a.appendChild(icon);
+      a.appendChild(label);
+      nav.appendChild(a);
+    }
 
-          a.appendChild(icon);
-          a.appendChild(label);
-          nav.appendChild(a);
-        });
+    if (hasLinks || moduleCta || promoShowcase) {
+      if (promoShowcase) {
+        // com vitrine: ação principal no topo, ofertas no meio, links abaixo
+        if (moduleCta) {
+          var navTop = document.createElement("nav");
+          navTop.className = "actions";
+          navTop.setAttribute("aria-label", "Ação principal");
+          navTop.appendChild(moduleCta);
+          card.appendChild(navTop);
+        }
+
+        card.appendChild(promoShowcase);
+
+        if (hasLinks) {
+          var navLinks = document.createElement("nav");
+          navLinks.className = "actions";
+          navLinks.setAttribute("aria-label", "Links e ações");
+          item.links.forEach(function (link) {
+            appendLink(navLinks, link);
+          });
+          card.appendChild(navLinks);
+        }
+      } else {
+        // sem promoções: estrutura idêntica à versão anterior
+        var nav = document.createElement("nav");
+        nav.className = "actions";
+        nav.setAttribute("aria-label", "Links e ações");
+
+        if (moduleCta) nav.appendChild(moduleCta);
+
+        if (hasLinks) {
+          item.links.forEach(function (link) {
+            appendLink(nav, link);
+          });
+        }
+
+        card.appendChild(nav);
       }
-
-      card.appendChild(nav);
     }
 
     // rodapé com link para a home da Orbia Link
@@ -422,7 +686,7 @@
 
   function renderNotFound() {
     document.title = "Página não encontrada — Orbia Link";
-    setTheme(null);
+    clearAppearance();
 
     var main = document.createElement("main");
     main.className = "nf";

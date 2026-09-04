@@ -20,6 +20,13 @@
   --text-1: #f4f6fb;
   --text-2: rgba(244, 246, 251, 0.66);
   --accent: #6366f1;
+  /* Tokens derivados da cor principal (--accent). A camada de
+     personalização (css/appearance.css + js/app.js) sobrescreve estes
+     valores com base na cor escolhida pelo negócio; aqui ficam os
+     fallbacks que preservam o visual atual quando não há personalização. */
+  --accent-hover: #4f46e5;
+  --accent-soft: rgba(99, 102, 241, 0.13);
+  --accent-contrast: #ffffff;
   --mono-bg: linear-gradient(135deg, #6366f1, #a855f7);
   --btn-bg: rgba(255, 255, 255, 0.09);
   --btn-bg-hover: rgba(255, 255, 255, 0.16);
@@ -138,7 +145,7 @@ p {
   align-items: center;
   justify-content: center;
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   font-weight: 700;
   font-size: 34px;
   letter-spacing: 0.02em;
@@ -344,8 +351,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
-  color: #fff;
+  background: var(--mono-bg);
+  color: var(--accent-contrast);
   font-weight: 700;
   font-size: 15px;
 }

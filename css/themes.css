@@ -9,7 +9,7 @@
      2. Use esse mesmo nome em data/businesses.json -> appearance.theme.
 
    Temas disponíveis: dark-modern, clinic-clean, midnight-purple,
-   ocean-breeze, sunset-glow, rosa
+   ocean-breeze, sunset-glow, rosa, vibrant, elegant
    ========================================================================== */
 
 /* ---------- dark-modern ---------- */
@@ -145,6 +145,62 @@
 
   --glow-a: rgba(244, 114, 182, 0.4);
   --glow-b: rgba(192, 132, 252, 0.35);
+}
+
+/* ---------- vibrant (escuro, enérgico, botões pill) ---------- */
+[data-theme="vibrant"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(160deg, #16100e 0%, #241310 45%, #1a0f14 100%);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-border: rgba(255, 255, 255, 0.14);
+  --panel: rgba(26, 16, 15, 0.94);
+  --blur: 18px;
+  --radius: 24px;
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  --text-1: #fff7f5;
+  --text-2: rgba(255, 247, 245, 0.66);
+  --accent: #ff5d5d;
+  --mono-bg: linear-gradient(135deg, #ff5d5d, #f43f5e);
+
+  --btn-bg: rgba(255, 255, 255, 0.09);
+  --btn-bg-hover: rgba(255, 255, 255, 0.17);
+  --btn-color: #fff7f5;
+  --btn-border: rgba(255, 255, 255, 0.14);
+  --btn-radius: 999px;
+
+  --glow-a: rgba(255, 77, 77, 0.4);
+  --glow-b: rgba(249, 115, 22, 0.26);
+}
+
+/* ---------- elegant (claro, refinado, bordas finas) ---------- */
+[data-theme="elegant"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(165deg, #f6f4ef 0%, #efece4 55%, #e7e2d8 100%);
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-border: rgba(30, 41, 59, 0.1);
+  --panel: rgba(255, 255, 255, 0.93);
+  --blur: 14px;
+  --radius: 20px;
+  --card-shadow: 0 18px 44px rgba(30, 41, 59, 0.12);
+
+  --text-1: #1e293b;
+  --text-2: #64748b;
+  --accent: #1e40af;
+  --mono-bg: linear-gradient(135deg, #1d4ed8, #1e40af);
+
+  --btn-bg: #ffffff;
+  --btn-bg-hover: #f1efe9;
+  --btn-color: #1e293b;
+  --btn-border: rgba(30, 41, 59, 0.14);
+  --btn-radius: 12px;
+
+  --glow-a: rgba(30, 64, 175, 0.16);
+  --glow-b: rgba(51, 65, 85, 0.08);
+
+  color-scheme: light;
 }
 
 /* ---------- rosa ---------- */

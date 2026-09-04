@@ -99,7 +99,7 @@
   align-items: center;
   justify-content: center;
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   font-weight: 700;
   font-size: 13px;
 }
@@ -160,8 +160,12 @@
 
 .m-cat.is-active {
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   border-color: transparent;
+}
+
+.m-cat.is-active:hover {
+  filter: brightness(1.08);
 }
 
 /* ---------- Área rolável do cardápio ---------- */
@@ -262,7 +266,7 @@
   border: none;
   border-radius: 50%;
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1;
@@ -317,7 +321,7 @@
 
 .m-btn--primary {
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
 }
 
@@ -718,6 +722,10 @@
   border-color: var(--accent);
 }
 
+.m-opt:hover .m-opt__inp:checked ~ .m-opt__box {
+  border-color: var(--accent-hover);
+}
+
 .m-opt__inp:checked ~ .m-opt__box::after {
   opacity: 1;
 }
@@ -819,7 +827,11 @@ textarea.m-field {
 
 .m-pick.is-on {
   border-color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  background: var(--accent-soft);
+}
+
+.m-pick.is-on:hover {
+  border-color: var(--accent-hover);
 }
 
 .m-pick__radio {
@@ -990,7 +1002,7 @@ textarea.m-field {
 
 .action--cta {
   background: var(--mono-bg);
-  color: #fff;
+  color: var(--accent-contrast);
   border-color: transparent;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
   cursor: pointer;

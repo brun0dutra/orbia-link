@@ -15,7 +15,9 @@ orbia.link/lancheria-do-ze
             ▼
    Os melhores lanches da cidade
             ▼
-      [ 🍔 Fazer pedido ]   ← módulo Cardápio (quando habilitado)
+      [ 🍔 Fazer pedido ]       ← módulo Cardápio (quando habilitado)
+      🔥 OFERTAS DE HOJE         ← módulo Promoções (quando habilitado)
+      [ banner da oferta em destaque + cards promocionais ]
       [ WhatsApp ] [ Instagram ] [ Como chegar ] [ Telefone ] [ Site ]
 ```
 
@@ -38,8 +40,19 @@ orbia.link/lancheria-do-ze
   quando `modules.menu.enabled = true`:
   **Cardápio → personalização → carrinho → checkout → WhatsApp**
   (sem backend: o pedido é enviado como mensagem para o WhatsApp do negócio)
-- Negócios sem o módulo habilitado continuam exatamente como antes — nada de
-  cardápio, botões vazios, placeholders ou erros.
+- **Vitrine de ofertas** (módulo **Promoções**) na página principal, integrada
+  ao cardápio: oferta em destaque com foto vira banner com **PEDIR AGORA**;
+  as demais reutilizam o próprio card do cardápio com preço promocional
+  (~~preço original~~ → preço promocional) — tudo abrindo o produto real
+  dentro da experiência de pedido já existente.
+- **Personalização visual por negócio** (Etapa 5): **Tema + Cor + Fundo** —
+  o negócio escolhe um tema (estilo geral), uma cor principal (a identidade
+  de cor dos botões/acentos, com contraste calculado automaticamente) e um
+  fundo (sólido ou padrão discreto) no JSON. Uma única cor alimenta todos os
+  tokens derivados — sem exigir que ninguém entenda de CSS.
+- Negócios sem os módulos/personalização habilitados continuam exatamente
+  como antes — nada de cardápio, promoções, botões vazios, placeholders ou
+  erros.
 
 ---
 
@@ -53,14 +66,18 @@ orbia-link/
 ├── css/
 │   ├── base.css        # Estrutura/layout da página (NUNCA muda entre temas)
 │   ├── themes.css      # Todos os temas (só variáveis CSS por tema)
-│   └── menu.css        # Cardápio/carrinho/checkout (usa as variáveis dos temas)
+│   ├── menu.css        # Cardápio/carrinho/checkout (usa as variáveis dos temas)
+│   ├── promotions.css  # Vitrine de ofertas (banner + preços promocionais)
+│   └── appearance.css  # Camada de personalização (padrões de fundo)
 ├── js/
 │   ├── app.js          # Lê o slug da URL, carrega o JSON e renderiza a página
-│   └── menu.js         # Módulo Cardápio e Pedidos (tela + carrinho + checkout)
+│   ├── menu.js         # Módulo Cardápio e Pedidos (tela + carrinho + checkout)
+│   └── promotions.js   # Módulo Promoções (vitrine na página principal)
 ├── data/
-│   └── businesses.json # Fonte de dados dos negócios (inclui cardápios)
+│   └── businesses.json # Fonte de dados dos negócios (inclui cardápios e ofertas)
 ├── assets/
-│   └── products/       # Imagens de demonstração dos produtos
+│   ├── products/       # Imagens de demonstração dos produtos
+│   └── promotions/     # Imagens de demonstração das ofertas
 └── README.md
 ```
 
@@ -186,6 +203,8 @@ Temas disponíveis (valor usado em `appearance.theme`):
 | `ocean-breeze`    | Céu azul suave, botões pill azuis                 |
 | `sunset-glow`     | Gradiente roxo/rosa, botões rosados               |
 | `rosa`            | Fundo escuro com acentos rosa neon                |
+| `vibrant`         | Escuro e enérgico, botões pill, ideal para comida |
+| `elegant`         | Claro e refinado, bordas finas, ideal para serviços |
 
 ### Como adicionar um novo tema
 
@@ -198,6 +217,53 @@ Se o tema não existir ou não for encontrado, a página usa o padrão neutro
 escuro definido no `base.css` (nunca quebra). O cardápio herda automaticamente
 o tema do negócio — não é preciso estilizar o módulo por tema.
 
+### Personalização por negócio: Tema + Cor + Fundo
+
+Cada negócio pode compor a própria identidade visual no `appearance` — sem
+criar um tema novo por cor e sem interface de edição:
+
+```json
+"appearance": {
+  "theme": "vibrant",
+  "accent": "#E63946",
+  "background": {
+    "type": "pattern",
+    "pattern": "fast-food"
+  }
+}
+```
+
+| Campo                    | Descrição                                                              |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `theme`                  | Estilo geral da página (veja a tabela acima). Obrigatório? Não — sem ele, usa `dark-modern` |
+| `accent`                 | **Uma** cor principal (hex `#RGB` ou `#RRGGBB`). O Orbia deriva sozinho: texto com contraste, hover, fundo suave e o gradiente dos botões |
+| `background.type`        | `solid` (fundo do tema) ou `pattern` (textura discreta repetida)       |
+| `background.pattern`     | Nome do padrão: `fast-food`, `coffee`, `pizza`, `barber`, `minimal`    |
+
+**Como a cor é aplicada (tokens):** a cor escolhida alimenta um único sistema
+de variáveis — `--accent`, `--accent-hover`, `--accent-soft`,
+`--accent-contrast` e `--mono-bg` — usadas pelo botão **Fazer pedido**,
+**PEDIR AGORA**, botões `+`, preço promocional, categoria ativa e elementos
+selecionados. O contraste do texto é calculado automaticamente: cores claras
+(amarelo, laranja…) recebem texto escuro — nunca "claro sobre claro".
+
+**Padrões de fundo:** glifos SVG pequenos e discretos (15% de opacidade)
+repetidos em ladrilho de 200px, tingidos com a cor do negócio — discretos por
+design, sem atrapalhar a leitura. O cardápio e o checkout usam o mesmo fundo
+da página principal, mantendo tudo coerente.
+
+**Fallbacks seguros:** sem `appearance` → comportamento atual; sem `accent` →
+accent do tema; sem `background`/`type` errado/`pattern` inexistente → fundo
+sólido do tema; `accent` inválida → ignorada. Nenhuma configuração inválida
+quebra a página.
+
+Os negócios de demonstração mostram combinações diferentes: **Lancheria do Zé**
+(`vibrant` + vermelho + `fast-food`), **Barbearia do João** (`elegant` + azul
+-escuro + `barber`), **Clínica Bem Viver** (`clinic-clean` + verde +
+`minimal`), **Bella Moda** (`ocean-breeze` + amarelo, fundo sólido), **Salão
+da Rosa** (`rosa` + rosa, sólido) e **Estúdio Aurora** (só tema — caso
+fallback).
+
 ---
 
 ## 🧩 Módulos
@@ -207,12 +273,14 @@ O produto é pensado como **página do negócio + módulos**:
 ```
 Página do negócio
 ├── Identidade        (nome, descrição, logo)
+├── Ação principal    (🍔 Fazer pedido — módulo Cardápio, quando habilitado)
+├── Vitrine de ofertas (🔥 Ofertas de hoje — módulo Promoções, quando habilitado)
 ├── Links / ações     (WhatsApp, Instagram, Como chegar etc.)
 └── Módulos           (funcionalidades próprias do Orbia)
     ├── Cardápio      ✅ implementado (Etapa 3)
+    ├── Promoções     ✅ implementado (Etapa 4 — vitrine)
     ├── Agendamento   (configuração)
     ├── Catálogo      (configuração)
-    ├── Promoções     (configuração)
     └── etc.
 ```
 
@@ -354,12 +422,98 @@ a **Lancheria do Zé** tem um cardápio de demonstração completo (12 produtos 
 4 categorias); a **Barbearia do João** tem `menu.enabled: false` e o
 **Salão da Rosa** nem tem a chave `modules` — os três casos funcionam sem erro.
 
+### Módulo Promoções — Vitrine de ofertas (implementado)
+
+Quando um negócio declara:
+
+```json
+"modules": {
+  "promotions": { "enabled": true, "items": [ … ] }
+}
+```
+
+a página principal ganha a seção **🔥 Ofertas de hoje** entre a ação principal
+("Fazer pedido") e os links secundários. A promoção NÃO é uma lista de links
+nem uma segunda página: é uma **vitrine integrada ao cardápio**. Cada promoção
+aponta para um produto real via `product_id` — o produto continua sendo a fonte
+dos dados (nome, descrição, imagem) e a promoção só acrescenta os preços.
+
+**Regra da vitrine:**
+
+- Promoção com `featured: true` **e** imagem própria → vira um **banner em
+  destaque** com **PEDIR AGORA**.
+- Sem essa combinação (ou sem foto profissional) → todas as promoções usam o
+  **mesmo card horizontal do cardápio**, com `~~preço original~~` cortado e o
+  preço promocional em destaque — nada de banner vazio.
+- Clicar em uma promoção **abre o produto dentro do cardápio**: com opções abre
+  o *bottom sheet* de personalização; sem opções, adiciona direto ao carrinho
+  — o carrinho/checkout/WhatsApp são exatamente os mesmos do módulo menu.
+- O carrinho cobra o **preço promocional** (base da oferta + opções), e a
+  promoção em destaque é opcional: se não existir, só os cards aparecem.
+
+#### Estrutura de dados
+
+```json
+"modules": {
+  "promotions": {
+    "enabled": true,
+    "items": [
+      {
+        "id": "combo-da-casa",
+        "title": "Combo da Casa",
+        "description": "Xis + batata frita + refrigerante",
+        "image": "assets/promotions/combo-da-casa.svg",
+        "original_price": 42.9,
+        "price": 34.9,
+        "product_id": "combo-xis-fritas",
+        "featured": true
+      },
+      {
+        "id": "xis-bacon-promocao",
+        "title": "Xis Bacon",
+        "original_price": 29.9,
+        "price": 25.9,
+        "product_id": "xis-bacon",
+        "featured": false
+      }
+    ]
+  }
+}
+```
+
+**Campos da promoção:**
+
+| Campo            | Descrição                                                              |
+| ---------------- | ---------------------------------------------------------------------- |
+| `id`             | Identificador único da promoção                                        |
+| `title`          | Título (usado no banner em destaque)                                   |
+| `description`    | Descrição curta (usada no banner em destaque)                          |
+| `image`          | **Opcional.** Imagem própria da oferta (usada no banner)               |
+| `original_price` | **Opcional.** Preço antigo (cortado). Ausente = mostra só o promocional |
+| `price`          | Preço promocional cobrado (base da oferta + opções no carrinho)        |
+| `product_id`     | `id` do produto real no `modules.menu.products` (obrigatório)          |
+| `featured`       | `true` + imagem própria → vira o banner em destaque                    |
+
+**Regras de segurança:**
+
+- `enabled: false`, módulo ausente ou `items: []` → nada é renderizado
+  (sem título, sem espaço vazio, sem botão) — a página fica como antes.
+- `product_id` que não existe no cardápio → a promoção é **ignorada** com
+  segurança (nenhuma ação quebrada, nenhum erro fatal).
+- A vitrine exige o módulo menu habilitado (a ação abre o cardápio); sem ele,
+  nada é renderizado.
+
+A **Lancheria do Zé** demonstra o recurso: 1 oferta em destaque com imagem
+própria e 3 cards promocionais (com/sem preço antigo, com/sem opções no
+produto). Negócios sem o módulo (ex.: **Barbearia do João**, **Loja Bella
+Moda**) continuam sem nenhum vestígio de promoções.
+
 ### Módulos ainda como configuração
 
-`Agendamento`, `Catálogo`, `Promoções` etc. continuam existindo apenas como
-configuração (`{ "enabled": true|false }`) — nenhuma interface é renderizada
-até serem implementados. Eles entrarão no mesmo ponto de inserção já reservado
-na página, abaixo dos links/ações, sem reescrever o resto.
+`Agendamento` e `Catálogo` continuam existindo apenas como configuração
+(`{ "enabled": true|false }`) — nenhuma interface é renderizada até serem
+implementados. Eles entrarão no mesmo ponto de inserção já reservado na
+página, sem reescrever o resto.
 
 > Regra da casa: **simplicidade > abstração**, **manutenção fácil >
 > arquitetura complexa**, **MVP funcional > funcionalidades desnecessárias**,

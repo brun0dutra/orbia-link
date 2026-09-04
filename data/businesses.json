@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "businesses": [
     {
       "slug": "lancheria-do-ze",
@@ -9,7 +9,12 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "dark-modern"
+        "theme": "vibrant",
+        "accent": "#E63946",
+        "background": {
+          "type": "pattern",
+          "pattern": "fast-food"
+        }
       },
       "links": [
         {
@@ -309,7 +314,45 @@
           ]
         },
         "promotions": {
-          "enabled": false
+          "enabled": true,
+          "items": [
+            {
+              "id": "combo-da-casa",
+              "title": "Combo da Casa",
+              "description": "Xis + batata frita + refrigerante",
+              "image": "https://i.ytimg.com/vi/UcUt_orc1XA/maxresdefault.jpg",
+              "original_price": 42.9,
+              "price": 34.9,
+              "product_id": "combo-xis-fritas",
+              "featured": true
+            },
+            {
+              "id": "xis-bacon-promocao",
+              "title": "Xis Bacon",
+              "description": "Pão, carne, queijo, bacon e salada",
+              "original_price": 29.9,
+              "price": 15.9,
+              "product_id": "xis-bacon",
+              "featured": false
+            },
+            {
+              "id": "frango-promocao",
+              "title": "Frango a Passarinho",
+              "description": "Porção generosa de frango frito",
+              "price": 19.9,
+              "product_id": "frango-passarinho",
+              "featured": false
+            },
+            {
+              "id": "batata-promocao",
+              "title": "Batata Frita",
+              "description": "Porção crocante com molho especial",
+              "original_price": 15.0,
+              "price": 11.9,
+              "product_id": "batata-frita",
+              "featured": false
+            }
+          ]
         }
       }
     },
@@ -321,7 +364,12 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "midnight-purple"
+        "theme": "elegant",
+        "accent": "#1e3a8a",
+        "background": {
+          "type": "pattern",
+          "pattern": "barber"
+        }
       },
       "links": [
         {
@@ -367,7 +415,12 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "clinic-clean"
+        "theme": "clinic-clean",
+        "accent": "#059669",
+        "background": {
+          "type": "pattern",
+          "pattern": "minimal"
+        }
       },
       "links": [
         {
@@ -410,7 +463,11 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "ocean-breeze"
+        "theme": "ocean-breeze",
+        "accent": "#f59e0b",
+        "background": {
+          "type": "solid"
+        }
       },
       "links": [
         {
@@ -499,7 +556,11 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "rosa"
+        "theme": "rosa",
+        "accent": "#ec4899",
+        "background": {
+          "type": "solid"
+        }
       },
       "links": [
         {
