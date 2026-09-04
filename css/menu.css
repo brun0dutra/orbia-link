@@ -1,0 +1,1043 @@
+/* ==========================================================================
+   Orbia Link — css/menu.css
+   Módulo Cardápio e Pedidos (Etapa 3).
+
+   Esta folha NÃO define cores próprias: consome as variáveis dos temas
+   (--bg, --text-1/2, --accent, --surface, --surface-border, --panel,
+   --mono-bg, --btn-*) definidas em css/themes.css / fallback do base.css.
+   Assim o cardápio, o carrinho e o checkout herdam automaticamente o tema
+   do negócio, sem duplicar estrutura por tema.
+   ========================================================================== */
+
+/* ---------- Raiz do módulo (tela cheia sobre a página) ---------- */
+
+.m-app {
+  --divider: color-mix(in srgb, var(--text-1) 10%, transparent);
+  --tint: color-mix(in srgb, var(--text-1) 7%, transparent);
+  --tint-soft: color-mix(in srgb, var(--text-1) 4%, transparent);
+
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font);
+  overflow: hidden;
+}
+
+.m-inner {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ---------- Barra superior ---------- */
+
+.m-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px 8px;
+}
+
+.m-iconbtn {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--surface-border);
+  background: var(--tint);
+  color: var(--text-1);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-iconbtn:hover {
+  background: var(--tint-soft);
+  transform: scale(1.04);
+}
+
+.m-iconbtn:active {
+  transform: scale(0.96);
+}
+
+.m-iconbtn:focus-visible,
+.m-btn:focus-visible,
+.m-add:focus-visible,
+.m-cat:focus-visible,
+.m-opt:focus-within .m-opt__box,
+.m-pick:focus-visible,
+.m-field:focus-visible,
+.m-stepper__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.m-bar__brand {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.m-brand__ava {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mono-bg);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.m-brand__names {
+  min-width: 0;
+  flex: 1;
+}
+
+.m-brand__name {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.m-brand__sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-2);
+}
+
+/* ---------- Categorias (chips horizontais, sempre visíveis) ---------- */
+
+.m-cats {
+  display: flex;
+  gap: 8px;
+  padding: 4px 14px 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: none;
+}
+
+.m-cats::-webkit-scrollbar {
+  display: none;
+}
+
+.m-cat {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
+  background: var(--tint);
+  color: var(--text-1);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-cat.is-active {
+  background: var(--mono-bg);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ---------- Área rolável do cardápio ---------- */
+
+.m-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 2px 0 96px;
+}
+
+.m-sec {
+  padding: 0 14px;
+  margin-top: 16px;
+}
+
+.m-sec__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 0 4px;
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.m-sec__emoji {
+  font-size: 1rem;
+}
+
+.m-sec__count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+/* ---------- Produto ---------- */
+
+.m-prod {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 13px 14px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.m-prod__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-prod__name {
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.m-prod__desc {
+  margin-top: 3px;
+  color: var(--text-2);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.m-prod__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 9px;
+}
+
+.m-prod__price {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.m-add {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: var(--mono-bg);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
+  transition: transform 0.15s ease, filter 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-add:hover {
+  transform: scale(1.08);
+  filter: brightness(1.06);
+}
+
+.m-add:active {
+  transform: scale(0.94);
+}
+
+.m-prod__img {
+  width: 86px;
+  height: 86px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ---------- Botões genéricos ---------- */
+
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: filter 0.15s ease, transform 0.15s ease, background 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-btn--block {
+  width: 100%;
+}
+
+.m-btn--primary {
+  background: var(--mono-bg);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+.m-btn--primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.m-btn--primary:active {
+  transform: translateY(0);
+}
+
+.m-btn--primary:disabled {
+  filter: grayscale(0.5) brightness(0.75);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.m-btn--ghost {
+  background: var(--tint);
+  border-color: var(--surface-border);
+  color: var(--text-1);
+}
+
+.m-btn--ghost:hover {
+  background: var(--tint-soft);
+}
+
+.m-btn--mini {
+  min-height: 36px;
+  padding: 7px 13px;
+  font-size: 0.82rem;
+  border-radius: 999px;
+}
+
+.m-btn--danger {
+  color: #ef4444;
+  background: transparent;
+}
+
+.m-btn--danger:hover {
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+}
+
+/* ---------- Stepper de quantidade ---------- */
+
+.m-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: var(--tint-soft);
+  padding: 3px;
+}
+
+.m-stepper__btn {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-1);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-stepper__btn:hover {
+  background: var(--tint);
+}
+
+.m-stepper__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+.m-stepper__n {
+  min-width: 34px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+/* ---------- Barra fixa inferior (carrinho / continuar) ---------- */
+
+.m-cartbar,
+.m-ctabar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 70;
+  pointer-events: none;
+  padding: 0 14px calc(10px + env(safe-area-inset-bottom));
+}
+
+.m-cartbar__inner,
+.m-ctabar__inner {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 552px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--surface-border);
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+  padding: 12px 12px 12px 18px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.m-cartbar__txt {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-cartbar__count {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-2);
+  line-height: 1.3;
+}
+
+.m-cartbar__amt {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.m-cartbar__btn {
+  flex: none;
+}
+
+/* ---------- Tela genérica (carrinho / checkout) ---------- */
+
+.m-screen {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 14px 110px;
+}
+
+.m-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  padding: 6px 4px 0;
+}
+
+.m-sub {
+  color: var(--text-2);
+  font-size: 0.86rem;
+  padding: 4px 4px 12px;
+}
+
+/* ---------- Item do carrinho ---------- */
+
+.m-item {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 13px 15px;
+  margin-bottom: 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.m-item__top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.m-item__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.m-item__price {
+  flex: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.m-item__cfg {
+  margin-top: 6px;
+  color: var(--text-2);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.m-item__cfg-line {
+  display: block;
+}
+
+.m-item__bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 11px;
+}
+
+.m-item__bar .m-stepper {
+  margin-right: auto;
+}
+
+/* ---------- Vazio ---------- */
+
+.m-empty {
+  text-align: center;
+  color: var(--text-2);
+  padding: 44px 20px;
+  font-size: 0.92rem;
+}
+
+.m-empty__glyph {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+/* ---------- Bottom sheet do produto ---------- */
+
+.m-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.m-sheet {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 81;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 580px;
+  max-height: min(90svh, 780px);
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -16px 50px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.m-sheet__handle {
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--divider);
+  margin: 10px auto 2px;
+  flex: none;
+}
+
+.m-sheet__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px 10px;
+  flex: none;
+}
+
+.m-sheet__title {
+  flex: 1;
+  min-width: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.m-sheet__img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  flex: none;
+}
+
+.m-sheet__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 18px 4px;
+}
+
+.m-sheet__name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.m-sheet__desc {
+  margin-top: 4px;
+  color: var(--text-2);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.m-sheet__price {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* grupos de opções */
+
+.m-grp {
+  margin-top: 18px;
+}
+
+.m-grp__head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.m-grp__name {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.m-grp__hint {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.m-grp__hint.is-err {
+  color: #ef4444;
+}
+
+.m-opt {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 2px;
+  border-bottom: 1px solid var(--divider);
+  cursor: pointer;
+}
+
+.m-opt:last-of-type {
+  border-bottom: none;
+}
+
+.m-opt__inp {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.m-opt__box {
+  width: 23px;
+  height: 23px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--text-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.m-opt__box::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--mono-bg);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.m-opt__inp:checked ~ .m-opt__box {
+  border-color: var(--accent);
+}
+
+.m-opt__inp:checked ~ .m-opt__box::after {
+  opacity: 1;
+}
+
+.m-opt.is-locked {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.m-opt__name {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.m-opt__price {
+  flex: none;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+/* observação */
+
+.m-field-label {
+  display: block;
+  margin-top: 18px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.m-field {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--surface-border);
+  background: var(--tint);
+  color: var(--text-1);
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.m-field::placeholder {
+  color: var(--text-2);
+  opacity: 0.75;
+}
+
+textarea.m-field {
+  resize: none;
+}
+
+.m-sheet__foot {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px calc(14px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--divider);
+}
+
+.m-sheet__foot .m-btn {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Checkout ---------- */
+
+.m-step-intro {
+  color: var(--text-2);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.m-pick {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 15px 16px;
+  margin-bottom: 10px;
+  background: var(--tint-soft);
+  border: 1.5px solid var(--surface-border);
+  border-radius: 16px;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text-1);
+  text-align: left;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  touch-action: manipulation;
+}
+
+.m-pick:hover {
+  background: var(--tint);
+}
+
+.m-pick.is-on {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.m-pick__radio {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--text-2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+}
+
+.m-pick.is-on .m-pick__radio {
+  border-color: var(--accent);
+}
+
+.m-pick__radio::after {
+  content: "";
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.m-pick.is-on .m-pick__radio::after {
+  opacity: 1;
+}
+
+.m-pick__glyph {
+  font-size: 1.35rem;
+  flex: none;
+  line-height: 1;
+}
+
+.m-pick__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-pick__label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.m-pick__meta {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-2);
+  margin-top: 1px;
+}
+
+.m-fieldgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 12px;
+}
+
+.m-err {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ef4444;
+}
+
+/* troco (condicional) */
+
+.m-troco {
+  margin-top: 6px;
+}
+
+/* ---------- Resumo ---------- */
+
+.m-sum {
+  margin-top: 4px;
+}
+
+.m-sum__card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  padding: 6px 16px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.m-sum__row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+}
+
+.m-sum__row + .m-sum__row {
+  border-top: 1px solid var(--divider);
+}
+
+.m-sum__glyph {
+  flex: none;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.m-sum__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.m-sum__line {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.m-sum__cfg {
+  font-size: 0.78rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.m-sum__amt {
+  flex: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.m-sum__meta {
+  font-size: 0.82rem;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.m-sum__meta strong {
+  color: var(--text-1);
+}
+
+.m-sum__totals {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 0 6px;
+  border-top: 1px dashed var(--divider);
+  margin-top: 2px;
+}
+
+.m-sum__total-label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.m-sum__total {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+/* ---------- Botão principal do módulo na página do negócio ---------- */
+/* Fica no TOPO das ações com o MESMO tamanho dos demais botões (.action):
+   o fundo em gradiente apenas destaca que é a ação principal. */
+
+.action--cta {
+  background: var(--mono-bg);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  /* <button> usa line-height/font próprios do navegador por padrão; herdar
+     garante EXATAMENTE o mesmo tamanho dos outros botões (.action). */
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.action--cta:hover {
+  background: var(--mono-bg);
+  filter: brightness(1.08);
+}
+
+/* ---------- Responsivo (ajustes finos) ---------- */
+
+@media (min-width: 640px) {
+  .m-sheet {
+    border-radius: 24px;
+    bottom: 24px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+  }
+
+  .m-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .m-cats,
+  .m-sec {
+    max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .m-screen {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .m-app *,
+  .m-app *::before,
+  .m-app *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

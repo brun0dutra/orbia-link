@@ -1,7 +1,10 @@
-__pycache__/
-*.py[cod]
-*.egg-info/
-.env
+# Dependências / ambientes
+node_modules/
 venv/
 .venv/
-*.local
+__pycache__/
+
+# Arquivos de ambiente e OS
+.env
+.DS_Store
+Thumbs.db

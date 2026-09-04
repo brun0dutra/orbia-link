@@ -1,9 +1,0 @@
-services:
-  app:
-    build: .
-    container_name: orbia-link
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./data:/app/data
-    restart: unless-stopped

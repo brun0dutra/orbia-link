@@ -1,0 +1,528 @@
+{
+  "version": 3,
+  "businesses": [
+    {
+      "slug": "lancheria-do-ze",
+      "business": {
+        "name": "Lancheria do Zé",
+        "description": "Os melhores lanches da cidade, feitos com ingredientes frescos todos os dias.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "dark-modern"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990001"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/lancheriadoze"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Lancheria+do+Ze"
+        },
+        {
+          "type": "phone",
+          "label": "Telefone",
+          "url": "tel:+554833330001"
+        },
+        {
+          "type": "website",
+          "label": "Site",
+          "url": "https://lancheriadoze.example.com"
+        }
+      ],
+      "modules": {
+        "menu": {
+          "enabled": true,
+          "whatsapp": "5548999990001",
+          "settings": {
+            "delivery": true,
+            "pickup": true,
+            "payment_methods": ["pix", "cash", "card"]
+          },
+          "categories": [
+            { "id": "lanches", "name": "Lanches", "emoji": "🍔" },
+            { "id": "combos", "name": "Combos", "emoji": "🍱" },
+            { "id": "porcoes", "name": "Porções", "emoji": "🍟" },
+            { "id": "bebidas", "name": "Bebidas", "emoji": "🥤" }
+          ],
+          "products": [
+            {
+              "id": "xis-salada",
+              "category": "lanches",
+              "name": "Xis Salada",
+              "description": "Pão, carne, queijo, alface e tomate.",
+              "price": 22.9,
+              "image": "",
+              "allow_note": true,
+              "options": []
+            },
+            {
+              "id": "xis-bacon",
+              "category": "lanches",
+              "name": "Xis Bacon",
+              "description": "Pão, carne, queijo, bacon, alface e tomate.",
+              "price": 25.9,
+              "image": "assets/products/xis-bacon.svg",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Adicionais",
+                  "min": 0,
+                  "max": 4,
+                  "items": [
+                    { "name": "Bacon", "price": 5.0 },
+                    { "name": "Queijo", "price": 3.0 },
+                    { "name": "Ovo", "price": 2.0 },
+                    { "name": "Calabresa", "price": 4.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "xis-frango",
+              "category": "lanches",
+              "name": "Xis Frango",
+              "description": "Pão, frango desfiado, queijo, milho e catupiry.",
+              "price": 24.9,
+              "image": "",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Adicionais",
+                  "min": 0,
+                  "max": 3,
+                  "items": [
+                    { "name": "Queijo", "price": 3.0 },
+                    { "name": "Bacon", "price": 5.0 },
+                    { "name": "Catupiry extra", "price": 4.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "xis-da-casa",
+              "category": "lanches",
+              "name": "Xis da Casa",
+              "description": "O favorito da casa: carne dupla, queijo e ovo, com escolha de pão.",
+              "price": 28.9,
+              "image": "",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Escolha o pão",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "Pão Australiano", "price": 0.0 },
+                    { "name": "Pão Brioche", "price": 2.0 },
+                    { "name": "Pão Integral", "price": 0.0 }
+                  ]
+                },
+                {
+                  "name": "Adicionais",
+                  "min": 0,
+                  "max": 3,
+                  "items": [
+                    { "name": "Bacon", "price": 5.0 },
+                    { "name": "Queijo", "price": 3.0 },
+                    { "name": "Ovo", "price": 2.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "combo-xis-fritas",
+              "category": "combos",
+              "name": "Combo Xis + Fritas",
+              "description": "Xis à sua escolha, batata frita e refrigerante lata.",
+              "price": 34.9,
+              "image": "assets/products/combo-xis-fritas.svg",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Tamanho da batata",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "Pequena", "price": 0.0 },
+                    { "name": "Média", "price": 4.0 },
+                    { "name": "Grande", "price": 7.0 }
+                  ]
+                },
+                {
+                  "name": "Escolha o lanche",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "Xis Salada", "price": 0.0 },
+                    { "name": "Xis Bacon", "price": 3.0 },
+                    { "name": "Xis Frango", "price": 2.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "combo-casal",
+              "category": "combos",
+              "name": "Combo Casal",
+              "description": "2 xis à sua escolha + batata grande + 2 refrigerantes.",
+              "price": 59.9,
+              "image": "",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Escolha os 2 lanches",
+                  "min": 2,
+                  "max": 2,
+                  "items": [
+                    { "name": "Xis Salada", "price": 0.0 },
+                    { "name": "Xis Bacon", "price": 0.0 },
+                    { "name": "Xis Frango", "price": 0.0 },
+                    { "name": "Xis da Casa", "price": 4.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "batata-frita",
+              "category": "porcoes",
+              "name": "Batata Frita",
+              "description": "Porção de batata frita crocante.",
+              "price": 18.9,
+              "image": "assets/products/batata-frita.svg",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Adicionais",
+                  "min": 0,
+                  "max": 4,
+                  "items": [
+                    { "name": "Bacon", "price": 6.0 },
+                    { "name": "Queijo", "price": 5.0 },
+                    { "name": "Cheddar", "price": 5.0 },
+                    { "name": "Catupiry", "price": 6.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "tabua-mista",
+              "category": "porcoes",
+              "name": "Tábua Mista",
+              "description": "Tábua de frios e fatiados para compartilhar.",
+              "price": 49.9,
+              "image": "",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Escolha até 2 sabores",
+                  "min": 1,
+                  "max": 2,
+                  "items": [
+                    { "name": "Calabresa", "price": 0.0 },
+                    { "name": "Frango", "price": 0.0 },
+                    { "name": "Bacon", "price": 5.0 },
+                    { "name": "Queijo", "price": 3.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "frango-passarinho",
+              "category": "porcoes",
+              "name": "Frango a Passarinho",
+              "description": "Porção generosa de frango frito temperado.",
+              "price": 24.9,
+              "image": "",
+              "allow_note": true,
+              "options": []
+            },
+            {
+              "id": "refrigerante-lata",
+              "category": "bebidas",
+              "name": "Refrigerante Lata",
+              "description": "Lata 350ml gelada.",
+              "price": 6.0,
+              "image": "",
+              "allow_note": false,
+              "options": [
+                {
+                  "name": "Escolha o sabor",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "Coca-Cola", "price": 0.0 },
+                    { "name": "Guaraná", "price": 0.0 },
+                    { "name": "Fanta Laranja", "price": 0.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "suco-natural",
+              "category": "bebidas",
+              "name": "Suco Natural",
+              "description": "Suco feito na hora, sem açúcar.",
+              "price": 8.0,
+              "image": "",
+              "allow_note": true,
+              "options": [
+                {
+                  "name": "Sabor",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "Laranja", "price": 0.0 },
+                    { "name": "Abacaxi", "price": 0.0 },
+                    { "name": "Limão", "price": 0.0 }
+                  ]
+                },
+                {
+                  "name": "Tamanho",
+                  "min": 1,
+                  "max": 1,
+                  "items": [
+                    { "name": "300ml", "price": 0.0 },
+                    { "name": "500ml", "price": 3.0 }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "agua-mineral",
+              "category": "bebidas",
+              "name": "Água Mineral",
+              "description": "Garrafa 500ml.",
+              "price": 4.0,
+              "image": "",
+              "allow_note": false,
+              "options": []
+            }
+          ]
+        },
+        "promotions": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "slug": "barbearia-do-joao",
+      "business": {
+        "name": "Barbearia do João",
+        "description": "Cortes modernos, barba na régua e aquele atendimento de sempre.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "midnight-purple"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990002"
+        },
+        {
+          "type": "booking",
+          "label": "Agendar horário",
+          "url": "https://wa.me/5548999990002?text=Quero%20agendar%20um%20horario"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/barbeariadojoao"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Barbearia+do+Joao"
+        },
+        {
+          "type": "phone",
+          "label": "Telefone",
+          "url": "tel:+554833330002"
+        }
+      ],
+      "modules": {
+        "menu": {
+          "enabled": false
+        },
+        "booking": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "slug": "clinica-bem-viver",
+      "business": {
+        "name": "Clínica Bem Viver",
+        "description": "Saúde e bem-estar com atendimento humanizado e especialistas dedicados.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "clinic-clean"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990003"
+        },
+        {
+          "type": "booking",
+          "label": "Agendar consulta",
+          "url": "https://wa.me/5548999990003?text=Quero%20agendar%20uma%20consulta"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/clinicabemviver"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Clinica+Bem+Viver"
+        },
+        {
+          "type": "website",
+          "label": "Site",
+          "url": "https://clinicabemviver.example.com"
+        }
+      ],
+      "modules": {
+        "booking": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "slug": "loja-bella-moda",
+      "business": {
+        "name": "Bella Moda",
+        "description": "Moda feminina com estilo, novidades toda semana e preço justo.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "ocean-breeze"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990004"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/bellamoda"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Bella+Moda"
+        },
+        {
+          "type": "phone",
+          "label": "Telefone",
+          "url": "tel:+554833330004"
+        },
+        {
+          "type": "website",
+          "label": "Site",
+          "url": "https://bellamoda.example.com"
+        }
+      ],
+      "modules": {
+        "catalog": {
+          "enabled": false
+        },
+        "promotions": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "slug": "estudio-foto-aurora",
+      "business": {
+        "name": "Estúdio Aurora",
+        "description": "Fotografia profissional para casamentos, ensaios e eventos especiais.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "sunset-glow"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990005"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/estudioaurora"
+        },
+        {
+          "type": "booking",
+          "label": "Agendar ensaio",
+          "url": "https://wa.me/5548999990005?text=Quero%20agendar%20um%20ensaio"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Estudio+Aurora"
+        },
+        {
+          "type": "website",
+          "label": "Portfólio",
+          "url": "https://estudioaurora.example.com"
+        }
+      ],
+      "modules": {
+        "booking": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "slug": "salao-da-rosa",
+      "business": {
+        "name": "Salão da Rosa",
+        "description": "Cabelo, unhas e beleza. Transforme seu visual com quem entende.",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "rosa"
+      },
+      "links": [
+        {
+          "type": "whatsapp",
+          "label": "WhatsApp",
+          "url": "https://wa.me/5548999990006"
+        },
+        {
+          "type": "instagram",
+          "label": "Instagram",
+          "url": "https://instagram.com/salaodarosa"
+        },
+        {
+          "type": "maps",
+          "label": "Como chegar",
+          "url": "https://www.google.com/maps/search/?api=1&query=Salao+da+Rosa"
+        },
+        {
+          "type": "phone",
+          "label": "Telefone",
+          "url": "tel:+554833330006"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Orbia Link — css/themes.css
+   Temas visuais. Cada tema é APENAS um conjunto de variáveis CSS.
+   A estrutura da página é única (css/base.css) e nunca precisa mudar
+   quando um tema novo é criado.
+
+   Para adicionar um novo tema:
+     1. Copie um bloco [data-theme="..."] abaixo e troque o nome/cores.
+     2. Use esse mesmo nome em data/businesses.json -> appearance.theme.
+
+   Temas disponíveis: dark-modern, clinic-clean, midnight-purple,
+   ocean-breeze, sunset-glow, rosa
+   ========================================================================== */
+
+/* ---------- dark-modern ---------- */
+[data-theme="dark-modern"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(160deg, #0f0f0f 0%, #14142b 55%, #111a33 100%);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --panel: rgba(22, 23, 31, 0.94);
+  --blur: 18px;
+  --radius: 26px;
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+
+  --text-1: #f5f6fa;
+  --text-2: rgba(245, 246, 250, 0.66);
+  --accent: #818cf8;
+  --mono-bg: linear-gradient(135deg, #6366f1, #a855f7);
+
+  --btn-bg: rgba(255, 255, 255, 0.09);
+  --btn-bg-hover: rgba(255, 255, 255, 0.17);
+  --btn-color: #f5f6fa;
+  --btn-border: rgba(255, 255, 255, 0.12);
+  --btn-radius: 16px;
+
+  --glow-a: rgba(99, 102, 241, 0.35);
+  --glow-b: rgba(14, 165, 233, 0.22);
+}
+
+/* ---------- clinic-clean ---------- */
+[data-theme="clinic-clean"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(165deg, #ecf7ee 0%, #d9eedd 60%, #c2e4cb 100%);
+  --surface: rgba(255, 255, 255, 0.85);
+  --surface-border: rgba(255, 255, 255, 0.9);
+  --panel: rgba(255, 255, 255, 0.94);
+  --blur: 14px;
+  --radius: 28px;
+  --card-shadow: 0 18px 50px rgba(20, 83, 45, 0.14);
+
+  --text-1: #123f26;
+  --text-2: #3e6b4e;
+  --accent: #1e7a45;
+  --mono-bg: linear-gradient(135deg, #3aa968, #1e7a45);
+
+  --btn-bg: #227a45;
+  --btn-bg-hover: #1a6137;
+  --btn-color: #ffffff;
+  --btn-border: transparent;
+  --btn-radius: 999px;
+
+  --glow-a: rgba(255, 255, 255, 0.8);
+  --glow-b: rgba(58, 169, 104, 0.28);
+}
+
+/* ---------- midnight-purple ---------- */
+[data-theme="midnight-purple"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(165deg, #0e0a1c 0%, #1b1244 55%, #10182f 100%);
+  --surface: rgba(22, 16, 48, 0.6);
+  --surface-border: rgba(129, 140, 248, 0.24);
+  --panel: rgba(24, 18, 46, 0.95);
+  --blur: 20px;
+  --radius: 26px;
+  --card-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+
+  --text-1: #eeeafc;
+  --text-2: rgba(238, 234, 252, 0.62);
+  --accent: #a5b4fc;
+  --mono-bg: linear-gradient(135deg, #818cf8, #8b5cf6);
+
+  --btn-bg: linear-gradient(135deg, #6d5df6, #5a46e8);
+  --btn-bg-hover: linear-gradient(135deg, #8273ff, #6d5df6);
+  --btn-color: #ffffff;
+  --btn-border: rgba(255, 255, 255, 0.12);
+  --btn-radius: 14px;
+
+  --glow-a: rgba(129, 140, 248, 0.4);
+  --glow-b: rgba(139, 92, 246, 0.3);
+}
+
+/* ---------- ocean-breeze ---------- */
+[data-theme="ocean-breeze"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(165deg, #e7f5fe 0%, #cdeafb 55%, #9edcf9 100%);
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-border: rgba(255, 255, 255, 0.95);
+  --panel: rgba(255, 255, 255, 0.94);
+  --blur: 16px;
+  --radius: 30px;
+  --card-shadow: 0 20px 55px rgba(12, 74, 110, 0.16);
+
+  --text-1: #0b3a55;
+  --text-2: #2f6d90;
+  --accent: #0284c7;
+  --mono-bg: linear-gradient(135deg, #22b3f0, #0284c7);
+
+  --btn-bg: linear-gradient(135deg, #14a9e0, #0284c7);
+  --btn-bg-hover: linear-gradient(135deg, #3cb9e8, #14a9e0);
+  --btn-color: #ffffff;
+  --btn-border: transparent;
+  --btn-radius: 999px;
+
+  --glow-a: rgba(255, 255, 255, 0.9);
+  --glow-b: rgba(2, 132, 199, 0.25);
+}
+
+/* ---------- sunset-glow ---------- */
+[data-theme="sunset-glow"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(165deg, #1c0b2c 0%, #3c1a52 45%, #7a2d6e 80%, #b1455f 100%);
+  --surface: rgba(28, 11, 44, 0.55);
+  --surface-border: rgba(255, 255, 255, 0.16);
+  --panel: rgba(34, 14, 46, 0.95);
+  --blur: 20px;
+  --radius: 28px;
+  --card-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+
+  --text-1: #fdf4ff;
+  --text-2: rgba(253, 244, 255, 0.66);
+  --accent: #f0abfc;
+  --mono-bg: linear-gradient(135deg, #f472b6, #c084fc);
+
+  --btn-bg: linear-gradient(135deg, #fd6fa9, #c05299);
+  --btn-bg-hover: linear-gradient(135deg, #ff8fbd, #d968ad);
+  --btn-color: #ffffff;
+  --btn-border: rgba(255, 255, 255, 0.16);
+  --btn-radius: 18px;
+
+  --glow-a: rgba(244, 114, 182, 0.4);
+  --glow-b: rgba(192, 132, 252, 0.35);
+}
+
+/* ---------- rosa ---------- */
+[data-theme="rosa"] {
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --bg: linear-gradient(160deg, #0e0e13 0%, #1c1320 55%, #2a1420 100%);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-border: rgba(255, 79, 163, 0.35);
+  --panel: rgba(27, 15, 24, 0.95);
+  --blur: 18px;
+  --radius: 30px;
+  --card-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  --text-1: #fff5fb;
+  --text-2: rgba(255, 245, 251, 0.64);
+  --accent: #f472b6;
+  --mono-bg: linear-gradient(135deg, #f472b6, #db2777);
+
+  --btn-bg: linear-gradient(135deg, #ff4fa3, #d63384);
+  --btn-bg-hover: linear-gradient(135deg, #ff70b5, #e14d93);
+  --btn-color: #ffffff;
+  --btn-border: rgba(255, 255, 255, 0.14);
+  --btn-radius: 999px;
+
+  --glow-a: rgba(244, 114, 182, 0.32);
+  --glow-b: rgba(219, 39, 119, 0.24);
+}
