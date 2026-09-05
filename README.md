@@ -238,7 +238,7 @@ criar um tema novo por cor e sem interface de edição:
 | `theme`                  | Estilo geral da página (veja a tabela acima). Obrigatório? Não — sem ele, usa `dark-modern` |
 | `accent`                 | **Uma** cor principal (hex `#RGB` ou `#RRGGBB`). O Orbia deriva sozinho: texto com contraste, hover, fundo suave e o gradiente dos botões |
 | `background.type`        | `solid` (fundo do tema) ou `pattern` (textura discreta repetida)       |
-| `background.pattern`     | Nome do padrão: `fast-food`, `coffee`, `pizza`, `barber`, `minimal`    |
+| `background.pattern`     | Nome do padrão: `fast-food`, `coffee`, `pizza`, `barber`, `bamboo`, `minimal` |
 
 **Como a cor é aplicada (tokens):** a cor escolhida alimenta um único sistema
 de variáveis — `--accent`, `--accent-hover`, `--accent-soft`,
@@ -261,7 +261,7 @@ Os negócios de demonstração mostram combinações diferentes: **Lancheria do 
 (`vibrant` + vermelho + `fast-food`), **Barbearia do João** (`elegant` + azul
 -escuro + `barber`), **Clínica Bem Viver** (`clinic-clean` + verde +
 `minimal`), **Bella Moda** (`ocean-breeze` + amarelo, fundo sólido), **Salão
-da Rosa** (`rosa` + rosa, sólido) e **Estúdio Aurora** (só tema — caso
+da Rosa** (`rosa` + rosa + `bamboo`) e **Estúdio Aurora** (só tema — caso
 fallback).
 
 ---

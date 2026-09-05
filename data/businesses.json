@@ -10,10 +10,10 @@
       },
       "appearance": {
         "theme": "vibrant",
-        "accent": "#E63946",
+        "accent": "#325714",
         "background": {
           "type": "pattern",
-          "pattern": "fast-food"
+          "pattern": "bamboo"
         }
       },
       "links": [
@@ -559,7 +559,8 @@
         "theme": "rosa",
         "accent": "#ec4899",
         "background": {
-          "type": "solid"
+          "type": "pattern",
+          "pattern": "bamboo"
         }
       },
       "links": [

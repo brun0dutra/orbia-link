@@ -209,6 +209,16 @@
         '<circle cx="6.5" cy="6.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/>' +
         '<path d="M8.3 8.3l7.4 7.4"/><path d="M15.7 8.3l-7.4 7.4"/>',
     },
+    bamboo: {
+      glyph:
+        // duas hastes com nós (articulações) e folhas finas
+        '<path d="M7 21.5c0-4.5.4-8.2 1.7-11.6"/>' +
+        '<path d="M17.5 21.5c0-4.5-.4-8.2-1.7-11.6"/>' +
+        '<path d="M5.3 17h3.4"/><path d="M5.7 12.6h2.6"/><path d="M6.2 8.9h2"/>' +
+        '<path d="M15.3 17h3.4"/><path d="M15.7 12.6h2.6"/><path d="M16.2 8.9h2"/>' +
+        '<path d="M10.4 7.6c1.3-.9 3-1.2 4.6-.7"/>' +
+        '<path d="M10.8 9.3c1.3-.2 2.7.1 4 .9"/>',
+    },
     minimal: {
       glyph:
         '<circle cx="12" cy="12" r="1.7"/>' +
