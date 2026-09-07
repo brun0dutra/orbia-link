@@ -1,0 +1,48 @@
+{
+  "slug": "clinica-bem-viver",
+  "business": {
+    "name": "Clínica Bem Viver",
+    "description": "Saúde e bem-estar com atendimento humanizado e especialistas dedicados.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "clinic-clean",
+    "accent": "#059669",
+    "background": {
+      "type": "pattern",
+      "pattern": "minimal"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990003"
+    },
+    {
+      "type": "booking",
+      "label": "Agendar consulta",
+      "url": "https://wa.me/5548999990003?text=Quero%20agendar%20uma%20consulta"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/clinicabemviver"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Clinica+Bem+Viver"
+    },
+    {
+      "type": "website",
+      "label": "Site",
+      "url": "https://clinicabemviver.example.com"
+    }
+  ],
+  "modules": {
+    "booking": {
+      "enabled": false
+    }
+  }
+}

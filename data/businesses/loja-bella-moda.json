@@ -1,0 +1,50 @@
+{
+  "slug": "loja-bella-moda",
+  "business": {
+    "name": "Bella Moda",
+    "description": "Moda feminina com estilo, novidades toda semana e preço justo.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "ocean-breeze",
+    "accent": "#f59e0b",
+    "background": {
+      "type": "solid"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990004"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/bellamoda"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Bella+Moda"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:+554833330004"
+    },
+    {
+      "type": "website",
+      "label": "Site",
+      "url": "https://bellamoda.example.com"
+    }
+  ],
+  "modules": {
+    "catalog": {
+      "enabled": false
+    },
+    "promotions": {
+      "enabled": false
+    }
+  }
+}

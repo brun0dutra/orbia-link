@@ -1,0 +1,43 @@
+{
+  "slug": "estudio-foto-aurora",
+  "business": {
+    "name": "Estúdio Aurora",
+    "description": "Fotografia profissional para casamentos, ensaios e eventos especiais.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "sunset-glow"
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990005"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/estudioaurora"
+    },
+    {
+      "type": "booking",
+      "label": "Agendar ensaio",
+      "url": "https://wa.me/5548999990005?text=Quero%20agendar%20um%20ensaio"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Estudio+Aurora"
+    },
+    {
+      "type": "website",
+      "label": "Portfólio",
+      "url": "https://estudioaurora.example.com"
+    }
+  ],
+  "modules": {
+    "booking": {
+      "enabled": false
+    }
+  }
+}

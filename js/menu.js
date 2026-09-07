@@ -3,7 +3,7 @@
    Módulo Cardápio e Pedidos (Etapa 3).
 
    Renderiza a experiência "Fazer pedido" para negócios com
-   modules.menu.enabled === true em data/businesses.json:
+   modules.menu.enabled === true em data/businesses/<slug>.json:
 
      Página do negócio -> Cardápio -> Carrinho -> Checkout -> WhatsApp
 

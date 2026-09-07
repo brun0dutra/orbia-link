@@ -1,0 +1,51 @@
+{
+  "slug": "barbearia-do-joao",
+  "business": {
+    "name": "Barbearia do João",
+    "description": "Cortes modernos, barba na régua e aquele atendimento de sempre.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "elegant",
+    "accent": "#1e3a8a",
+    "background": {
+      "type": "pattern",
+      "pattern": "barber"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990002"
+    },
+    {
+      "type": "booking",
+      "label": "Agendar horário",
+      "url": "https://wa.me/5548999990002?text=Quero%20agendar%20um%20horario"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/barbeariadojoao"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Barbearia+do+Joao"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:+554833330002"
+    }
+  ],
+  "modules": {
+    "menu": {
+      "enabled": false
+    },
+    "booking": {
+      "enabled": false
+    }
+  }
+}

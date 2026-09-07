@@ -1,0 +1,65 @@
+{
+  "version": 4,
+  "businesses": [
+    {
+      "slug": "lancheria-do-ze",
+      "business": {
+        "name": "Lancheria do Zé",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "vibrant"
+      }
+    },
+    {
+      "slug": "barbearia-do-joao",
+      "business": {
+        "name": "Barbearia do João",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "elegant"
+      }
+    },
+    {
+      "slug": "clinica-bem-viver",
+      "business": {
+        "name": "Clínica Bem Viver",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "clinic-clean"
+      }
+    },
+    {
+      "slug": "loja-bella-moda",
+      "business": {
+        "name": "Bella Moda",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "ocean-breeze"
+      }
+    },
+    {
+      "slug": "estudio-foto-aurora",
+      "business": {
+        "name": "Estúdio Aurora",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "sunset-glow"
+      }
+    },
+    {
+      "slug": "salao-da-rosa",
+      "business": {
+        "name": "Salão da Rosa",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "rosa"
+      }
+    }
+  ]
+}

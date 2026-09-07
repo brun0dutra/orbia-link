@@ -1,0 +1,492 @@
+{
+  "slug": "lancheria-do-ze",
+  "business": {
+    "name": "Lancheria do Zé",
+    "description": "Os melhores lanches da cidade, feitos com ingredientes frescos todos os dias.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "vibrant",
+    "accent": "#325714",
+    "background": {
+      "type": "pattern",
+      "pattern": "bamboo"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990001"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/lancheriadoze"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Lancheria+do+Ze"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:+554833330001"
+    },
+    {
+      "type": "website",
+      "label": "Site",
+      "url": "https://lancheriadoze.example.com"
+    }
+  ],
+  "modules": {
+    "menu": {
+      "enabled": true,
+      "whatsapp": "5548999990001",
+      "settings": {
+        "delivery": true,
+        "pickup": true,
+        "payment_methods": [
+          "pix",
+          "cash",
+          "card"
+        ]
+      },
+      "categories": [
+        {
+          "id": "lanches",
+          "name": "Lanches",
+          "emoji": "🍔"
+        },
+        {
+          "id": "combos",
+          "name": "Combos",
+          "emoji": "🍱"
+        },
+        {
+          "id": "porcoes",
+          "name": "Porções",
+          "emoji": "🍟"
+        },
+        {
+          "id": "bebidas",
+          "name": "Bebidas",
+          "emoji": "🥤"
+        }
+      ],
+      "products": [
+        {
+          "id": "xis-salada",
+          "category": "lanches",
+          "name": "Xis Salada",
+          "description": "Pão, carne, queijo, alface e tomate.",
+          "price": 22.9,
+          "image": "assets/products/xis-bacon.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "xis-bacon",
+          "category": "lanches",
+          "name": "Xis Bacon",
+          "description": "Pão, carne, queijo, bacon, alface e tomate.",
+          "price": 25.9,
+          "image": "assets/products/xis-bacon.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 4,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 5
+                },
+                {
+                  "name": "Queijo",
+                  "price": 3
+                },
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-frango",
+          "category": "lanches",
+          "name": "Xis Frango",
+          "description": "Pão, frango desfiado, queijo, milho e catupiry.",
+          "price": 24.9,
+          "image": "assets/products/xis-bacon.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 3,
+              "items": [
+                {
+                  "name": "Queijo",
+                  "price": 3
+                },
+                {
+                  "name": "Bacon",
+                  "price": 5
+                },
+                {
+                  "name": "Catupiry extra",
+                  "price": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-da-casa",
+          "category": "lanches",
+          "name": "Xis da Casa",
+          "description": "O favorito da casa: carne dupla, queijo e ovo, com escolha de pão.",
+          "price": 28.9,
+          "image": "assets/products/xis-bacon.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Escolha o pão",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Pão Australiano",
+                  "price": 0
+                },
+                {
+                  "name": "Pão Brioche",
+                  "price": 2
+                },
+                {
+                  "name": "Pão Integral",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 3,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 5
+                },
+                {
+                  "name": "Queijo",
+                  "price": 3
+                },
+                {
+                  "name": "Ovo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "combo-xis-fritas",
+          "category": "combos",
+          "name": "Combo Xis + Fritas",
+          "description": "Xis à sua escolha, batata frita e refrigerante lata.",
+          "price": 34.9,
+          "image": "assets/products/combo-xis-fritas.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Tamanho da batata",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Pequena",
+                  "price": 0
+                },
+                {
+                  "name": "Média",
+                  "price": 4
+                },
+                {
+                  "name": "Grande",
+                  "price": 7
+                }
+              ]
+            },
+            {
+              "name": "Escolha o lanche",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Xis Salada",
+                  "price": 0
+                },
+                {
+                  "name": "Xis Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Xis Frango",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "combo-casal",
+          "category": "combos",
+          "name": "Combo Casal",
+          "description": "2 xis à sua escolha + batata grande + 2 refrigerantes.",
+          "price": 59.9,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Escolha os 2 lanches",
+              "min": 2,
+              "max": 2,
+              "items": [
+                {
+                  "name": "Xis Salada",
+                  "price": 0
+                },
+                {
+                  "name": "Xis Bacon",
+                  "price": 0
+                },
+                {
+                  "name": "Xis Frango",
+                  "price": 0
+                },
+                {
+                  "name": "Xis da Casa",
+                  "price": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "batata-frita",
+          "category": "porcoes",
+          "name": "Batata Frita",
+          "description": "Porção de batata frita crocante.",
+          "price": 18.9,
+          "image": "assets/products/batata-frita.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 4,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 6
+                },
+                {
+                  "name": "Queijo",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Catupiry",
+                  "price": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tabua-mista",
+          "category": "porcoes",
+          "name": "Tábua Mista",
+          "description": "Tábua de frios e fatiados para compartilhar.",
+          "price": 49.9,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Escolha até 2 sabores",
+              "min": 1,
+              "max": 2,
+              "items": [
+                {
+                  "name": "Calabresa",
+                  "price": 0
+                },
+                {
+                  "name": "Frango",
+                  "price": 0
+                },
+                {
+                  "name": "Bacon",
+                  "price": 5
+                },
+                {
+                  "name": "Queijo",
+                  "price": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "frango-passarinho",
+          "category": "porcoes",
+          "name": "Frango a Passarinho",
+          "description": "Porção generosa de frango frito temperado.",
+          "price": 24.9,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "refrigerante-lata",
+          "category": "bebidas",
+          "name": "Refrigerante Lata",
+          "description": "Lata 350ml gelada.",
+          "price": 6,
+          "image": "",
+          "allow_note": false,
+          "options": [
+            {
+              "name": "Escolha o sabor",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Coca-Cola",
+                  "price": 0
+                },
+                {
+                  "name": "Guaraná",
+                  "price": 0
+                },
+                {
+                  "name": "Fanta Laranja",
+                  "price": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "suco-natural",
+          "category": "bebidas",
+          "name": "Suco Natural",
+          "description": "Suco feito na hora, sem açúcar.",
+          "price": 8,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Sabor",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Laranja",
+                  "price": 0
+                },
+                {
+                  "name": "Abacaxi",
+                  "price": 0
+                },
+                {
+                  "name": "Limão",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "name": "Tamanho",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "300ml",
+                  "price": 0
+                },
+                {
+                  "name": "500ml",
+                  "price": 3
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "agua-mineral",
+          "category": "bebidas",
+          "name": "Água Mineral",
+          "description": "Garrafa 500ml.",
+          "price": 4,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        }
+      ]
+    },
+    "promotions": {
+      "enabled": true,
+      "items": [
+        {
+          "id": "combo-da-casa",
+          "title": "Combo da Casa",
+          "description": "Xis + batata frita + refrigerante",
+          "image": "https://i.ytimg.com/vi/UcUt_orc1XA/maxresdefault.jpg",
+          "original_price": 42.9,
+          "price": 34.9,
+          "product_id": "combo-xis-fritas",
+          "featured": true
+        },
+        {
+          "id": "xis-bacon-promocao",
+          "title": "Xis Bacon",
+          "description": "Pão, carne, queijo, bacon e salada",
+          "original_price": 29.9,
+          "price": 15.9,
+          "product_id": "xis-bacon",
+          "featured": false
+        },
+        {
+          "id": "frango-promocao",
+          "title": "Frango a Passarinho",
+          "description": "Porção generosa de frango frito",
+          "price": 19.9,
+          "product_id": "frango-passarinho",
+          "featured": false
+        },
+        {
+          "id": "batata-promocao",
+          "title": "Batata Frita",
+          "description": "Porção crocante com molho especial",
+          "original_price": 15,
+          "price": 11.9,
+          "product_id": "batata-frita",
+          "featured": false
+        }
+      ]
+    }
+  }
+}

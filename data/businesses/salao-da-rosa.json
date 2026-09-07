@@ -1,0 +1,38 @@
+{
+  "slug": "salao-da-rosa",
+  "business": {
+    "name": "Salão da Rosa",
+    "description": "Cabelo, unhas e beleza. Transforme seu visual com quem entende.",
+    "logo": ""
+  },
+  "appearance": {
+    "theme": "rosa",
+    "accent": "#ec4899",
+    "background": {
+      "type": "pattern",
+      "pattern": "bamboo"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990006"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/salaodarosa"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Salao+da+Rosa"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:+554833330006"
+    }
+  ]
+}

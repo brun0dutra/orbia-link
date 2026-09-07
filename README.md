@@ -35,7 +35,7 @@ orbia.link/lancheria-do-ze
 - **Mobile-first e rápida**: a experiência funciona muito bem no celular
 - **Temas controlados pelos dados** (`appearance.theme`) — uma única estrutura
   de página; temas alteram apenas cores, fundo, tipografia e botões
-- **Dados separados da interface** em `data/businesses.json`
+- **Dados separados da interface** em `data/businesses/<slug>.json` (1 arquivo por empresa)
 - **Módulos por negócio** (`modules`): o **Cardápio e Pedidos** já é funcional
   quando `modules.menu.enabled = true`:
   **Cardápio → personalização → carrinho → checkout → WhatsApp**
@@ -74,7 +74,8 @@ orbia-link/
 │   ├── menu.js         # Módulo Cardápio e Pedidos (tela + carrinho + checkout)
 │   └── promotions.js   # Módulo Promoções (vitrine na página principal)
 ├── data/
-│   └── businesses.json # Fonte de dados dos negócios (inclui cardápios e ofertas)
+│   ├── businesses/index.json   # Índice para a home (lista de negócios)
+│   └── businesses/<slug>.json  # Dados de cada empresa (inclui cardápios e ofertas)
 ├── assets/
 │   ├── products/       # Imagens de demonstração dos produtos
 │   └── promotions/     # Imagens de demonstração das ofertas
@@ -138,7 +139,8 @@ a partir do pathname.
 
 ## 📦 Como adicionar uma nova empresa
 
-Edite `data/businesses.json` e adicione um objeto no array `businesses`:
+Crie o arquivo `data/businesses/<slug>.json` (ex.: `data/businesses/lancheria-do-ze.json`)
+com o objeto da empresa — o mesmo formato abaixo, agora em um arquivo próprio:
 
 ```json
 {
@@ -162,6 +164,9 @@ Edite `data/businesses.json` e adicione um objeto no array `businesses`:
 }
 ```
 
+> Para a empresa aparecer na listagem da home, adicione a entrada correspondente
+> (slug, nome, logo, tema) no índice `data/businesses/index.json`.
+
 **Campos:**
 
 | Campo                  | Obrigatório | Descrição                                                              |
@@ -182,9 +187,11 @@ Edite `data/businesses.json` e adicione um objeto no array `businesses`:
 
 ### Como alterar os dados de uma empresa
 
-Basta editar o objeto dela no mesmo arquivo e commitar. Sem rebuild, sem
-servidor: a página carrega os dados no próximo acesso. Mantenha o campo `slug`
-único — ele é a "chave primária" (no futuro, a linha de uma tabela no banco).
+Basta editar o arquivo `data/businesses/<slug>.json` dela e commitar. Sem
+rebuild, sem servidor: a página carrega os dados no próximo acesso. O nome do
+arquivo é o `slug` da URL — mantenha o campo `slug` dentro do arquivo igual ao
+nome do arquivo; ele é a "chave primária" (no futuro, a linha de uma tabela no
+banco).
 
 ---
 
@@ -211,7 +218,7 @@ Temas disponíveis (valor usado em `appearance.theme`):
 1. Copie um bloco `[data-theme="..."]` de `css/themes.css`.
 2. Troque o nome e as cores (incluindo o token `--panel`, que define a cor das
    superfícies "sólidas" do cardápio — sheets, barras do carrinho/checkout).
-3. Use esse nome em `data/businesses.json` → `appearance.theme`.
+3. Use esse nome em `data/businesses/<slug>.json` → `appearance.theme`.
 
 Se o tema não existir ou não for encontrado, a página usa o padrão neutro
 escuro definido no `base.css` (nunca quebra). O cardápio herda automaticamente

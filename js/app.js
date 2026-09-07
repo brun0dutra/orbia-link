@@ -1,14 +1,14 @@
 /* ==========================================================================
    Orbia Link — js/app.js
    Aplicação estática: identifica o slug na URL, carrega os dados do negócio
-   em data/businesses.json e monta o cartão de visita digital.
+   em data/businesses/<slug>.json e monta o cartão de visita digital.
 
    Modos de acesso a uma página:
      - URL amigável (produção):  /lancheria-do-ze     (rewrite/404 trick)
      - Hash (qualquer servidor): index.html#/lancheria-do-ze
      - Query (qualquer servidor): index.html?slug=lancheria-do-ze
 
-   ESTRUTURA DE DADOS (data/businesses.json):
+   ESTRUTURA DE DADOS (data/businesses/<slug>.json — 1 arquivo por empresa):
      - business        -> identidade do negócio (nome, descrição, logo)
      - appearance      -> tema visual
      - links           -> ações/links atuais (o que é renderizado hoje)
@@ -27,7 +27,12 @@
 (function () {
   "use strict";
 
-  var DATA_URL = "data/businesses.json"; // relativo ao documento
+  var INDEX_URL = "data/businesses/index.json"; // relativo ao documento
+
+  // URL dos dados de um negócio (1 arquivo por empresa)
+  function businessDataUrl(slug) {
+    return "data/businesses/" + slug + ".json";
+  }
   var DEFAULT_THEME = "dark-modern";
   var VALID_THEMES = [
     "dark-modern",
@@ -43,8 +48,11 @@
   var STOP_WORDS = new Set(["da", "de", "do", "das", "dos", "e", "&"]);
 
   var appEl = document.getElementById("app");
-  var businesses = null;
+  var navToken = 0;
+  var businesses = null; // lista do índice da home (slug, nome, logo, tema)
   var dataError = false;
+  var indexLoaded = false;
+  var businessCache = {}; // dados carregados por slug (cache da sessão)
 
   /* ---------- Ícones (SVG inline, monocromáticos) ---------- */
 
@@ -432,15 +440,27 @@
     clearAppearance();
   }
 
-  function renderHome() {
+  function renderHome(token) {
     clearAppearance();
     document.title = "Orbia Link — o cartão de visita digital do seu negócio";
     setMeta(null);
 
+    if (!businesses && !dataError) {
+      // primeira visita à home: carrega o índice de negócios
+      renderState("Carregando…");
+      loadIndex().then(function (list) {
+        if (token !== navToken) return; // rota mudou durante o carregamento
+        if (list === null) dataError = true;
+        else businesses = list;
+        renderHome();
+      });
+      return;
+    }
+
     if (!businesses && dataError) {
       renderState(
         "Não foi possível carregar os dados. Verifique se o arquivo " +
-          "data/businesses.json existe e abra a página por um servidor local " +
+          "data/businesses/index.json existe e abra a página por um servidor local " +
           "(ex.: python -m http.server)."
       );
       return;
@@ -529,7 +549,7 @@
 
     var foot = document.createElement("footer");
     foot.className = "home__foot";
-    foot.textContent = "Dados em data/businesses.json";
+    foot.textContent = "Dados em data/businesses/";
     inner.appendChild(foot);
 
     var main = document.createElement("main");
@@ -734,6 +754,7 @@
 
   function route() {
     var slug = currentRoute();
+    var token = ++navToken;
 
     // Um módulo (ex.: Cardápio) pode estar aberto por cima da página do
     // negócio. Se a rota aponta para o MESMO slug, não re-renderize a página
@@ -746,43 +767,65 @@
     }
 
     if (slug === "home" || slug === null) {
-      renderHome();
+      renderHome(token);
       return;
     }
 
-    if (!businesses) {
-      renderState(
-        dataError
-          ? "Não foi possível carregar os dados. Verifique se o arquivo " +
-              "data/businesses.json existe e abra a página por um servidor local " +
-              "(ex.: python -m http.server)."
-          : "Carregando…"
-      );
-      return;
-    }
-
-    var found = businesses.find(function (b) {
-      return b.slug === slug;
+    // página de negócio: carrega SOMENTE o arquivo da empresa — um JSON
+    // inválido/ausente renderiza 404 só para este slug, sem afetar os demais
+    renderState("Carregando…");
+    loadBusiness(slug).then(function (item) {
+      if (token !== navToken) return; // rota mudou durante o carregamento
+      if (item) {
+        renderBusiness(item);
+      } else {
+        renderNotFound();
+      }
     });
-
-    if (found) {
-      renderBusiness(found);
-    } else {
-      renderNotFound();
-    }
   }
 
-  function loadData() {
-    return fetch(DATA_URL, { cache: "no-cache" })
+  // Índice da home (data/businesses/index.json): lista mínima dos negócios
+  // (slug, nome, logo, tema) usada na página inicial. Falha -> null.
+  function loadIndex() {
+    if (indexLoaded) return Promise.resolve(businesses);
+    return fetch(INDEX_URL, { cache: "no-cache" })
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
       })
       .then(function (json) {
+        indexLoaded = true;
         businesses = Array.isArray(json) ? json : json.businesses || [];
+        return businesses;
       })
       .catch(function () {
-        dataError = true;
+        return null;
+      });
+  }
+
+  // Dados de UM negócio (data/businesses/<slug>.json). Formato canônico: o
+  // próprio objeto da empresa; aceita também array ou { businesses: [...] }.
+  // Falha (arquivo ausente/inválido) -> null -> página 404, sem afetar os
+  // demais negócios.
+  function loadBusiness(slug) {
+    if (Object.prototype.hasOwnProperty.call(businessCache, slug)) {
+      return Promise.resolve(businessCache[slug]);
+    }
+    return fetch(businessDataUrl(slug), { cache: "no-cache" })
+      .then(function (res) {
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .then(function (json) {
+        var item = null;
+        if (Array.isArray(json)) item = json[0] || null;
+        else if (json && Array.isArray(json.businesses)) item = json.businesses[0] || null;
+        else if (json && typeof json === "object") item = json;
+        businessCache[slug] = item;
+        return item;
+      })
+      .catch(function () {
+        return null;
       });
   }
 
@@ -799,10 +842,10 @@
       route();
     });
 
-    loadData().then(function () {
-      // dados prontos: renderiza a rota atual (inclusive home com listagem)
-      route();
-    });
+    // dados carregados sob demanda por rota: home usa o índice
+    // (data/businesses/index.json); páginas de negócio carregam
+    // data/businesses/<slug>.json
+    route();
   }
 
   // API mínima para os módulos (ex.: js/menu.js usa reroute() para voltar à
@@ -812,9 +855,8 @@
       route();
     },
     findBusiness: function (slug) {
-      if (!businesses) return null;
-      for (var i = 0; i < businesses.length; i++) {
-        if (businesses[i].slug === slug) return businesses[i];
+      if (Object.prototype.hasOwnProperty.call(businessCache, slug)) {
+        return businessCache[slug];
       }
       return null;
     },

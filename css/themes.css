@@ -6,7 +6,7 @@
 
    Para adicionar um novo tema:
      1. Copie um bloco [data-theme="..."] abaixo e troque o nome/cores.
-     2. Use esse mesmo nome em data/businesses.json -> appearance.theme.
+     2. Use esse mesmo nome em data/businesses/<slug>.json -> appearance.theme.
 
    Temas disponíveis: dark-modern, clinic-clean, midnight-purple,
    ocean-breeze, sunset-glow, rosa, vibrant, elegant
