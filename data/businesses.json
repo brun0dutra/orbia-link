@@ -65,7 +65,7 @@
               "name": "Xis Salada",
               "description": "Pão, carne, queijo, alface e tomate.",
               "price": 22.9,
-              "image": "",
+              "image": "assets/products/xis-bacon.svg",
               "allow_note": true,
               "options": []
             },
@@ -97,7 +97,7 @@
               "name": "Xis Frango",
               "description": "Pão, frango desfiado, queijo, milho e catupiry.",
               "price": 24.9,
-              "image": "",
+              "image": "assets/products/xis-bacon.svg",
               "allow_note": true,
               "options": [
                 {
@@ -118,7 +118,7 @@
               "name": "Xis da Casa",
               "description": "O favorito da casa: carne dupla, queijo e ovo, com escolha de pão.",
               "price": 28.9,
-              "image": "",
+              "image": "assets/products/xis-bacon.svg",
               "allow_note": true,
               "options": [
                 {
