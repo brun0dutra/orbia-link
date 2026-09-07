@@ -10,7 +10,7 @@
 
    ESTRUTURA DE DADOS (data/businesses/<slug>.json — 1 arquivo por empresa):
      - business        -> identidade do negócio (nome, descrição, logo)
-     - appearance      -> tema visual
+     - appearance      -> tema (linguagem visual) + identidade (accent/fundo)
      - links           -> ações/links atuais (o que é renderizado hoje)
      - modules         -> configuração de módulos do negócio.
                           ETAPA 2: módulos existiam apenas como configuração
@@ -33,16 +33,17 @@
   function businessDataUrl(slug) {
     return "data/businesses/" + slug + ".json";
   }
-  var DEFAULT_THEME = "dark-modern";
+  // TEMAS = linguagem visual (css/themes.css v2). IDENTIDADE = cor da marca
+  // (appearance.accent) e fundo/padrão — sempre fora dos temas.
+  // Tema inválido/ausente cai no DEFAULT_THEME (fallback seguro).
+  var DEFAULT_THEME = "modern";
   var VALID_THEMES = [
-    "dark-modern",
-    "clinic-clean",
-    "midnight-purple",
-    "ocean-breeze",
-    "sunset-glow",
-    "rosa",
+    "modern",
     "vibrant",
     "elegant",
+    "minimal",
+    "soft",
+    "bold",
   ];
 
   var STOP_WORDS = new Set(["da", "de", "do", "das", "dos", "e", "&"]);
@@ -175,9 +176,10 @@
 
   /* ---------- Aparência: Tema + Cor principal + Fundo (Etapa 5) ---------- */
 
-  // Tokens injetados (e limpos) no <html> pela camada de personalização.
-  // Uma única cor escolhida no JSON alimenta todos eles — o negócio nunca
-  // precisa configurar cores secundárias, contraste ou hover.
+  // Tokens de IDENTIDADE injetados (e limpos) no <html>. Uma única cor
+  // escolhida no JSON alimenta todos eles — o negócio nunca precisa
+  // configurar cores secundárias, contraste ou hover. Temas nunca definem
+  // estas variáveis.
   var STYLE_KEYS = [
     "--accent",
     "--accent-hover",
@@ -342,16 +344,18 @@
     return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
   }
 
-  // accent do tema atualmente aplicado (usada no padrão quando o negócio
-  // não define cor própria)
+  // accent atualmente aplicado (usado no padrão de fundo quando o negócio
+  // não define cor própria): lê o --accent resolvido no <html> — injetado
+  // pela identidade ou pelo fallback neutro do base.css. Temas NÃO definem
+  // cor de marca.
   function themeAccent() {
     try {
       var v = getComputedStyle(document.documentElement)
         .getPropertyValue("--accent")
         .trim();
-      return v || "#6366f1";
+      return v || "#4f46e5";
     } catch (e) {
-      return "#6366f1";
+      return "#4f46e5";
     }
   }
 

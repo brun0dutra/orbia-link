@@ -1,0 +1,995 @@
+{
+  "slug": "bambu-lanches",
+  "business": {
+    "name": "Bambu Lanches",
+    "description": "O melhore lanche da cidade.",
+    "logo": "https://res.cloudinary.com/hroav0zz/image/upload/f_auto,q_auto/Sem_título"
+  },
+  "appearance": {
+    "theme": "vibrant",
+    "accent": "#8eaa0d",
+    "background": {
+      "type": "pattern",
+      "pattern": "fast-food"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/5548999990001"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://instagram.com/lancheriadoze"
+    },
+    {
+      "type": "maps",
+      "label": "Como chegar",
+      "url": "https://www.google.com/maps/search/?api=1&query=Lancheria+do+Ze"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:+554833330001"
+    },
+    {
+      "type": "website",
+      "label": "Site",
+      "url": "https://lancheriadoze.example.com"
+    }
+  ],
+  "modules": {
+    "menu": {
+      "enabled": true,
+      "whatsapp": "5548999990001",
+      "settings": {
+        "delivery": true,
+        "pickup": true,
+        "payment_methods": [
+          "pix",
+          "cash",
+          "card"
+        ]
+      },
+      "categories": [
+        {
+          "id": "xis",
+          "name": "Xis",
+          "emoji": "🍔"
+        },
+        {
+          "id": "cachorro",
+          "name": "Cachorro",
+          "emoji": "🍔"
+        },
+        {
+          "id": "pancho",
+          "name": "Pancho",
+          "emoji": "🍔"
+        },
+        {
+          "id": "misto",
+          "name": "Misto",
+          "emoji": "🍔"
+        },
+        {
+          "id": "mini-xis",
+          "name": "Mini Xis",
+          "emoji": "🍔"
+        },
+        {
+          "id": "porcoes",
+          "name": "Porções",
+          "emoji": "🍟"
+        },
+        {
+          "id": "bebidas",
+          "name": "Bebidas",
+          "emoji": "🥤"
+        }
+      ],
+      "products": [
+        {
+          "id": "xis-salada",
+          "category": "xis",
+          "name": "Xis Salada",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
+          "price": 23,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-frango",
+          "category": "xis",
+          "name": "Xis Frango",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, maionese, ketchup e mostarda.",
+          "price": 22,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-coracao",
+          "category": "xis",
+          "name": "Xis Coração",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, coração, maionese, ketchup e mostarda.",
+          "price": 25,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-calabresa",
+          "category": "xis",
+          "name": "Xis Calabresa",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, calabresa, maionese, ketchup e mostarda.",
+          "price": 23,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-bacon",
+          "category": "xis",
+          "name": "Xis Bacon",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, bacon, maionese, ketchup e mostarda.",
+          "price": 25,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-bambu",
+          "category": "xis",
+          "name": "Xis Bambu",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, carne moída, calabresa, coração, maionese, ketchup e mostarda.",
+          "price": 28,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-salada-bacon",
+          "category": "lanches",
+          "name": "Xis Salada com bacon",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, bacon, maionese, ketchup e mostarda.",
+          "price": 26,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-frango-bacon",
+          "category": "lanches",
+          "name": "Xis Frango com bacon",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, maionese, ketchup e mostarda.",
+          "price": 25,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "mini-xis-salada",
+          "category": "mini-xis",
+          "name": "Mini Xis Salada",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mini-xis-frango",
+          "category": "mini-xis",
+          "name": "Mini Xis Frango",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mini-xis-coracao",
+          "category": "mini-xis",
+          "name": "Mini Xis Coração",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, coração, maionese, ketchup e mostarda.",
+          "price": 20,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mini-xis-calabresa",
+          "category": "mini-xis",
+          "name": "Mini Xis Calabresa",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, calabresa, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mini-xis-bacon",
+          "category": "mini-xis",
+          "name": "Mini Xis Bacon",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, bacon, maionese, ketchup e mostarda.",
+          "price": 20,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mini-xis-bambu",
+          "category": "mini-xis",
+          "name": "Mini Xis Bambu",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, carne moída, calabresa, coração, maionese, ketchup e mostarda.",
+          "price": 23,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Fritas",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Sem fritas",
+                  "price": 0
+                },
+                {
+                  "name": "Com fritas",
+                  "price": 5
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "id": "cachorro-tradicional",
+          "category": "cachorro",
+          "name": "Cachorro Tradicional",
+          "description": "Alface, tomate, milho, ervilha, ovo, salsicha, maionese, ketchup e mostarda.",
+          "price": 14,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-salada",
+          "category": "cachorro",
+          "name": "Cachorro Salada",
+          "description": "Alface, tomate, milho, ervilha, ovo, carne moída, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-frango",
+          "category": "cachorro",
+          "name": "Cachorro Frango",
+          "description": "Alface, tomate, milho, ervilha, ovo, frango, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-coracao",
+          "category": "cachorro",
+          "name": "Cachorro Coração",
+          "description": "Alface, tomate, milho, ervilha, ovo, coração, maionese, ketchup e mostarda.",
+          "price": 19,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-calabresa",
+          "category": "cachorro",
+          "name": "Cachorro Calabresa",
+          "description": "Alface, tomate, milho, ervilha, ovo, calabresa, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-bacon",
+          "category": "cachorro",
+          "name": "Cachorro Bacon",
+          "description": "Alface, tomate, milho, ervilha, ovo, bacon, maionese, ketchup e mostarda.",
+          "price": 19,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cachorro-bambu",
+          "category": "cachorro",
+          "name": "Cachorro Bambu",
+          "description": "Alface, tomate, milho, ervilha, ovo, frango, bacon, carne moída, calabresa, coração, salsicha, maionese, ketchup e mostarda.",
+          "price": 23,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "misto-quente",
+          "category": "misto",
+          "name": "Misto Quente",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, moída, maionese, ketchup e mostarda. (Sem opções de adicionais de carne)",
+          "price": 15,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-tradicional",
+          "category": "pancho",
+          "name": "Pancho Tradicional",
+          "description": "Salsicha, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 12,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-duplo",
+          "category": "pancho",
+          "name": "Pancho Duplo",
+          "description": "Duas salsichas, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 14,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-guisado",
+          "category": "pancho",
+          "name": "Pancho Guisado",
+          "description": "Carne moída, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 16,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-frango",
+          "category": "pancho",
+          "name": "Pancho Frango",
+          "description": "Frango, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 15,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-coracao",
+          "category": "pancho",
+          "name": "Pancho Coração",
+          "description": "Coração, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 16,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-calabresa",
+          "category": "pancho",
+          "name": "Pancho Calabresa",
+          "description": "Calabresa, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 16,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "pancho-bacon",
+          "category": "pancho",
+          "name": "Pancho Bacon",
+          "description": "Bacon, batata palha, queijo, maionese, ketchup e mostarda.",
+          "price": 16,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "batata-frita",
+          "category": "porcoes",
+          "name": "Batata Frita",
+          "description": "",
+          "price": 25,
+          "image": "assets/products/batata-frita.svg",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "adicional-carnes",
+          "category": "adicionais",
+          "name": "Carnes",
+          "description": "Bacon, calabresa, carne moída, frango ou coração.",
+          "price": 3,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "adicional-salsicha",
+          "category": "adicionais",
+          "name": "Salsicha",
+          "description": "",
+          "price": 2,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "adicional-cebola",
+          "category": "adicionais",
+          "name": "Cebola",
+          "description": "",
+          "price": 1,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "adicional-presunto",
+          "category": "adicionais",
+          "name": "Presunto",
+          "description": "",
+          "price": 2,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "adicional-queijo",
+          "category": "adicionais",
+          "name": "Queijo",
+          "description": "",
+          "price": 2,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "adicional-maionese",
+          "category": "adicionais",
+          "name": "Maionese Extra",
+          "description": "",
+          "price": 2,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        }
+      ]
+    }
+  }
+}

@@ -6,8 +6,8 @@
     "logo": ""
   },
   "appearance": {
-    "theme": "ocean-breeze",
-    "accent": "#f59e0b",
+    "theme": "elegant",
+    "accent": "#C2185B",
     "background": {
       "type": "solid"
     }

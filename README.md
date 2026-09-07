@@ -33,8 +33,11 @@ orbia.link/lancheria-do-ze
   sem Docker, sem API)
 - Hospedável em qualquer serviço estático: **Vercel**, **GitHub Pages**, Netlify etc.
 - **Mobile-first e rápida**: a experiência funciona muito bem no celular
-- **Temas controlados pelos dados** (`appearance.theme`) — uma única estrutura
-  de página; temas alteram apenas cores, fundo, tipografia e botões
+- **Temas como design systems** (`appearance.theme`): uma única estrutura de
+  página; cada tema é uma **linguagem visual completa** — tipografia,
+  espaçamento, arredondamento, sombras, formato e altura dos botões,
+  densidade e movimento mudam de tema para tema. Tema NÃO define cor de marca:
+  a identidade (cor principal) é independente e combinável com qualquer tema
 - **Dados separados da interface** em `data/businesses/<slug>.json` (1 arquivo por empresa)
 - **Módulos por negócio** (`modules`): o **Cardápio e Pedidos** já é funcional
   quando `modules.menu.enabled = true`:
@@ -46,10 +49,11 @@ orbia.link/lancheria-do-ze
   (~~preço original~~ → preço promocional) — tudo abrindo o produto real
   dentro da experiência de pedido já existente.
 - **Personalização visual por negócio** (Etapa 5): **Tema + Cor + Fundo** —
-  o negócio escolhe um tema (estilo geral), uma cor principal (a identidade
-  de cor dos botões/acentos, com contraste calculado automaticamente) e um
-  fundo (sólido ou padrão discreto) no JSON. Uma única cor alimenta todos os
-  tokens derivados — sem exigir que ninguém entenda de CSS.
+  o negócio escolhe um tema (linguagem visual), uma cor principal (a
+  identidade de cor dos botões/acentos, com contraste calculado
+  automaticamente) e um fundo (sólido ou padrão discreto) no JSON. Uma única
+  cor alimenta todos os tokens derivados — sem exigir que ninguém entenda de
+  CSS, e sem que a cor precise de um tema dedicado.
 - Negócios sem os módulos/personalização habilitados continuam exatamente
   como antes — nada de cardápio, promoções, botões vazios, placeholders ou
   erros.
@@ -151,7 +155,7 @@ com o objeto da empresa — o mesmo formato abaixo, agora em um arquivo próprio
     "logo": ""
   },
   "appearance": {
-    "theme": "dark-modern"
+    "theme": "modern"
   },
   "links": [
     { "type": "whatsapp", "label": "WhatsApp", "url": "https://wa.me/5548999999999" },
@@ -175,7 +179,7 @@ com o objeto da empresa — o mesmo formato abaixo, agora em um arquivo próprio
 | `business.name`        | ✔️          | Nome exibido na página                                                 |
 | `business.description` |             | Descrição curta sob o nome                                             |
 | `business.logo`        |             | URL da logo. Vazio = monograma automático com as iniciais do nome      |
-| `appearance.theme`     |             | Nome do tema (veja abaixo). Padrão: `dark-modern`                      |
+| `appearance.theme`     |             | Nome do tema (veja abaixo). Padrão: `modern`                           |
 | `links[].type`         | ✔️          | `whatsapp`, `instagram`, `maps`, `website`, `phone`, `booking`, `menu`, `custom` |
 | `links[].label`        | ✔️          | Texto do botão                                                         |
 | `links[].url`          | ✔️          | Destino do botão (URL, `tel:+55...`, `https://wa.me/...` etc.)         |
@@ -195,34 +199,68 @@ banco).
 
 ---
 
-## 🎨 Temas
+## 🎨 Temas e identidade visual
 
-Os temas ficam em `css/themes.css`. Cada tema é **apenas um bloco de variáveis
-CSS** — a estrutura da página é única e nunca é duplicada.
+O sistema separa **completamente** dois conceitos:
+
+| Conceito | De quem é | O que controla |
+| ---------------- | ---------------------- | --------------------------------------------------- |
+| **Tema** | O design system (css)  | Linguagem visual e estrutural da interface          |
+| **Identidade**   | O negócio (JSON)       | Cor principal (`accent`), logo, imagens e fundo     |
+
+O tema define **como** a interface se expressa; a identidade define **com qual
+cor** ela aparece. `Vibrant + vermelho` e `Vibrant + azul` são o **mesmo tema**
+com marcas diferentes — nunca um tema "vermelho" e um tema "azul".
+
+### Os temas (linguagens visuais)
 
 Temas disponíveis (valor usado em `appearance.theme`):
 
-| Tema              | Visual                                            |
-| ----------------- | ------------------------------------------------- |
-| `dark-modern`     | Fundo escuro com gradiente, estilo moderno        |
-| `clinic-clean`    | Fundo verde claro, botões pill, ideal para saúde  |
-| `midnight-purple` | Fundo roxo profundo, botões indigo                |
-| `ocean-breeze`    | Céu azul suave, botões pill azuis                 |
-| `sunset-glow`     | Gradiente roxo/rosa, botões rosados               |
-| `rosa`            | Fundo escuro com acentos rosa neon                |
-| `vibrant`         | Escuro e enérgico, botões pill, ideal para comida |
-| `elegant`         | Claro e refinado, bordas finas, ideal para serviços |
+| Tema      | Personalidade | Como se expressa |
+| --------- | ------------- | ---------------- |
+| `modern`  | Contemporâneo, equilibrado e profissional (padrão) | Superfícies claras, cartões brancos com sombra suave, arredondamento médio, botões sólidos, hierarquia limpa |
+| `vibrant` | Enérgico e comercial | Atmosfera escura, cartões translúcidos com blur, botões pill altos, títulos grandes e pesados, preços em destaque máximo, brilho tingido pela cor da marca |
+| `elegant` | Sofisticado e editorial | Marfim quente, títulos serifados, bordas capilares, quase sem sombra, botões fantasma em caixa alta, muito espaço |
+| `minimal` | Extremamente limpo | Branco puro, superfícies planas sem sombra, bordas discretas, pesos contidos, cor da marca usada com parcimônia |
+| `soft`    | Amigável e acolhedor | Base quente, arredondamento generoso, sombras difusas coloridas, controles redondos, movimento com leve mola |
+| `bold`    | Forte e expressivo | Preto profundo, cantos retos, bordas espessas, tipografia pesada em caixa alta, sombras duras (offset) tingidas pela cor da marca |
+
+### Arquitetura: quem define o quê
+
+- **`css/themes.css`** — cada tema é um bloco de **tokens estruturais**:
+  tipografia (`--font-display`, `--weight-*`, `--fs-*`), forma
+  (`--radius-sm/md/lg/pill/button`), elevação (`--shadow-*`), botões
+  (`--button-height/weight/transform/...`), espaçamento
+  (`--spacing-*`, `--gap`), movimento (`--transition-*`, `--ease`,
+  `--hover-transform`) e atmosfera (`--bg`, `--surface`, `--panel`,
+  `--text-1/2`, `--scrim`). A estrutura (css/base.css) consome esses tokens
+  e nunca é duplicada por tema.
+- **`js/app.js`** — injeta os tokens de **identidade** no `<html>` a partir de
+  `appearance.accent`: `--accent`, `--accent-hover`, `--accent-soft`,
+  `--accent-contrast` e `--mono-bg`, com contraste calculado automaticamente.
+- **A ponte** — temas podem **tingir** elementos estruturais com a cor da
+  marca via `color-mix(in srgb, var(--accent) X%, ...)`: o tema decide
+  *onde e quanto* da cor aparece (ex.: o glow do `vibrant`, a sombra dura do
+  `bold`), a identidade decide *qual* é a cor. Trocar o `accent` não muda a
+  estrutura; trocar o tema não muda a marca.
 
 ### Como adicionar um novo tema
 
-1. Copie um bloco `[data-theme="..."]` de `css/themes.css`.
-2. Troque o nome e as cores (incluindo o token `--panel`, que define a cor das
-   superfícies "sólidas" do cardápio — sheets, barras do carrinho/checkout).
-3. Use esse nome em `data/businesses/<slug>.json` → `appearance.theme`.
+1. Copie um bloco `[data-theme="..."]` completo de `css/themes.css` e troque o
+   nome — ele deve definir **todos** os tokens do contrato (o cabeçalho do
+   arquivo lista o contrato completo).
+2. Ajuste a linguagem visual (tipografia, raios, sombras, botões, movimento) —
+   **nunca** defina `--accent`/`--mono-bg` no tema: cor de marca é identidade.
+3. Use o nome em `data/businesses/<slug>.json` → `appearance.theme`.
 
-Se o tema não existir ou não for encontrado, a página usa o padrão neutro
-escuro definido no `base.css` (nunca quebra). O cardápio herda automaticamente
-o tema do negócio — não é preciso estilizar o módulo por tema.
+Se o tema não existir ou o nome for inválido, a página usa o tema `modern`
+(fallback seguro — nunca quebra). Negócio sem `appearance` também usa o
+`modern`. O cardápio e as promoções herdam automaticamente o tema do negócio.
+
+> Migração: os temas antigos (`dark-modern`, `clinic-clean`, `midnight-purple`,
+> `ocean-breeze`, `sunset-glow`, `rosa`, `vibrant`/`elegant` antigos) foram
+> removidos. JSONs que ainda usem esses nomes caem no tema `modern` — troque
+> para um dos novos nomes acima.
 
 ### Personalização por negócio: Tema + Cor + Fundo
 
@@ -242,7 +280,7 @@ criar um tema novo por cor e sem interface de edição:
 
 | Campo                    | Descrição                                                              |
 | ------------------------ | ---------------------------------------------------------------------- |
-| `theme`                  | Estilo geral da página (veja a tabela acima). Obrigatório? Não — sem ele, usa `dark-modern` |
+| `theme`                  | Linguagem visual da página (veja a tabela acima). Obrigatório? Não — sem ele, usa `modern` |
 | `accent`                 | **Uma** cor principal (hex `#RGB` ou `#RRGGBB`). O Orbia deriva sozinho: texto com contraste, hover, fundo suave e o gradiente dos botões |
 | `background.type`        | `solid` (fundo do tema) ou `pattern` (textura discreta repetida)       |
 | `background.pattern`     | Nome do padrão: `fast-food`, `coffee`, `pizza`, `barber`, `bamboo`, `minimal` |
@@ -264,12 +302,12 @@ accent do tema; sem `background`/`type` errado/`pattern` inexistente → fundo
 sólido do tema; `accent` inválida → ignorada. Nenhuma configuração inválida
 quebra a página.
 
-Os negócios de demonstração mostram combinações diferentes: **Lancheria do Zé**
-(`vibrant` + vermelho + `fast-food`), **Barbearia do João** (`elegant` + azul
--escuro + `barber`), **Clínica Bem Viver** (`clinic-clean` + verde +
-`minimal`), **Bella Moda** (`ocean-breeze` + amarelo, fundo sólido), **Salão
-da Rosa** (`rosa` + rosa + `bamboo`) e **Estúdio Aurora** (só tema — caso
-fallback).
+Os negócios de demonstração mostram as seis linguagens visuais com identidades
+diferentes: **Lancheria do Zé** (`vibrant` + vermelho + `fast-food`),
+**Barbearia do João** (`bold` + dourado + `barber`), **Clínica Bem Viver**
+(`modern` + verde + `minimal`), **Bella Moda** (`elegant` + rosa, fundo
+sólido), **Salão da Rosa** (`soft` + rosa + `bamboo`) e **Estúdio Aurora**
+(`minimal`, só tema — caso fallback sem cor de marca).
 
 ---
 

@@ -6,8 +6,8 @@
     "logo": ""
   },
   "appearance": {
-    "theme": "elegant",
-    "accent": "#1e3a8a",
+    "theme": "bold",
+    "accent": "#E9B44C",
     "background": {
       "type": "pattern",
       "pattern": "barber"

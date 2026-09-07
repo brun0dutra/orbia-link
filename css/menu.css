@@ -2,11 +2,13 @@
    Orbia Link — css/menu.css
    Módulo Cardápio e Pedidos (Etapa 3).
 
-   Esta folha NÃO define cores próprias: consome as variáveis dos temas
-   (--bg, --text-1/2, --accent, --surface, --surface-border, --panel,
-   --mono-bg, --btn-*) definidas em css/themes.css / fallback do base.css.
-   Assim o cardápio, o carrinho e o checkout herdam automaticamente o tema
-   do negócio, sem duplicar estrutura por tema.
+   Esta folha NÃO define estilo próprio: consome o CONTRATO DE TOKENS
+   (css/themes.css — linguagem visual do tema) e as cores de identidade do
+   negócio (--accent e derivados, injetados pelo js/app.js).
+
+   O tema controla raio, borda, sombra, tipografia, altura/formato/peso dos
+   botões, espaçamento, densidade e movimento; a identidade controla a cor
+   de acentos, preços, seleção e CTAs. Nenhum valor estrutural é fixo aqui.
    ========================================================================== */
 
 /* ---------- Raiz do módulo (tela cheia sobre a página) ---------- */
@@ -23,7 +25,8 @@
   flex-direction: column;
   background: var(--bg);
   color: var(--text-1);
-  font-family: var(--font);
+  font-family: var(--font-body);
+  font-weight: var(--weight-body);
   overflow: hidden;
 }
 
@@ -43,20 +46,21 @@
 }
 
 .m-iconbtn {
-  width: 42px;
-  height: 42px;
+  width: var(--control-size);
+  height: var(--control-size);
   flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-pill);
+  border: var(--border-width) var(--border-style) var(--surface-border);
   background: var(--tint);
   color: var(--text-1);
   font-size: 1.15rem;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition: background var(--transition-fast) var(--ease),
+    transform var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -100,7 +104,8 @@
   justify-content: center;
   background: var(--mono-bg);
   color: var(--accent-contrast);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: var(--weight-display);
   font-size: 13px;
 }
 
@@ -112,7 +117,7 @@
 .m-brand__name {
   display: block;
   font-size: 0.98rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
   line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
@@ -121,7 +126,7 @@
 
 .m-brand__sub {
   display: block;
-  font-size: 0.72rem;
+  font-size: var(--fs-small);
   color: var(--text-2);
 }
 
@@ -145,16 +150,18 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 9px 15px;
-  border-radius: 999px;
-  border: 1px solid var(--surface-border);
+  padding: var(--chip-pad);
+  border-radius: var(--radius-pill);
+  border: var(--border-width) var(--border-style) var(--surface-border);
   background: var(--tint);
   color: var(--text-1);
   font: inherit;
   font-size: 0.86rem;
-  font-weight: 600;
+  font-weight: var(--weight-strong);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: background var(--transition-fast) var(--ease),
+    color var(--transition-fast) var(--ease),
+    transform var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -180,7 +187,7 @@
 
 .m-sec {
   padding: 0 14px;
-  margin-top: 16px;
+  margin-top: var(--spacing-section);
 }
 
 .m-sec__head {
@@ -189,9 +196,11 @@
   gap: 8px;
   margin: 0 0 8px;
   padding: 0 4px;
-  font-size: 1.12rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking-heading);
+  text-transform: var(--heading-transform);
 }
 
 .m-sec__emoji {
@@ -199,8 +208,8 @@
 }
 
 .m-sec__count {
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: var(--fs-small);
+  font-weight: var(--weight-strong);
   color: var(--text-2);
 }
 
@@ -211,10 +220,11 @@
   gap: 12px;
   align-items: center;
   background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 18px;
-  padding: 13px 14px;
-  margin-bottom: 10px;
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--spacing-card);
+  margin-bottom: var(--gap);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -225,15 +235,15 @@
 }
 
 .m-prod__name {
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--weight-strong);
   line-height: 1.3;
 }
 
 .m-prod__desc {
   margin-top: 3px;
   color: var(--text-2);
-  font-size: 0.8rem;
+  font-size: var(--fs-small);
   line-height: 1.45;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -251,28 +261,29 @@
 .m-prod__price {
   flex: 1;
   min-width: 0;
-  font-size: 0.98rem;
-  font-weight: 800;
+  font-size: var(--fs-price);
+  font-weight: var(--weight-display);
   color: var(--accent);
 }
 
 .m-add {
-  width: 40px;
-  height: 40px;
+  width: var(--control-size);
+  height: var(--control-size);
   flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   background: var(--mono-bg);
   color: var(--accent-contrast);
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1;
   cursor: pointer;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.22);
-  transition: transform 0.15s ease, filter 0.15s ease;
+  box-shadow: var(--shadow-button);
+  transition: transform var(--transition-fast) var(--ease),
+    filter var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -290,7 +301,7 @@
   height: 86px;
   flex: none;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
 }
 
 /* ---------- Botões genéricos ---------- */
@@ -300,18 +311,22 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 13px 22px;
-  border-radius: 999px;
-  border: 1px solid transparent;
+  min-height: var(--button-height);
+  padding: var(--button-padding);
+  border-radius: var(--button-radius);
+  border: var(--border-width) var(--border-style) transparent;
   font: inherit;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--button-weight);
+  letter-spacing: var(--button-tracking);
+  text-transform: var(--button-transform);
   line-height: 1.2;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  transition: filter 0.15s ease, transform 0.15s ease, background 0.15s ease;
+  transition: filter var(--transition-fast) var(--ease),
+    transform var(--transition-fast) var(--ease),
+    background var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -322,12 +337,12 @@
 .m-btn--primary {
   background: var(--mono-bg);
   color: var(--accent-contrast);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-button);
 }
 
 .m-btn--primary:hover {
   filter: brightness(1.08);
-  transform: translateY(-1px);
+  transform: var(--hover-transform);
 }
 
 .m-btn--primary:active {
@@ -352,10 +367,12 @@
 }
 
 .m-btn--mini {
-  min-height: 36px;
-  padding: 7px 13px;
-  font-size: 0.82rem;
-  border-radius: 999px;
+  min-height: var(--button-height-sm);
+  padding: 6px 12px;
+  font-size: var(--fs-small);
+  text-transform: none;
+  letter-spacing: normal;
+  border-radius: var(--button-radius);
 }
 
 .m-btn--danger {
@@ -373,8 +390,8 @@
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  border: 1px solid var(--surface-border);
-  border-radius: 999px;
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-pill);
   background: var(--tint-soft);
   padding: 3px;
 }
@@ -386,13 +403,13 @@
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--text-1);
   font-size: 1.25rem;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -409,7 +426,7 @@
 .m-stepper__n {
   min-width: 34px;
   text-align: center;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
   font-size: 0.98rem;
 }
 
@@ -436,12 +453,12 @@
   align-items: center;
   gap: 12px;
   background: var(--panel);
-  border: 1px solid var(--surface-border);
-  border-radius: 20px;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
   padding: 12px 12px 12px 18px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
 }
 
 .m-cartbar__txt {
@@ -458,8 +475,8 @@
 
 .m-cartbar__amt {
   display: block;
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: var(--fs-price);
+  font-weight: var(--weight-heading);
   line-height: 1.3;
 }
 
@@ -478,9 +495,11 @@
 }
 
 .m-heading {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-heading);
+  text-transform: var(--heading-transform);
   padding: 6px 4px 0;
 }
 
@@ -494,10 +513,11 @@
 
 .m-item {
   background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 18px;
-  padding: 13px 15px;
-  margin-bottom: 10px;
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--spacing-card);
+  margin-bottom: var(--gap);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -511,15 +531,15 @@
 .m-item__name {
   flex: 1;
   min-width: 0;
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: var(--fs-body);
+  font-weight: var(--weight-strong);
   line-height: 1.35;
 }
 
 .m-item__price {
   flex: none;
-  font-size: 0.92rem;
-  font-weight: 800;
+  font-size: var(--fs-price);
+  font-weight: var(--weight-display);
   color: var(--accent);
   white-space: nowrap;
 }
@@ -527,7 +547,7 @@
 .m-item__cfg {
   margin-top: 6px;
   color: var(--text-2);
-  font-size: 0.8rem;
+  font-size: var(--fs-small);
   line-height: 1.5;
 }
 
@@ -567,7 +587,7 @@
   position: fixed;
   inset: 0;
   z-index: 80;
-  background: rgba(0, 0, 0, 0.45);
+  background: var(--scrim);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
@@ -584,8 +604,8 @@
   display: flex;
   flex-direction: column;
   background: var(--panel);
-  border-radius: 24px 24px 0 0;
-  box-shadow: 0 -16px 50px rgba(0, 0, 0, 0.35);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: var(--shadow-sheet);
   overflow: hidden;
 }
 
@@ -609,8 +629,10 @@
 .m-sheet__title {
   flex: 1;
   min-width: 0;
-  font-size: 1.05rem;
-  font-weight: 800;
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-display);
+  text-transform: var(--heading-transform);
+  letter-spacing: var(--tracking-heading);
 }
 
 .m-sheet__img {
@@ -629,8 +651,10 @@
 }
 
 .m-sheet__name {
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-heading);
   line-height: 1.3;
 }
 
@@ -644,8 +668,8 @@
 .m-sheet__price {
   display: inline-block;
   margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 800;
+  font-size: var(--fs-price);
+  font-weight: var(--weight-display);
   color: var(--accent);
 }
 
@@ -663,12 +687,12 @@
 
 .m-grp__name {
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
 }
 
 .m-grp__hint {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: var(--fs-small);
+  font-weight: var(--weight-strong);
   color: var(--text-2);
 }
 
@@ -696,6 +720,8 @@
   height: 0;
 }
 
+/* controle circular mantido em todos os temas: é um controle semântico
+   (radio/check), não um elemento de identidade visual */
 .m-opt__box {
   width: 23px;
   height: 23px;
@@ -705,7 +731,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color var(--transition-fast) var(--ease),
+    background var(--transition-fast) var(--ease);
 }
 
 .m-opt__box::after {
@@ -715,7 +742,7 @@
   border-radius: 50%;
   background: var(--mono-bg);
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity var(--transition-fast) var(--ease);
 }
 
 .m-opt__inp:checked ~ .m-opt__box {
@@ -745,7 +772,7 @@
 .m-opt__price {
   flex: none;
   font-size: 0.86rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
   color: var(--text-2);
 }
 
@@ -755,7 +782,7 @@
   display: block;
   margin-top: 18px;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
 }
 
 .m-field {
@@ -763,8 +790,8 @@
   display: block;
   margin-top: 8px;
   padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
+  border: var(--border-width) var(--border-style) var(--surface-border);
   background: var(--tint);
   color: var(--text-1);
   font: inherit;
@@ -811,13 +838,14 @@ textarea.m-field {
   padding: 15px 16px;
   margin-bottom: 10px;
   background: var(--tint-soft);
-  border: 1.5px solid var(--surface-border);
-  border-radius: 16px;
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-md);
   cursor: pointer;
   font: inherit;
   color: var(--text-1);
   text-align: left;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition: border-color var(--transition-fast) var(--ease),
+    background var(--transition-fast) var(--ease);
   touch-action: manipulation;
 }
 
@@ -843,7 +871,7 @@ textarea.m-field {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.15s ease;
+  transition: border-color var(--transition-fast) var(--ease);
 }
 
 .m-pick.is-on .m-pick__radio {
@@ -857,7 +885,7 @@ textarea.m-field {
   border-radius: 50%;
   background: var(--accent);
   opacity: 0;
-  transition: opacity 0.15s ease;
+  transition: opacity var(--transition-fast) var(--ease);
 }
 
 .m-pick.is-on .m-pick__radio::after {
@@ -877,7 +905,7 @@ textarea.m-field {
 
 .m-pick__label {
   display: block;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
   font-size: 0.95rem;
 }
 
@@ -916,8 +944,9 @@ textarea.m-field {
 
 .m-sum__card {
   background: var(--surface);
-  border: 1px solid var(--surface-border);
-  border-radius: 18px;
+  border: var(--border-width) var(--border-style) var(--surface-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
   padding: 6px 16px;
   margin-bottom: 12px;
   backdrop-filter: blur(6px);
@@ -948,11 +977,11 @@ textarea.m-field {
 
 .m-sum__line {
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
 }
 
 .m-sum__cfg {
-  font-size: 0.78rem;
+  font-size: var(--fs-small);
   color: var(--text-2);
   line-height: 1.5;
   white-space: pre-line;
@@ -961,7 +990,7 @@ textarea.m-field {
 .m-sum__amt {
   flex: none;
   font-size: 0.88rem;
-  font-weight: 700;
+  font-weight: var(--weight-strong);
   white-space: nowrap;
 }
 
@@ -986,25 +1015,26 @@ textarea.m-field {
 }
 
 .m-sum__total-label {
-  font-weight: 600;
+  font-weight: var(--weight-strong);
   font-size: 0.92rem;
 }
 
 .m-sum__total {
-  font-size: 1.15rem;
-  font-weight: 800;
+  font-size: var(--fs-price-lg);
+  font-weight: var(--weight-display);
   color: var(--accent);
 }
 
 /* ---------- Botão principal do módulo na página do negócio ---------- */
 /* Fica no TOPO das ações com o MESMO tamanho dos demais botões (.action):
-   o fundo em gradiente apenas destaca que é a ação principal. */
+   o formato/altura vêm dos tokens do tema e o FUNDO em gradiente (identidade,
+   --mono-bg) destaca que é a ação principal. */
 
 .action--cta {
   background: var(--mono-bg);
   color: var(--accent-contrast);
   border-color: transparent;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
+  box-shadow: var(--shadow-button);
   cursor: pointer;
   /* <button> usa line-height/font próprios do navegador por padrão; herdar
      garante EXATAMENTE o mesmo tamanho dos outros botões (.action). */
@@ -1021,9 +1051,9 @@ textarea.m-field {
 
 @media (min-width: 640px) {
   .m-sheet {
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     bottom: 24px;
-    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-float);
   }
 
   .m-body {

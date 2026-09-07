@@ -6,8 +6,8 @@
     "logo": ""
   },
   "appearance": {
-    "theme": "rosa",
-    "accent": "#ec4899",
+    "theme": "soft",
+    "accent": "#EC4899",
     "background": {
       "type": "pattern",
       "pattern": "bamboo"

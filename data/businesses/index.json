@@ -2,10 +2,10 @@
   "version": 4,
   "businesses": [
     {
-      "slug": "lancheria-do-ze",
+      "slug": "bambu-lanches",
       "business": {
-        "name": "Lancheria do Zé",
-        "logo": ""
+        "name": "Bambu Lanches",
+        "logo": "https://res.cloudinary.com/hroav0zz/image/upload/f_auto,q_auto/Sem_título"
       },
       "appearance": {
         "theme": "vibrant"
@@ -18,7 +18,7 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "elegant"
+        "theme": "bold"
       }
     },
     {
@@ -28,7 +28,7 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "clinic-clean"
+        "theme": "modern"
       }
     },
     {
@@ -38,7 +38,7 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "ocean-breeze"
+        "theme": "elegant"
       }
     },
     {
@@ -48,7 +48,7 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "sunset-glow"
+        "theme": "minimal"
       }
     },
     {
@@ -58,7 +58,7 @@
         "logo": ""
       },
       "appearance": {
-        "theme": "rosa"
+        "theme": "soft"
       }
     }
   ]
