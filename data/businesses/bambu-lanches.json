@@ -6,7 +6,7 @@
     "logo": "https://res.cloudinary.com/hroav0zz/image/upload/f_auto,q_auto/Sem_título"
   },
   "appearance": {
-    "theme": "vibrant",
+    "theme": "bold",
     "accent": "#8eaa0d",
     "background": {
       "type": "pattern",
@@ -52,6 +52,10 @@
           "cash",
           "card"
         ]
+      },
+      "upsell": {
+        "enabled": true,
+        "product_id": "batata-frita"
       },
       "categories": [
         {

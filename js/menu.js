@@ -23,6 +23,8 @@
   var CART_PREFIX = "orbia:cart:";
   var MAX_QTY = 50;
 
+  var DEFAULT_UPSELL_TITLE = "Quer adicionar algo?";
+
   var STOP_WORDS = new Set(["da", "de", "do", "das", "dos", "e", "&"]);
 
   var S = null; // sessão ativa do módulo
@@ -294,6 +296,8 @@
       screen: "menu",
       chk: null,
       editKey: null,
+      upsell: null, // oferta atual em exibição (config resolvida)
+      upsellDone: false, // a oferta aparece no máximo uma vez por pedido
     };
     render();
   }
@@ -971,23 +975,166 @@
       ">CONTINUAR</button>" +
       "</div>";
     var cont = $("[data-act='cart-continue']", bar);
-    cont.addEventListener("click", function () {
-      if (!S.cart.length) return;
-      S.chk = {
-        step: null,
-        receipt: null,
-        address: { rua: "", numero: "", complemento: "", bairro: "" },
-        pay: null,
-        change: false,
-        changeFor: "",
-        note: "",
-      };
-      S.screen = "checkout";
-      var steps = checkoutSteps();
-      S.chk.step = steps[0] || "summary";
-      render();
-    });
+    cont.addEventListener("click", continueToCheckout);
     root.appendChild(bar);
+  }
+
+  /* ---------- Upsell (oferta única antes do checkout) ---------- */
+
+  // Configuração em modules.menu.upsell:
+  //   { "enabled": true, "product_id": "batata-frita", "title": "..." }
+  // O preço/nome/imagem vêm SEMPRE do produto real do cardápio — o upsell
+  // não duplica dados. Qualquer configuração ausente/inválida -> null
+  // (o checkout continua normalmente, nunca quebra).
+  function upsellCfg(item) {
+    var m = modCfg(item);
+    var u = m && m.upsell;
+    if (!u || typeof u !== "object" || u.enabled !== true) return null;
+    var pid = typeof u.product_id === "string" ? u.product_id.trim() : "";
+    if (!pid) return null;
+    var product = productById(item, pid);
+    if (!product) return null;
+    return {
+      product: product,
+      title:
+        typeof u.title === "string" && u.title.trim()
+          ? u.title.trim()
+          : DEFAULT_UPSELL_TITLE,
+    };
+  }
+
+  // A oferta só vale: dentro do carrinho, antes do checkout, uma vez por
+  // pedido, com carrinho não-vazio e com o produto AUSENTE do carrinho.
+  function upsellEligible() {
+    if (!S || S.screen !== "cart" || S.upsellDone) return null;
+    var cfg = upsellCfg(S.item);
+    if (!cfg) return null;
+    if (!S.cart.length) return null;
+    for (var i = 0; i < S.cart.length; i++) {
+      if (S.cart[i].productId === cfg.product.id) return null;
+    }
+    return cfg;
+  }
+
+  // Ponto de entrada do checkout (botão CONTINUAR do carrinho). Se houver
+  // uma oferta válida, mostra-a primeiro; o checkout real acontece depois
+  // (startCheckout). Qualquer erro aqui NUNCA pode impedir o pedido.
+  function continueToCheckout() {
+    if (!S || !S.cart.length) return;
+    try {
+      var offer = upsellEligible();
+      if (offer) {
+        S.upsell = offer;
+        S.upsellDone = true; // aparece no máximo uma vez por pedido
+        renderUpsell();
+        return;
+      }
+    } catch (e) {
+      // upsell com problema -> ignora a oferta e segue para o checkout
+      S.upsell = null;
+      S.upsellDone = true;
+    }
+    startCheckout();
+  }
+
+  function startCheckout() {
+    S.chk = {
+      step: null,
+      receipt: null,
+      address: { rua: "", numero: "", complemento: "", bairro: "" },
+      pay: null,
+      change: false,
+      changeFor: "",
+      note: "",
+    };
+    S.screen = "checkout";
+    var steps = checkoutSteps();
+    S.chk.step = steps[0] || "summary";
+    render();
+  }
+
+  // Cartão da oferta: mesmo sistema visual do módulo (tokens do tema +
+  // --accent da identidade). Sem imagem do produto, o cardão continua
+  // correto (nenhum espaço vazio é reservado).
+  function renderUpsell() {
+    if (!S || !S.upsell || !S.root) {
+      startCheckout();
+      return;
+    }
+    var offer = S.upsell;
+    var p = offer.product;
+
+    var el = document.createElement("div");
+    el.className = "m-upsell";
+    el.setAttribute("role", "dialog");
+    el.setAttribute("aria-modal", "true");
+    el.setAttribute("aria-label", offer.title);
+    el.innerHTML =
+      (p.image
+        ? '<img class="m-upsell__img" src="' + esc(p.image) + '" alt="">'
+        : "") +
+      '<div class="m-upsell__body">' +
+      '<span class="m-upsell__kicker" aria-hidden="true">🍟</span>' +
+      '<span class="m-upsell__title">' + esc(offer.title) + "</span>" +
+      '<span class="m-upsell__name">' + esc(p.name) + "</span>" +
+      (p.description
+        ? '<span class="m-upsell__desc">' + esc(p.description) + "</span>"
+        : "") +
+      '<span class="m-upsell__price">' + money(p.price) + "</span>" +
+      "</div>" +
+      '<div class="m-upsell__actions">' +
+      '<button type="button" class="m-btn m-btn--ghost" data-act="upsell-no">Não, obrigado</button>' +
+      '<button type="button" class="m-btn m-btn--primary" data-act="upsell-add">Adicionar</button>' +
+      "</div>";
+
+    S.root.appendChild(el);
+
+    var img = $(".m-upsell__img", el);
+    if (img) {
+      img.addEventListener("error", function () {
+        if (img.parentNode) img.parentNode.removeChild(img);
+      });
+    }
+
+    var no = $("[data-act='upsell-no']", el);
+    if (no) no.addEventListener("click", upsellNo);
+    var add = $("[data-act='upsell-add']", el);
+    if (add) add.addEventListener("click", upsellAdd);
+  }
+
+  function closeUpsell() {
+    if (!S) return;
+    S.upsell = null;
+    if (!S.root) return;
+    var el = $(".m-upsell", S.root);
+    if (el && el.parentNode) el.parentNode.removeChild(el);
+  }
+
+  function upsellNo() {
+    closeUpsell();
+    startCheckout();
+  }
+
+  function upsellAdd() {
+    var product = null;
+    if (S && S.upsell) product = S.upsell.product;
+    try {
+      closeUpsell();
+    } catch (e) {
+      if (S) S.upsell = null;
+    }
+    if (!product) {
+      startCheckout();
+      return;
+    }
+    if (product.options && product.options.length) {
+      // produto com opções: reusa o MESMO bottom sheet do cardápio — o
+      // checkout acontece depois, quando o cliente confirmar no sheet.
+      openSheet(product, null);
+      return;
+    }
+    quickAdd(product);
+    startCheckout();
   }
 
   function cartItemMarkup(l) {

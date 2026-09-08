@@ -457,6 +457,40 @@ O preço do botão **ADICIONAR** atualiza em tempo real
 - **Enviar pedido** monta uma mensagem formatada e abre o WhatsApp
   (`https://wa.me/<número>?text=…`) com os itens, opções, endereço, pagamento,
   troco, observações e total — sem incluir seções vazias.
+- **Upsell no checkout**: ao tocar em CONTINUAR no carrinho, o negócio pode
+  oferecer **um único produto adicional** antes do checkout (uma vez por
+  pedido). Veja a seção abaixo.
+
+#### Upsell no checkout (configuração opcional)
+
+Dentro de `modules.menu`, a chave opcional `upsell` oferece **um produto do
+próprio cardápio** como sugestão adicional no momento de finalizar o pedido
+(entre o carrinho e o checkout):
+
+```json
+"upsell": {
+  "enabled": true,
+  "product_id": "batata-frita",
+  "title": "Quer adicionar algo?"
+}
+```
+
+| Campo        | Descrição                                                                 |
+| ------------ | ------------------------------------------------------------------------- |
+| `enabled`    | `true` ativa a oferta; `false`/ausente = comportamento atual              |
+| `product_id` | `id` de um produto **existente** em `modules.menu.products` (obrigatório) |
+| `title`      | **Opcional.** Título da oferta. Padrão: "Quer adicionar algo?"            |
+
+- O produto é **reutilizado do catálogo**: nome, descrição, imagem e preço
+  vêm sempre do produto real — o upsell não duplica dados nem preços.
+- A oferta aparece **no máximo uma vez por pedido** (ao tocar em CONTINUAR
+  no carrinho) e só se o produto ainda **não estiver no carrinho**.
+- Produto **com opções** abre o mesmo *bottom sheet* de personalização do
+  cardápio; produto **sem opções** entra direto no carrinho. Em ambos os
+  casos o checkout continua normalmente em seguida.
+- Se a configuração for inválida (`product_id` inexistente, produto sem
+  `id` etc.), o upsell é **ignorado** e o checkout funciona exatamente como
+  antes — nada impede o cliente de fazer o pedido.
 
 #### Como o mesmo código atende vários cardápios
 
