@@ -22,22 +22,17 @@
     {
       "type": "instagram",
       "label": "Instagram",
-      "url": "https://instagram.com/lancheriadoze"
+      "url": "https://www.instagram.com/bambu_lanchesbg/"
     },
     {
       "type": "maps",
       "label": "Como chegar",
-      "url": "https://www.google.com/maps/search/?api=1&query=Lancheria+do+Ze"
+      "url": "https://maps.app.goo.gl/mswrxKNUUZkrqR5t6"
     },
     {
       "type": "phone",
       "label": "Telefone",
-      "url": "tel:+554833330001"
-    },
-    {
-      "type": "website",
-      "label": "Site",
-      "url": "https://lancheriadoze.example.com"
+      "url": "tel:+555199073557"
     }
   ],
   "modules": {
@@ -55,7 +50,7 @@
       },
       "upsell": {
         "enabled": true,
-        "product_id": "alfajor",
+        "product_id": "barra-de-chocolate",
         "title": "Que tal uma sobremesa ?"
       },
       "categories": [
@@ -88,11 +83,6 @@
           "id": "porcoes",
           "name": "Porções",
           "emoji": "🍟"
-        },
-        {
-          "id": "bebidas",
-          "name": "Bebidas",
-          "emoji": "🥤"
         },
         {
           "id":"sobremesa",
@@ -591,6 +581,45 @@
                   "price": 3
                 }
               ]
+            }
+          ]
+        },
+
+        {
+          "id": "mini-xis-salada",
+          "category": "mini-xis",
+          "name": "Mini Xis Salada",
+          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
+          "price": 18,
+          "image": "assets/products/lanche.svg",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
             },
             {
               "name": "Adicionais",
@@ -621,33 +650,6 @@
             }
           ]
         },
-
-        {
-          "id": "mini-xis-salada",
-          "category": "mini-xis",
-          "name": "Mini Xis Salada",
-          "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
-          "price": 18,
-          "image": "assets/products/lanche.svg",
-          "allow_note": true,
-          "options": [
-            {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
-              "items": [
-                {
-                  "name": "Sem fritas",
-                  "price": 0
-                },
-                {
-                  "name": "Com fritas",
-                  "price": 5
-                }
-              ]
-            }
-          ]
-        },
         {
           "id": "mini-xis-frango",
           "category": "mini-xis",
@@ -658,17 +660,56 @@
           "allow_note": true,
           "options": [
             {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
               "items": [
                 {
-                  "name": "Sem fritas",
-                  "price": 0
+                  "name": "Bacon",
+                  "price": 3
                 },
                 {
-                  "name": "Com fritas",
-                  "price": 5
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
                 }
               ]
             }
@@ -684,17 +725,56 @@
           "allow_note": true,
           "options": [
             {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
               "items": [
                 {
-                  "name": "Sem fritas",
-                  "price": 0
+                  "name": "Bacon",
+                  "price": 3
                 },
                 {
-                  "name": "Com fritas",
-                  "price": 5
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
                 }
               ]
             }
@@ -710,17 +790,56 @@
           "allow_note": true,
           "options": [
             {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
               "items": [
                 {
-                  "name": "Sem fritas",
-                  "price": 0
+                  "name": "Bacon",
+                  "price": 3
                 },
                 {
-                  "name": "Com fritas",
-                  "price": 5
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
                 }
               ]
             }
@@ -736,17 +855,56 @@
           "allow_note": true,
           "options": [
             {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
               "items": [
                 {
-                  "name": "Sem fritas",
-                  "price": 0
+                  "name": "Bacon",
+                  "price": 3
                 },
                 {
-                  "name": "Com fritas",
-                  "price": 5
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
                 }
               ]
             }
@@ -762,23 +920,61 @@
           "allow_note": true,
           "options": [
             {
-              "name": "Fritas",
-              "min": 1,
-              "max": 1,
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
               "items": [
                 {
-                  "name": "Sem fritas",
-                  "price": 0
+                  "name": "Bacon",
+                  "price": 3
                 },
                 {
-                  "name": "Com fritas",
-                  "price": 5
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
                 }
               ]
             }
           ]
         },
-
         {
           "id": "cachorro-tradicional",
           "category": "cachorro",
@@ -787,7 +983,62 @@
           "price": 14,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-salada",
@@ -797,7 +1048,62 @@
           "price": 18,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-frango",
@@ -807,7 +1113,62 @@
           "price": 18,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-coracao",
@@ -817,7 +1178,62 @@
           "price": 19,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-calabresa",
@@ -827,7 +1243,62 @@
           "price": 18,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-bacon",
@@ -837,7 +1308,62 @@
           "price": 19,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "cachorro-bambu",
@@ -847,7 +1373,62 @@
           "price": 23,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "misto-quente",
@@ -857,7 +1438,62 @@
           "price": 15,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-tradicional",
@@ -867,7 +1503,62 @@
           "price": 12,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-duplo",
@@ -877,7 +1568,62 @@
           "price": 14,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-guisado",
@@ -887,7 +1633,62 @@
           "price": 16,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-frango",
@@ -897,7 +1698,62 @@
           "price": 15,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-coracao",
@@ -907,7 +1763,62 @@
           "price": 16,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-calabresa",
@@ -917,7 +1828,62 @@
           "price": 16,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "pancho-bacon",
@@ -927,7 +1893,62 @@
           "price": 16,
           "image": "assets/products/lanche.svg",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Mais Carnes",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Bacon",
+                  "price": 3
+                },
+                {
+                  "name": "Calabresa",
+                  "price": 3
+                },
+                {
+                  "name": "Frango",
+                  "price": 3
+                },
+                {
+                  "name": "Coração",
+                  "price": 3
+                },
+                {
+                  "name": "Carne Moida",
+                  "price": 3
+                }
+              ]
+            },
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 6,
+              "items": [
+                {
+                  "name": "Maionese Extra",
+                  "price": 2
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 2
+                },
+                {
+                  "name": "Cebola",
+                  "price": 1
+                },
+                {
+                  "name": "Presunto",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "batata-frita",
@@ -940,74 +1961,30 @@
           "options": []
         },
         {
-          "id": "adicional-carnes",
-          "category": "adicionais",
-          "name": "Carnes",
-          "description": "Bacon, calabresa, carne moída, frango ou coração.",
-          "price": 3,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "adicional-salsicha",
-          "category": "adicionais",
-          "name": "Salsicha",
-          "description": "",
-          "price": 2,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "adicional-cebola",
-          "category": "adicionais",
-          "name": "Cebola",
-          "description": "",
-          "price": 1,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "adicional-presunto",
-          "category": "adicionais",
-          "name": "Presunto",
-          "description": "",
-          "price": 2,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "adicional-queijo",
-          "category": "adicionais",
-          "name": "Queijo",
-          "description": "",
-          "price": 2,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "adicional-maionese",
-          "category": "adicionais",
-          "name": "Maionese Extra",
-          "description": "",
-          "price": 2,
-          "image": "",
-          "allow_note": false,
-          "options": []
-        },
-        {
-          "id": "alfajor",
+          "id": "barra-de-chocolate",
           "category": "sobremesa",
-          "name": "Alfajor",
-          "description": "Alfajor de chocolate",
-          "price": 6,
-          "image": "",
+          "name": "Barra De Chocolate",
+          "description": "Barra de chocolate",
+          "price": 8,
+          "image": "https://res.cloudinary.com/hroav0zz/image/upload/v1789078777/Design_sem_nome.png",
           "allow_note": true,
-          "options": []
+          "options": [
+            {
+              "name": "Sabor",
+              "min": 1,
+              "max": 1,
+              "items": [
+                {
+                  "name": "Ao Leite",
+                  "price": 0
+                },
+                {
+                  "name": "Meio Amargo",
+                  "price": 0
+                }
+              ]
+            }
+          ]
         }
       ]
     }
