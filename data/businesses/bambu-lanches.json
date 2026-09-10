@@ -6,7 +6,7 @@
     "logo": "https://res.cloudinary.com/hroav0zz/image/upload/f_auto,q_auto/Sem_título"
   },
   "appearance": {
-    "theme": "bold",
+    "theme": "vibrant",
     "accent": "#8eaa0d",
     "background": {
       "type": "pattern",
@@ -17,7 +17,7 @@
     {
       "type": "whatsapp",
       "label": "WhatsApp",
-      "url": "https://wa.me/5548999990001"
+      "url": "https://wa.me/555199073557"
     },
     {
       "type": "instagram",
@@ -43,7 +43,7 @@
   "modules": {
     "menu": {
       "enabled": true,
-      "whatsapp": "5548999990001",
+      "whatsapp": "555199073557",
       "settings": {
         "delivery": true,
         "pickup": true,
@@ -55,7 +55,8 @@
       },
       "upsell": {
         "enabled": true,
-        "product_id": "batata-frita"
+        "product_id": "alfajor",
+        "title": "Que tal uma sobremesa ?"
       },
       "categories": [
         {
@@ -92,6 +93,11 @@
           "id": "bebidas",
           "name": "Bebidas",
           "emoji": "🥤"
+        },
+        {
+          "id":"sobremesa",
+          "name":"Sobremesa",
+          "emoji":"🍫"
         }
       ],
       "products": [
@@ -991,6 +997,16 @@
           "price": 2,
           "image": "",
           "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "alfajor",
+          "category": "sobremesa",
+          "name": "Alfajor",
+          "description": "Alfajor de chocolate",
+          "price": 6,
+          "image": "",
+          "allow_note": true,
           "options": []
         }
       ]
