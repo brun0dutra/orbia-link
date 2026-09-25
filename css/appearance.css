@@ -20,3 +20,37 @@ html[data-bg="pattern"] .m-app {
   background-size: 200px 200px;
   background-repeat: repeat;
 }
+
+/* ==========================================================================
+   Modo "lite" (html[data-perf="lite"] — detectado em js/app.js)
+
+   O backdrop-filter é a operação mais cara da página: o navegador precisa
+   ler e borrar TUDO que está atrás do elemento a cada quadro. No cardápio
+   ele é replicado em cada produto/item/resumo (dezenas de vezes por tela),
+   o que derruba o desempenho em aparelhos modestos — e num tema translúcido
+   o efeito quase não aparece. Aqui ele é desligado apenas nos elementos
+   REPLICADOS (cartões e itens), preservando o visual: fundo, bordas,
+   sombras, cores, textos e conteúdo ficam exatamente iguais. Elementos
+   únicos e grandes (cartão da página, barra do carrinho, bottom sheet,
+   scrim) mantêm o blur do tema.
+   ========================================================================== */
+
+html[data-perf="lite"] .m-prod,
+html[data-perf="lite"] .m-item,
+html[data-perf="lite"] .m-sum__card,
+html[data-perf="lite"] .promo-feat {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* quem pediu menos transparência no sistema recebe o mesmo tratamento,
+   independentemente do aparelho */
+@media (prefers-reduced-transparency: reduce) {
+  .m-prod,
+  .m-item,
+  .m-sum__card,
+  .promo-feat {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

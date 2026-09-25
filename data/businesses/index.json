@@ -2,6 +2,16 @@
   "version": 4,
   "businesses": [
     {
+      "slug": "amj-lanches",
+      "business": {
+        "name": "AMJ Lanches",
+        "logo": "https://res.cloudinary.com/hroav0zz/image/upload/v1789088717/Captura_de_tela_2026-09-10_220202.png"
+      },
+      "appearance": {
+        "theme": "vibrant"
+      }
+    },
+    {
       "slug": "bambu-lanches",
       "business": {
         "name": "Bambu Lanches",
@@ -32,16 +42,6 @@
       }
     },
     {
-      "slug": "loja-bella-moda",
-      "business": {
-        "name": "Bella Moda",
-        "logo": ""
-      },
-      "appearance": {
-        "theme": "elegant"
-      }
-    },
-    {
       "slug": "estudio-foto-aurora",
       "business": {
         "name": "Estúdio Aurora",
@@ -49,6 +49,16 @@
       },
       "appearance": {
         "theme": "minimal"
+      }
+    },
+    {
+      "slug": "loja-bella-moda",
+      "business": {
+        "name": "Bella Moda",
+        "logo": ""
+      },
+      "appearance": {
+        "theme": "elegant"
       }
     },
     {

@@ -426,17 +426,28 @@
     });
 
     var body = $(".m-body", root);
+    // Realce da categoria ativa durante o rolamento. O trabalho pesado
+    // (getBoundingClientRect de todas as seções) roda no MÁXIMO uma vez por
+    // quadro via requestAnimationFrame: com cardápios longos, rodar a cada
+    // evento de scroll travava o rolamento em aparelhos modestos.
+    var scrollScheduled = false;
     body.addEventListener(
       "scroll",
       function () {
-        var top = body.getBoundingClientRect().top + 14;
-        var current = 0;
-        var secs = $$(".m-sec", root);
-        secs.forEach(function (sec, i) {
-          if (sec.getBoundingClientRect().top - top <= 4) current = i;
-        });
-        chipEls.forEach(function (chip, i) {
-          chip.classList.toggle("is-active", i === current);
+        if (scrollScheduled) return;
+        scrollScheduled = true;
+        window.requestAnimationFrame(function () {
+          scrollScheduled = false;
+          if (!S || S.screen !== "menu" || !S.root) return; // tela mudou
+          var top = body.getBoundingClientRect().top + 14;
+          var current = 0;
+          var secs = $$(".m-sec", S.root);
+          secs.forEach(function (sec, i) {
+            if (sec.getBoundingClientRect().top - top <= 4) current = i;
+          });
+          chipEls.forEach(function (chip, i) {
+            chip.classList.toggle("is-active", i === current);
+          });
         });
       },
       { passive: true }

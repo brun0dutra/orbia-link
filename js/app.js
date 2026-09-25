@@ -55,6 +55,40 @@
   var indexLoaded = false;
   var businessCache = {}; // dados carregados por slug (cache da sessão)
 
+  /* ---------- Modo "lite" para dispositivos fracos ---------- */
+
+  // Desempenho > efeito: em aparelhos modestos (poucos núcleos, pouca RAM ou
+  // usuário que pediu menos transparência/animação no sistema), o custo do
+  // backdrop-filter — replicado em DEZENAS de cartões do cardápio — supera
+  // qualquer ganho visual (num tema translúcido o blur quase nem aparece).
+  // Nesse caso a página marca html[data-perf="lite"] e o CSS elimina os
+  // efeitos caros SEM mudar nada na estrutura nem no conteúdo.
+  function isLowEndDevice() {
+    try {
+      var c = navigator.hardwareConcurrency || 0;
+      var m = navigator.deviceMemory || 0;
+      var cores = c > 0 && c <= 2; // 1–2 núcleos
+      var ram = m > 0 && m <= 2; // <= 2 GB (Chrome/Android)
+      var reducedTransparency = false;
+      if (window.matchMedia) {
+        reducedTransparency = window.matchMedia(
+          "(prefers-reduced-transparency: reduce)"
+        ).matches;
+      }
+      return cores || ram || reducedTransparency;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function applyPerfMode() {
+    if (isLowEndDevice()) {
+      document.documentElement.setAttribute("data-perf", "lite");
+    } else {
+      document.documentElement.removeAttribute("data-perf");
+    }
+  }
+
   /* ---------- Ícones (SVG inline, monocromáticos) ---------- */
 
   var ICONS = {
@@ -369,11 +403,13 @@
       "data-theme",
       theme && VALID_THEMES.indexOf(theme) !== -1 ? theme : DEFAULT_THEME
     );
+    applyPerfMode();
     applyPersonalization(appearance);
   }
 
   // Home / 404 / estados: remove tema e personalização (visual padrão)
   function clearAppearance() {
+    applyPerfMode();
     document.documentElement.removeAttribute("data-theme");
     var style = document.documentElement.style;
     for (var i = 0; i < STYLE_KEYS.length; i++) {

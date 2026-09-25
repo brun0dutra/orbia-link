@@ -1,0 +1,1007 @@
+{
+  "slug": "amj-lanches",
+  "business": {
+    "name": "AMJ Lanches",
+    "description": "Seu cardápio na palma da mão.",
+    "logo": "https://res.cloudinary.com/hroav0zz/image/upload/v1789088717/Captura_de_tela_2026-09-10_220202.png"
+  },
+  "appearance": {
+    "theme": "vibrant",
+    "accent": "#f4a537",
+    "background": {
+      "type": "pattern",
+      "pattern": "fast-food"
+    }
+  },
+  "links": [
+    {
+      "type": "whatsapp",
+      "label": "WhatsApp",
+      "url": "https://wa.me/555399585243"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/amjlanches/"
+    },
+    {
+      "type": "maps",
+      "label": "Como Chegar",
+      "url": "https://maps.app.goo.gl/2xwgAETM4sZhjJqK9"
+    },
+    {
+      "type": "phone",
+      "label": "Telefone",
+      "url": "tel:555399585243"
+    }
+  ],
+  "modules": {
+    "menu": {
+      "enabled": true,
+      "whatsapp": "",
+      "settings": {
+        "delivery": true,
+        "pickup": true,
+        "payment_methods": [
+          "pix",
+          "cash",
+          "card"
+        ]
+      },
+      "categories": [
+        {
+          "id": "xis",
+          "name": "Xis",
+          "emoji": "🍔"
+        },
+        {
+          "id": "cachorro",
+          "name": "Cachorro Quente",
+          "emoji": "🌭"
+        },
+        {
+          "id": "pancho",
+          "name": "Pancho",
+          "emoji": "🥖"
+        },
+        {
+          "id": "torradas",
+          "name": "Torradas",
+          "emoji": "🍞"
+        },
+        {
+          "id": "cervejas",
+          "name": "Cervejas",
+          "emoji": "🍺"
+        },
+        {
+          "id": "refrigerantes",
+          "name": "Refrigerantes",
+          "emoji": "🥤"
+        },
+        {
+          "id": "agua",
+          "name": "Água",
+          "emoji": "💧"
+        },
+        {
+          "id": "fritas",
+          "name": "Fritas",
+          "emoji": "🍟"
+        },
+        {
+          "id": "alaminutas",
+          "name": "Alaminutas",
+          "emoji": "🍽️"
+        },
+        {
+          "id": "sucos",
+          "name": "Sucos",
+          "emoji": "🧃"
+        }
+      ],
+      "products": [
+        {
+          "id": "xis-salada",
+          "category": "xis",
+          "name": "Xis Salada",
+          "description": "Maionese, ketchup, mostarda, tomate, alface, queijo, ovo, carne moída.",
+          "price": 24,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-calabresa",
+          "category": "xis",
+          "name": "Xis Calabresa",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, calabresa.",
+          "price": 24,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-frango",
+          "category": "xis",
+          "name": "Xis Frango",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, carne de frango.",
+          "price": 28,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-bacon",
+          "category": "xis",
+          "name": "Xis Bacon",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, carne moída, bacon.",
+          "price": 28,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-coracao",
+          "category": "xis",
+          "name": "Xis Coração",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, coração.",
+          "price": 30,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-salsicha",
+          "category": "xis",
+          "name": "Xis Salsicha",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, cebola, salsicha, cheddar.",
+          "price": 25,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-omelete",
+          "category": "xis",
+          "name": "Xis Omelete",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, calabresa, coração, frango.",
+          "price": 28,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-milanesa",
+          "category": "xis",
+          "name": "Xis Milanesa",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, bife de coxão mole.",
+          "price": 34,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-bauru",
+          "category": "xis",
+          "name": "Xis Bauru",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, coxão mole picado.",
+          "price": 34,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "xis-da-casa",
+          "category": "xis",
+          "name": "Xis Da Casa",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, queijo, ovo, coração, frango, bacon, calabresa.",
+          "price": 34,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "misto",
+          "category": "xis",
+          "name": "Misto",
+          "description": "Pão, maionese, ovo, queijo, presunto, alface, tomate e milho.",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-completo",
+          "category": "cachorro",
+          "name": "Cachorro Completo",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, salsicha.",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-calabresa",
+          "category": "cachorro",
+          "name": "Cachorro Calabresa",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, calabresa.",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-frango",
+          "category": "cachorro",
+          "name": "Cachorro Frango",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, carne de frango.",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-bacon",
+          "category": "cachorro",
+          "name": "Cachorro Bacon",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, bacon, carne moída.",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-coracao",
+          "category": "cachorro",
+          "name": "Cachorro Coração",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, coração de frango.",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "cachorro-da-casa",
+          "category": "cachorro",
+          "name": "Cachorro Da Casa",
+          "description": "Maionese, ketchup, mostarda, alface, tomate, milho, queijo, carne de frango, coração, bacon, calabresa.",
+          "price": 25,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-completo",
+          "category": "pancho",
+          "name": "Pancho Completo",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, salsicha. (Prensado)",
+          "price": 13,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-a-vapor",
+          "category": "pancho",
+          "name": "Pancho a Vapor",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, salsicha. (Feito no vapor)",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-calabresa",
+          "category": "pancho",
+          "name": "Pancho Calabresa",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, calabresa. (Vapor ou prensado)",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-frango",
+          "category": "pancho",
+          "name": "Pancho Frango",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, carne de frango em cubos. (Vapor ou prensado)",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-bacon",
+          "category": "pancho",
+          "name": "Pancho Bacon",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, bacon, carne moída. (Vapor ou prensado)",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-coracao",
+          "category": "pancho",
+          "name": "Pancho Coração",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, coração de frango. (Vapor ou prensado)",
+          "price": 22,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pancho-da-casa",
+          "category": "pancho",
+          "name": "Pancho Da Casa",
+          "description": "Maionese, ketchup, mostarda, batata palha, queijo, carne de frango, coração, bacon, calabresa. (Vapor ou prensado)",
+          "price": 25,
+          "image": "",
+          "allow_note": true,
+          "options": [
+            {
+              "name": "Adicionais",
+              "min": 0,
+              "max": 7,
+              "items": [
+                { "name": "Ovo", "price": 2 },
+                { "name": "Queijo", "price": 4 },
+                { "name": "Salsicha", "price": 3 },
+                { "name": "Cebola", "price": 5 },
+                { "name": "Fritas", "price": 5 },
+                { "name": "Cheddar", "price": 5 },
+                { "name": "Cebola Agridoce", "price": 5 }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "torrada-completa",
+          "category": "torradas",
+          "name": "Torrada Completa",
+          "description": "",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "torrada-salada-e-frango",
+          "category": "torradas",
+          "name": "Torrada Salada e Frango",
+          "description": "",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "torrada-salada-e-coracao",
+          "category": "torradas",
+          "name": "Torrada Salada e Coração",
+          "description": "",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "torrada-salada-e-bacon",
+          "category": "torradas",
+          "name": "Torrada Salada e Bacon",
+          "description": "",
+          "price": 15,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "cerveja-long-neck",
+          "category": "cervejas",
+          "name": "Long Neck",
+          "description": "",
+          "price": 10,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "cerveja-latao",
+          "category": "cervejas",
+          "name": "Latão",
+          "description": "",
+          "price": 10,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "cerveja-garrafa",
+          "category": "cervejas",
+          "name": "Garrafa",
+          "description": "",
+          "price": 14,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "cerveja-litrao",
+          "category": "cervejas",
+          "name": "Litrão",
+          "description": "",
+          "price": 14,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-minizinha",
+          "category": "refrigerantes",
+          "name": "Minizinha",
+          "description": "",
+          "price": 0,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-ks",
+          "category": "refrigerantes",
+          "name": "KS",
+          "description": "",
+          "price": 0,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-lata",
+          "category": "refrigerantes",
+          "name": "Lata",
+          "description": "",
+          "price": 6,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-600ml",
+          "category": "refrigerantes",
+          "name": "600 ML",
+          "description": "",
+          "price": 8,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-litro",
+          "category": "refrigerantes",
+          "name": "Litro",
+          "description": "",
+          "price": 0,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "refrigerante-2litros",
+          "category": "refrigerantes",
+          "name": "2 Litros",
+          "description": "",
+          "price": 15,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "agua-600ml-sem-gas",
+          "category": "agua",
+          "name": "Água 600 ML S/gás",
+          "description": "",
+          "price": 4,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "agua-600ml-com-gas",
+          "category": "agua",
+          "name": "Água 600 ML C/gás",
+          "description": "",
+          "price": 4,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "fritas-amj",
+          "category": "fritas",
+          "name": "Fritas AMJ",
+          "description": "",
+          "price": 90,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "fritas-amj-meia-porcao",
+          "category": "fritas",
+          "name": "Fritas AMJ M/por",
+          "description": "Meia porção",
+          "price": 45,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "aneis-de-cebola",
+          "category": "fritas",
+          "name": "Anéis de Cebola",
+          "description": "",
+          "price": 40,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "aneis-de-cebola-meia-porcao",
+          "category": "fritas",
+          "name": "Anéis de Cebola M/por.",
+          "description": "Meia porção",
+          "price": 20,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "fritas",
+          "category": "fritas",
+          "name": "Fritas",
+          "description": "",
+          "price": 50,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "fritas-meia-porcao",
+          "category": "fritas",
+          "name": "Fritas M/por.",
+          "description": "Meia porção",
+          "price": 25,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "alaminuta-carne",
+          "category": "alaminutas",
+          "name": "Carne",
+          "description": "",
+          "price": 25,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "alaminuta-carne-acebolada",
+          "category": "alaminutas",
+          "name": "Carne Acebolada",
+          "description": "",
+          "price": 28,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "alaminuta-carne-a-milanesa",
+          "category": "alaminutas",
+          "name": "Carne à Milanesa",
+          "description": "",
+          "price": 32,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "alaminuta-frango",
+          "category": "alaminutas",
+          "name": "Frango",
+          "description": "",
+          "price": 25,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "alaminuta-frango-acebolado",
+          "category": "alaminutas",
+          "name": "Frango Acebolado",
+          "description": "",
+          "price": 28,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "alaminuta-frango-a-milanesa",
+          "category": "alaminutas",
+          "name": "Frango à Milanesa",
+          "description": "",
+          "price": 32,
+          "image": "",
+          "allow_note": true,
+          "options": []
+        },
+        {
+          "id": "suco-lata",
+          "category": "sucos",
+          "name": "Suco Lata",
+          "description": "",
+          "price": 0,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        },
+        {
+          "id": "suco-600ml",
+          "category": "sucos",
+          "name": "Suco 600 ML",
+          "description": "",
+          "price": 0,
+          "image": "",
+          "allow_note": false,
+          "options": []
+        }
+      ]
+    }
+  }
+}
