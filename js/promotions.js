@@ -87,12 +87,23 @@
     window.OrbiaMenu.openProduct(item, product.id, basePrice);
   }
 
+  // Resolvedor de imagem: usa o mesmo critério do cardápio (js/menu.js) —
+  // foto própria do produto ou, na falta dela, o SVG padrão da categoria.
+  function productImage(item, product) {
+    if (window.OrbiaMenu && window.OrbiaMenu.imageOf) {
+      return window.OrbiaMenu.imageOf(item, product);
+    }
+    // fallback local (caso menu.js não tenha carregado): sem foto -> sem img
+    return (product && product.image) || "";
+  }
+
   // Card horizontal promocional: MESMA estrutura do card do cardápio
   // (.m-prod) com os dados do PRODUTO e os preços da promoção.
-  function promoCardMarkup(product, promo) {
-    var img = product.image
+  function promoCardMarkup(item, product, promo) {
+    var imgSrc = productImage(item, product); // foto própria ou SVG da categoria
+    var img = imgSrc
       ? '<img class="m-prod__img" src="' +
-        esc(product.image) +
+        esc(imgSrc) +
         '" alt="" loading="lazy">'
       : "";
     var oldPrice =
@@ -225,7 +236,7 @@
 
       resolved.forEach(function (entry) {
         var card = document.createElement("div");
-        card.innerHTML = promoCardMarkup(entry.product, entry.promo);
+        card.innerHTML = promoCardMarkup(item, entry.product, entry.promo);
 
         var add = card.querySelector("[data-act='promo-add']");
         if (add) {

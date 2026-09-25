@@ -56,13 +56,13 @@
         },
         {
           "id": "cachorro",
-          "name": "Cachorro Quente",
+          "name": "Cachorro",
           "emoji": "🌭"
         },
         {
           "id": "pancho",
           "name": "Pancho",
-          "emoji": "🥖"
+          "emoji": "🌭"
         },
         {
           "id": "torradas",
@@ -115,13 +115,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -140,13 +161,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -165,13 +207,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -190,13 +253,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -215,13 +299,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -240,13 +345,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -265,13 +391,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -290,13 +437,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -315,13 +483,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -340,13 +529,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -365,13 +575,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -390,13 +621,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -415,13 +667,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -440,13 +713,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -465,13 +759,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -490,13 +805,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -515,13 +851,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -540,13 +897,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -565,13 +943,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -590,13 +989,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -615,13 +1035,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -640,13 +1081,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -665,13 +1127,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]
@@ -690,13 +1173,34 @@
               "min": 0,
               "max": 7,
               "items": [
-                { "name": "Ovo", "price": 2 },
-                { "name": "Queijo", "price": 4 },
-                { "name": "Salsicha", "price": 3 },
-                { "name": "Cebola", "price": 5 },
-                { "name": "Fritas", "price": 5 },
-                { "name": "Cheddar", "price": 5 },
-                { "name": "Cebola Agridoce", "price": 5 }
+                {
+                  "name": "Ovo",
+                  "price": 2
+                },
+                {
+                  "name": "Queijo",
+                  "price": 4
+                },
+                {
+                  "name": "Salsicha",
+                  "price": 3
+                },
+                {
+                  "name": "Cebola",
+                  "price": 5
+                },
+                {
+                  "name": "Fritas",
+                  "price": 5
+                },
+                {
+                  "name": "Cheddar",
+                  "price": 5
+                },
+                {
+                  "name": "Cebola Agridoce",
+                  "price": 5
+                }
               ]
             }
           ]

@@ -48,11 +48,6 @@
           "card"
         ]
       },
-      "upsell": {
-        "enabled": true,
-        "product_id": "barra-de-chocolate",
-        "title": "Que tal uma sobremesa ?"
-      },
       "categories": [
         {
           "id": "xis",
@@ -62,17 +57,17 @@
         {
           "id": "cachorro",
           "name": "Cachorro",
-          "emoji": "🍔"
+          "emoji": "🌭"
         },
         {
           "id": "pancho",
           "name": "Pancho",
-          "emoji": "🍔"
+          "emoji": "🌭"
         },
         {
           "id": "misto",
           "name": "Misto",
-          "emoji": "🍔"
+          "emoji": "🍞"
         },
         {
           "id": "mini-xis",
@@ -85,9 +80,9 @@
           "emoji": "🍟"
         },
         {
-          "id":"sobremesa",
-          "name":"Sobremesa",
-          "emoji":"🍫"
+          "id": "sobremesa",
+          "name": "Sobremesa",
+          "emoji": "🍫"
         }
       ],
       "products": [
@@ -97,7 +92,7 @@
           "name": "Xis Salada",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
           "price": 23,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -162,7 +157,7 @@
           "name": "Xis Frango",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, maionese, ketchup e mostarda.",
           "price": 22,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -227,7 +222,7 @@
           "name": "Xis Coração",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, coração, maionese, ketchup e mostarda.",
           "price": 25,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -292,7 +287,7 @@
           "name": "Xis Calabresa",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, calabresa, maionese, ketchup e mostarda.",
           "price": 23,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -357,7 +352,7 @@
           "name": "Xis Bacon",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, bacon, maionese, ketchup e mostarda.",
           "price": 25,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -422,7 +417,7 @@
           "name": "Xis Bambu",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, carne moída, calabresa, coração, maionese, ketchup e mostarda.",
           "price": 28,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -483,11 +478,11 @@
         },
         {
           "id": "xis-salada-bacon",
-          "category": "lanches",
+          "category": "xis",
           "name": "Xis Salada com bacon",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, bacon, maionese, ketchup e mostarda.",
           "price": 26,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -548,11 +543,11 @@
         },
         {
           "id": "xis-frango-bacon",
-          "category": "lanches",
+          "category": "xis",
           "name": "Xis Frango com bacon",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, maionese, ketchup e mostarda.",
           "price": 25,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -584,14 +579,13 @@
             }
           ]
         },
-
         {
           "id": "mini-xis-salada",
           "category": "mini-xis",
           "name": "Mini Xis Salada",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, carne moída, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -656,7 +650,7 @@
           "name": "Mini Xis Frango",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -721,7 +715,7 @@
           "name": "Mini Xis Coração",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, coração, maionese, ketchup e mostarda.",
           "price": 20,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -786,7 +780,7 @@
           "name": "Mini Xis Calabresa",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, calabresa, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -851,7 +845,7 @@
           "name": "Mini Xis Bacon",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, bacon, maionese, ketchup e mostarda.",
           "price": 20,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -916,7 +910,7 @@
           "name": "Mini Xis Bambu",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, frango, bacon, carne moída, calabresa, coração, maionese, ketchup e mostarda.",
           "price": 23,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/mini-xis.svg",
           "allow_note": true,
           "options": [
             {
@@ -981,7 +975,7 @@
           "name": "Cachorro Tradicional",
           "description": "Alface, tomate, milho, ervilha, ovo, salsicha, maionese, ketchup e mostarda.",
           "price": 14,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1046,7 +1040,7 @@
           "name": "Cachorro Salada",
           "description": "Alface, tomate, milho, ervilha, ovo, carne moída, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1111,7 +1105,7 @@
           "name": "Cachorro Frango",
           "description": "Alface, tomate, milho, ervilha, ovo, frango, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1176,7 +1170,7 @@
           "name": "Cachorro Coração",
           "description": "Alface, tomate, milho, ervilha, ovo, coração, maionese, ketchup e mostarda.",
           "price": 19,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1241,7 +1235,7 @@
           "name": "Cachorro Calabresa",
           "description": "Alface, tomate, milho, ervilha, ovo, calabresa, maionese, ketchup e mostarda.",
           "price": 18,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1306,7 +1300,7 @@
           "name": "Cachorro Bacon",
           "description": "Alface, tomate, milho, ervilha, ovo, bacon, maionese, ketchup e mostarda.",
           "price": 19,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1371,7 +1365,7 @@
           "name": "Cachorro Bambu",
           "description": "Alface, tomate, milho, ervilha, ovo, frango, bacon, carne moída, calabresa, coração, salsicha, maionese, ketchup e mostarda.",
           "price": 23,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/cachorro.svg",
           "allow_note": true,
           "options": [
             {
@@ -1436,36 +1430,9 @@
           "name": "Misto Quente",
           "description": "Alface, tomate, milho, ervilha, ovo, queijo, presunto, moída, maionese, ketchup e mostarda. (Sem opções de adicionais de carne)",
           "price": 15,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/misto.svg",
           "allow_note": true,
           "options": [
-            {
-              "name": "Mais Carnes",
-              "min": 0,
-              "max": 6,
-              "items": [
-                {
-                  "name": "Bacon",
-                  "price": 3
-                },
-                {
-                  "name": "Calabresa",
-                  "price": 3
-                },
-                {
-                  "name": "Frango",
-                  "price": 3
-                },
-                {
-                  "name": "Coração",
-                  "price": 3
-                },
-                {
-                  "name": "Carne Moida",
-                  "price": 3
-                }
-              ]
-            },
             {
               "name": "Adicionais",
               "min": 0,
@@ -1501,7 +1468,7 @@
           "name": "Pancho Tradicional",
           "description": "Salsicha, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 12,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1566,7 +1533,7 @@
           "name": "Pancho Duplo",
           "description": "Duas salsichas, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 14,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1631,7 +1598,7 @@
           "name": "Pancho Guisado",
           "description": "Carne moída, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 16,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1696,7 +1663,7 @@
           "name": "Pancho Frango",
           "description": "Frango, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 15,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1761,7 +1728,7 @@
           "name": "Pancho Coração",
           "description": "Coração, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 16,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1826,7 +1793,7 @@
           "name": "Pancho Calabresa",
           "description": "Calabresa, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 16,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1891,7 +1858,7 @@
           "name": "Pancho Bacon",
           "description": "Bacon, batata palha, queijo, maionese, ketchup e mostarda.",
           "price": 16,
-          "image": "assets/products/lanche.svg",
+          "image": "assets/products/pancho.svg",
           "allow_note": true,
           "options": [
             {
@@ -1986,7 +1953,12 @@
             }
           ]
         }
-      ]
+      ],
+      "upsell": {
+        "enabled": true,
+        "product_id": "barra-de-chocolate",
+        "title": "Que tal uma sobremesa ?"
+      }
     }
   }
 }

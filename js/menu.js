@@ -142,6 +142,39 @@
     return "🍽️";
   }
 
+  // Imagem padrão por categoria: quando um produto NÃO tem foto própria
+  // (product.image ausente), ele é preenchido automaticamente com o SVG
+  // representativo da categoria em que está (assets/products/).
+  var CATEGORY_IMAGE = {
+    "xis": "assets/products/xis.svg",
+    "mini-xis": "assets/products/mini-xis.svg",
+    "cachorro": "assets/products/cachorro.svg",
+    "pancho": "assets/products/pancho.svg",
+    "misto": "assets/products/misto.svg",
+    "torradas": "assets/products/torrada.svg",
+    "fritas": "assets/products/fritas.svg",
+    "alaminutas": "assets/products/alaminuta.svg",
+    "sucos": "assets/products/suco.svg",
+    "cervejas": "assets/products/cerveja.svg",
+    "refrigerantes": "assets/products/refrigerante.svg",
+    "agua": "assets/products/agua.svg",
+  };
+
+  // Resolve a imagem exibida de um produto: foto própria ou, na falta dela,
+  // o SVG da categoria. Sem categoria mapeada -> "" (sem imagem).
+  function imageOf(item, product) {
+    if (product && product.image) return product.image;
+    if (!product) return "";
+    var cfg = modCfg(item);
+    var cats = (cfg && cfg.categories) || [];
+    for (var i = 0; i < cats.length; i++) {
+      if (cats[i].id === product.category && CATEGORY_IMAGE[cats[i].id]) {
+        return CATEGORY_IMAGE[cats[i].id];
+      }
+    }
+    return "";
+  }
+
   function availReceipts(item) {
     var st = settingsOf(item);
     var out = [];
@@ -399,7 +432,7 @@
           "</span></h2>" +
           list
             .map(function (p) {
-              return productMarkup(p);
+              return productMarkup(item, p);
             })
             .join("") +
           "</section>"
@@ -474,10 +507,11 @@
     syncCartBar();
   }
 
-  function productMarkup(p) {
-    var img = p.image
+  function productMarkup(item, p) {
+    var imgSrc = imageOf(item, p); // foto própria ou SVG da categoria
+    var img = imgSrc
       ? '<img class="m-prod__img" src="' +
-        esc(p.image) +
+        esc(imgSrc) +
         '" alt="" loading="lazy">'
       : "";
     return (
@@ -643,8 +677,8 @@
       "</div>" +
       '<button type="button" class="m-iconbtn" data-act="sheet-close" aria-label="Fechar">✕</button>' +
       "</div>" +
-      (p.image
-        ? '<img class="m-sheet__img" src="' + esc(p.image) + '" alt="" data-role="sheet-img">'
+      (imageOf(S.item, p)
+        ? '<img class="m-sheet__img" src="' + esc(imageOf(S.item, p)) + '" alt="" data-role="sheet-img">'
         : "") +
       '<div class="m-sheet__scroll">' +
       '<div class="m-sheet__name">' +
@@ -1081,8 +1115,8 @@
     el.setAttribute("aria-modal", "true");
     el.setAttribute("aria-label", offer.title);
     el.innerHTML =
-      (p.image
-        ? '<img class="m-upsell__img" src="' + esc(p.image) + '" alt="">'
+      (imageOf(S.item, p)
+        ? '<img class="m-upsell__img" src="' + esc(imageOf(S.item, p)) + '" alt="">'
         : "") +
       '<div class="m-upsell__body">' +
       '<span class="m-upsell__kicker" aria-hidden="true">🍟</span>' +
@@ -1786,6 +1820,9 @@
     },
     // localiza um produto do cardápio pelo id (usado pela vitrine de ofertas)
     findProduct: productById,
+    // resolve a imagem de exibição de um produto (foto própria ou SVG
+    // padrão da categoria) — reutilizado pela vitrine de ofertas
+    imageOf: imageOf,
     // Abre um produto DENTRO da experiência de cardápio, usado pela vitrine
     // de ofertas (módulo promotions): com opções abre o bottom sheet, sem
     // opções adiciona direto. basePrice opcional = preço promocional da
